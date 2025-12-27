@@ -17,9 +17,6 @@ const formatUtc = (value) =>
     month: "short",
     day: "numeric",
     year: "numeric",
-    // hour: "numeric",
-    // minute: "2-digit",
-    // hour12: true,
   });
 
 const cacheStore = new Map();
@@ -96,7 +93,14 @@ try {
       <h2>Next Game</h2>
       {beltData?.nextGame ? (
         <div class="next-card">
-          <p class="game-time">{formatUtc(beltData.nextGame.startTimeUtc)}</p>
+          <p class="game-time">
+            <span
+              class="js-local-date"
+              data-iso={beltData.nextGame.startTimeUtc}
+            >
+              {formatUtc(beltData.nextGame.startTimeUtc)}
+            </span>
+          </p>
           <div class="matchup">
             <div class="team">
               <img
@@ -136,7 +140,14 @@ try {
             .reverse()
             .map((transfer) => (
             <article class="history-row">
-              <div class="history-date">{formatUtc(transfer.startTimeUtc)}</div>
+              <div class="history-date">
+                <span
+                  class="js-local-date"
+                  data-iso={transfer.startTimeUtc}
+                >
+                  {formatUtc(transfer.startTimeUtc)}
+                </span>
+              </div>
               <div class="history-teams">
                 <div class="team">
                   <img
@@ -189,6 +200,18 @@ try {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
+    });
+  });
+
+  document.querySelectorAll(".js-local-date").forEach((node) => {
+    const iso = node.getAttribute("data-iso");
+    if (!iso) return;
+    const date = new Date(iso);
+    if (Number.isNaN(date.valueOf())) return;
+    node.textContent = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     });
   });
 
