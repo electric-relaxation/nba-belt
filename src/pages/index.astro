@@ -54,7 +54,7 @@ try {
 <Layout>
   <main class="page">
     <header class="hero">
-      <p class="eyebrow">NBA Belt</p>
+      <p class="eyebrow">NBA Championship Belt</p>
       <div class="rules-stack">
         <div class="rules-inline">
           <!-- <p class="rules-title">Rules</p> -->
@@ -77,14 +77,14 @@ try {
           />
           <div>
             <p class="team-name">{beltData.currentHolder.name}</p>
-            <p class="computed-at">
-              As of{" "}
-              <span class="js-local-time" data-iso={beltData.computedAt}>
-                {formatUtc(beltData.computedAt)} UTC
-              </span>
-            </p>
           </div>
         </div>
+        <p class="computed-at">
+          As of{" "}
+          <span class="js-local-time" data-iso={beltData.computedAt}>
+            {formatUtc(beltData.computedAt)} UTC
+          </span>
+        </p>
       ) : (
         <div class="error-card">
           <p>{beltError}</p>
@@ -100,17 +100,6 @@ try {
           <div class="matchup">
             <div class="team">
               <img
-                src={beltData.nextGame.homeTeam.logoUrl}
-                alt={`${beltData.nextGame.homeTeam.name} logo`}
-                width="48"
-                height="48"
-                loading="lazy"
-              />
-              <span>{beltData.nextGame.homeTeam.name}</span>
-            </div>
-            <span class="versus">vs</span>
-            <div class="team">
-              <img
                 src={beltData.nextGame.awayTeam.logoUrl}
                 alt={`${beltData.nextGame.awayTeam.name} logo`}
                 width="48"
@@ -118,6 +107,16 @@ try {
                 loading="lazy"
               />
               <span>{beltData.nextGame.awayTeam.name}</span>
+            </div>
+            <div class="team">
+              <img
+                src={beltData.nextGame.homeTeam.logoUrl}
+                alt={`${beltData.nextGame.homeTeam.name} logo`}
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span>{beltData.nextGame.homeTeam.name}</span>
             </div>
           </div>
         </div>
@@ -192,6 +191,28 @@ try {
       hour12: true,
     });
   });
+
+  const applyHistoryArrowOffsets = () => {
+    const isNarrow = window.matchMedia("(max-width: 480px)").matches;
+    if (!isNarrow) return;
+
+    document.querySelectorAll(".history-teams").forEach((group) => {
+      const nameSpans = group.querySelectorAll(".team span");
+      if (nameSpans.length < 2) return;
+
+      const widths = Array.from(nameSpans, (span) => span.offsetWidth);
+      const minWidth = Math.min(...widths);
+      const logoOffset = 40; // 32px logo + 8px gap
+
+      group.style.setProperty(
+        "--arrow-center",
+        `${logoOffset + minWidth / 2}px`
+      );
+    });
+  };
+
+  applyHistoryArrowOffsets();
+  window.addEventListener("resize", applyHistoryArrowOffsets);
 </script>
 
 <style>
@@ -252,14 +273,18 @@ try {
   }
 
   .team-name {
+    font-weight: 500;
     font-size: 24px;
     margin: 0 0 4px;
   }
 
   .team-abbr,
   .computed-at {
+    font-style: italic;
     margin: 0;
     color: #61584f;
+    padding-top: 4px;
+    padding-left: 12px;
   }
 
   .next-game,
@@ -275,8 +300,9 @@ try {
   .matchup {
     display: flex;
     gap: 12px;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .team {
@@ -286,10 +312,6 @@ try {
     font-weight: 600;
   }
 
-  .versus {
-    font-weight: 500;
-    color: #7b2f28;
-  }
 
   .game-time,
   .game-status {
@@ -363,18 +385,49 @@ try {
     color: #61584f;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     .page {
       padding: 32px 16px 64px;
     }
 
     .hero-card {
-      grid-template-columns: 1fr;
-      text-align: center;
+      grid-template-columns: 64px 1fr;
+      gap: 28px;
+      text-align: left;
+    }
+
+    .team-logo {
+      width: 64px;
+      height: 64px;
+      padding: 8px;
+    }
+
+    .team-name {
+      font-size: clamp(20px, 4.6vw, 24px);
     }
 
     .matchup {
-      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .history-row {
+      gap: 6px;
+    }
+
+    .history-teams {
+      position: relative;
+      display: grid;
+      gap: 6px;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .history-teams .arrow {
+      position: absolute;
+      left: var(--arrow-center, calc(40px + (100% - 40px) / 2));
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      transform-origin: center;
     }
   }
 </style>
