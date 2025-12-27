@@ -1,11 +1,380 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import {
+  getBeltDataWithDeps,
+  readSeasonGamesFromFile,
+} from "../lib/data";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const getDefaultSeasonStartYear = (now) => {
+  const month = now.getUTCMonth();
+  const year = now.getUTCFullYear();
+  return month >= 9 ? year : year - 1;
+};
+
+const formatUtc = (value) =>
+  new Date(value).toLocaleString("en-US", {
+    timeZone: "UTC",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    // hour: "numeric",
+    // minute: "2-digit",
+    // hour12: true,
+  });
+
+const cacheStore = new Map();
+const cache = {
+  async match(request) {
+    const response = cacheStore.get(request.url);
+    return response ? response.clone() : undefined;
+  },
+  async put(request, response) {
+    cacheStore.set(request.url, response.clone());
+  },
+};
+
+const now = new Date();
+const seasonStartYear = getDefaultSeasonStartYear(now);
+
+let beltData = null;
+let beltError = "";
+
+try {
+  beltData = await getBeltDataWithDeps({
+    seasonStartYear,
+    nowUtcIso: now.toISOString(),
+    cache,
+    readGames: readSeasonGamesFromFile,
+  });
+} catch (error) {
+  beltError = error instanceof Error ? error.message : "Failed to load belt data.";
+}
 ---
 
 <Layout>
-	<Welcome />
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">NBA Belt</p>
+      <div class="rules-stack">
+        <div class="rules-inline">
+          <!-- <p class="rules-title">Rules</p> -->
+          <ul class="rules-list">
+            <li>Last year's finals winner starts with the belt</li>
+            <li>The belt is acquired by winning against the current belt holder</li>
+          </ul>
+        </div>
+      </div>
+      <h1>Current Holder</h1>
+      {beltData ? (
+        <div class="hero-card">
+          <img
+            class="team-logo"
+            src={beltData.currentHolder.logoUrl}
+            alt={`${beltData.currentHolder.name} logo`}
+            width="96"
+            height="96"
+            loading="eager"
+          />
+          <div>
+            <p class="team-name">{beltData.currentHolder.name}</p>
+            <p class="computed-at">
+              As of{" "}
+              <span class="js-local-time" data-iso={beltData.computedAt}>
+                {formatUtc(beltData.computedAt)} UTC
+              </span>
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div class="error-card">
+          <p>{beltError}</p>
+        </div>
+      )}
+    </header>
+
+    <section class="next-game">
+      <h2>Next Game</h2>
+      {beltData?.nextGame ? (
+        <div class="next-card">
+          <p class="game-time">{formatUtc(beltData.nextGame.startTimeUtc)}</p>
+          <div class="matchup">
+            <div class="team">
+              <img
+                src={beltData.nextGame.homeTeam.logoUrl}
+                alt={`${beltData.nextGame.homeTeam.name} logo`}
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span>{beltData.nextGame.homeTeam.name}</span>
+            </div>
+            <span class="versus">vs</span>
+            <div class="team">
+              <img
+                src={beltData.nextGame.awayTeam.logoUrl}
+                alt={`${beltData.nextGame.awayTeam.name} logo`}
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span>{beltData.nextGame.awayTeam.name}</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="empty-card">
+          <p>No upcoming games found.</p>
+        </div>
+      )}
+    </section>
+
+    <section class="history">
+      <h2>History</h2>
+      {beltData ? (
+        <div class="history-list">
+          {beltData.transfers
+            .slice()
+            .reverse()
+            .map((transfer) => (
+            <article class="history-row">
+              <div class="history-date">{formatUtc(transfer.startTimeUtc)}</div>
+              <div class="history-teams">
+                <div class="team">
+                  <img
+                    src={transfer.fromTeam.logoUrl}
+                    alt={`${transfer.fromTeam.name} logo`}
+                    width="32"
+                    height="32"
+                    loading="lazy"
+                  />
+                  <span>{transfer.fromTeam.name}</span>
+                </div>
+                <span class="arrow">→</span>
+                <div class="team">
+                  <img
+                    src={transfer.toTeam.logoUrl}
+                    alt={`${transfer.toTeam.name} logo`}
+                    width="32"
+                    height="32"
+                    loading="lazy"
+                  />
+                  <span>{transfer.toTeam.name}</span>
+                </div>
+              </div>
+              <div class="history-score">
+                {transfer.homeTeam.abbr} {transfer.homeScore} – {transfer.awayScore}{" "}
+                {transfer.awayTeam.abbr}
+              </div>
+            </article>
+            ))}
+        </div>
+      ) : (
+        <div class="empty-card">
+          <p>No transfer history available.</p>
+        </div>
+      )}
+    </section>
+  </main>
 </Layout>
+
+<script>
+  document.querySelectorAll(".js-local-time").forEach((node) => {
+    const iso = node.getAttribute("data-iso");
+    if (!iso) return;
+    const date = new Date(iso);
+    if (Number.isNaN(date.valueOf())) return;
+    node.textContent = date.toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+  });
+</script>
+
+<style>
+  :global(body) {
+    font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    background: #f6f3ef;
+    color: #1e1b18;
+  }
+
+  .page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    margin: 0 0 12px;
+  }
+
+  h1,
+  h2 {
+    margin: 0 0 16px;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-top: 2%;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .hero-card,
+  .next-card,
+  .error-card,
+  .empty-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 24px rgba(15, 12, 8, 0.08);
+  }
+
+  .hero-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .team-logo {
+    border-radius: 16px;
+    background: #f0ede8;
+    padding: 12px;
+  }
+
+  .team-name {
+    font-size: 24px;
+    margin: 0 0 4px;
+  }
+
+  .team-abbr,
+  .computed-at {
+    margin: 0;
+    color: #61584f;
+  }
+
+  .next-game,
+  .history {
+    margin-top: 32px;
+  }
+
+  .next-card {
+    display: grid;
+    gap: 12px;
+  }
+
+  .matchup {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .team {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+  .versus {
+    font-weight: 500;
+    color: #7b2f28;
+  }
+
+  .game-time,
+  .game-status {
+    margin: 0;
+    color: #61584f;
+  }
+
+  .rules-stack {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .rules-title {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    margin: 0 0 8px;
+    color: #7b2f28;
+  }
+
+  .rules-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #61584f;
+    font-size: 16px;
+    line-height: 1.4;
+    display: grid;
+    gap: 6px;
+  }
+
+  .rules-inline {
+    padding: 10px 0 0;
+    border-top: 1px solid rgba(123, 47, 40, 0.16);
+  }
+
+  .belt-rules {
+    margin: 0;
+    color: #61584f;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .history-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .history-row {
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 12, 8, 0.08);
+  }
+
+  .history-teams {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .arrow {
+    font-size: 18px;
+  }
+
+  .history-score,
+  .history-date {
+    color: #61584f;
+  }
+
+  @media (max-width: 600px) {
+    .page {
+      padding: 32px 16px 64px;
+    }
+
+    .hero-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .matchup {
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,4 +1,4 @@
-# NBA Championship Belt Tracker — SSR Spec (Prototype)
+# NBA Championship Belt Tracker — Spec
 
 ## 1. Overview
 
@@ -17,9 +17,9 @@ This is a simple prototype:
 - No need to optimize for high traffic
 - Prefer free services and free tiers
 
-**Key UX requirement:** the homepage should load with the belt holder, next game, and transfer history already rendered in the initial HTML (SSR). No “fetch then fill-in” required.
+**Key UX requirement:** the homepage should load with the belt holder, next game, and transfer history already rendered in the initial HTML at build time (static HTML). No “fetch then fill-in” required.
 
-Hosting: Cloudflare Pages on a custom domain.
+Hosting: Static hosting (Cloudflare Pages or equivalent) on a custom domain.
 
 ---
 
@@ -48,10 +48,8 @@ Implementation notes:
 ## 4. Supported Scope
 
 ### 4.1 Season support
-- Must support computing belt for the “current season” (default).
-- Provide a mechanism to select a season via query parameter:
-  - `/api/belt?season=2025`
-- UI may initially show only the current season; multi-season browsing is a future enhancement.
+- Must compute belt for the “current season” (default).
+- UI currently shows only the current season; multi-season browsing is a future enhancement.
 
 ### 4.2 Games included
 - Regular season only.
@@ -63,66 +61,42 @@ Implementation notes:
 - If two games share the same start datetime (rare), break ties deterministically (e.g., by game id).
 
 ### 4.4 Time zone
-- Display next-game times in the viewer’s local time (browser default) if possible OR explicitly in America/Los_Angeles as a fallback.
-- Be consistent across UI.
+- Display dates in UTC for consistency (month/day/year).
+- A small client script may localize the “computed at” timestamp for the current holder.
 
 ---
 
-## 5. Architecture (SSR-first)
+## 5. Architecture (Static-first)
 
 ### 5.1 Rendering model
-- Use Astro’s Cloudflare adapter and deploy as an SSR site on Cloudflare Pages. SSR routes render on Pages Functions.  [oai_citation:0‡Cloudflare Docs](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/?utm_source=chatgpt.com)
-- Site homepage `/` is **server-rendered** by default (SSR).
-- Optional: keep an `/api/belt` endpoint for debugging/inspection, but the homepage does not depend on a client fetch.
+- Use Astro’s static output (no SSR adapter required).
+- Site homepage `/` is **pre-rendered** at build time.
+- No API routes are required for the current prototype.
 
-Astro config expectations:
-- Use `@astrojs/cloudflare` adapter.  [oai_citation:1‡Astro Docs](https://docs.astro.build/en/guides/integrations-guide/cloudflare/?utm_source=chatgpt.com)
-- SSR output mode is `output: 'server'` (the adapter sets/uses server output for on-demand rendering).  [oai_citation:2‡Cloudflare Docs](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/?utm_source=chatgpt.com)
-
-### 5.2 Data flow per page request
-When a request for `/` arrives:
-1) Server code loads belt data (from cache if available).
-2) Server renders HTML containing:
+### 5.2 Data flow per build
+When a build runs:
+1) Build code loads belt data from local JSON.
+2) Astro renders HTML containing:
    - current holder (logo + name)
    - next game (logos + date/time)
    - transfer history list/table
-3) Response returns as complete HTML.
+3) Static HTML is published to the host.
 
 ---
 
-## 6. Performance & Caching (Critical)
+## 6. Performance & Caching
 
-Cloudflare has two different caching systems you must not confuse:
-- “CDN cache” (default static file caching behavior)
-- Workers/Pages **Cache API** via `caches.default` (programmable, datacenter-local)  [oai_citation:3‡Cloudflare Docs](https://developers.cloudflare.com/workers/runtime-apis/cache/?utm_source=chatgpt.com)
-
-### 6.1 Cache belt computation results (required)
-Cache the computed belt JSON/data using **Cache API** for 10 minutes:
-- Key: `belt:{season}` (or a request URL like `/__belt_cache?season=2025`)
-- TTL: 600 seconds
-- This is implemented in server code (Pages Function runtime). Pages Functions have access to Cache API.  [oai_citation:4‡Cloudflare Docs](https://developers.cloudflare.com/workers/runtime-apis/cache/?utm_source=chatgpt.com)
-
-Notes:
-- Cache API is **datacenter-local** (not globally replicated automatically). That’s OK for this prototype.  [oai_citation:5‡Cloudflare Docs](https://developers.cloudflare.com/workers/runtime-apis/cache/?utm_source=chatgpt.com)
-- This cache is primarily to reduce upstream API calls and keep SSR fast for repeat visits.
-
-### 6.2 Cache the SSR HTML (optional but recommended)
-Cloudflare’s default CDN behavior **does not cache HTML or JSON by default**.  [oai_citation:6‡Cloudflare Docs](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/?utm_source=chatgpt.com)  
-If we want Cloudflare edge caching for `/` HTML:
-- Set response headers on `/`:
-  - `Cache-Control: public, s-maxage=600, max-age=60`
-- Add a Cloudflare **Cache Rule** for the homepage route to “Cache Everything” and (optionally) “Respect Origin Cache-Control” / Origin Cache Control.  [oai_citation:7‡Cloudflare Docs](https://developers.cloudflare.com/cache/concepts/cache-control/?utm_source=chatgpt.com)
-
-This makes repeat homepage loads extremely fast even before SSR executes.
+- No runtime caching is required for the static build.
+- Any caching applies to static assets via the hosting provider’s default behavior.
 
 ---
 
 ## 7. Data Sources
 
-### 7.1 Primary game data API
-Use BALLDONTLIE (or equivalent) to fetch games for a season:
-- needs game datetime, home/away teams, final scores, status, and season identifier
-- API key stored as env var `BALLDONTLIE_API_KEY` (never committed to git)
+### 7.1 Primary game data source
+Use a local JSON file per season generated by a backfill script:
+- `data/games-{seasonStartYear}.json`
+- Must include game datetime, home/away teams, final scores, status, and season identifier
 
 ### 7.2 Team metadata
 Need:
@@ -133,35 +107,32 @@ This may come from the API or a static mapping file.
 
 ### 7.3 Logos
 All team references must include a logo.
-Implement a deterministic logo URL builder from team abbreviation and keep a small override map if needed.
-
-If a logo fails to load:
-- show a graceful placeholder (no broken image icon).
+Implement a deterministic logo URL builder from team abbreviation.
 
 ---
 
-## 8. SSR Page Requirements
+## 8. Page Requirements
 
-### 8.1 Homepage sections (SSR-rendered)
+### 8.1 Homepage sections (pre-rendered)
 Render these in the initial HTML:
 
 1) **Hero: Current Belt Holder**
    - Team logo (large)
    - Team name
-   - Current record
+   - Computed-at timestamp (UTC, with optional client-side localization)
 
 2) **Next Game**
-   - “Next game for [Holder]”
-   - Opponent logo + name
-   - Date + time
-   - Home/away indicator (e.g., “vs” or “@”)
+   - Header label “Next Game”
+   - Home and away team logos + names
+   - Date (UTC, month/day/year)
+   - Matchup indicator “vs”
 
 3) **Transfer History**
-   - Table or list of all belt transfer games in chronological order (oldest → newest)
+   - Table or list of all belt transfer games in reverse chronological order (newest → oldest)
    - For each transfer:
      - Date
      - Previous holder → New holder (logos + names)
-     - Final score (e.g., “OKC 112 – DEN 109”)
+     - Final score using team abbreviations (e.g., “OKC 112 – DEN 109”)
 
 ### 8.2 Visual style
 - Clean, modern, minimal
@@ -175,26 +146,15 @@ Every team reference must include its logo:
 - Next game section (both teams)
 - Transfer history (both teams)
 
-If a logo fails to load:
-- Show a small placeholder (e.g., initials in a circle) instead of broken-image icons.
-
 ### 8.4 Client-side JS
 Not required for core functionality.
-OK to add small progressive enhancement (sorting, collapsible history, etc.) but the page must be complete without it.
+OK to add a small script to localize the computed-at timestamp, but the page must be complete without it.
 
 ---
 
-## 9. Backend API (Optional)
+## 9. Backend API
 
-Optional debugging endpoint:
-`GET /api/belt?season=YYYY`
-
-If implemented, response should include:
-- `season`, `computedAt`
-- `startingHolder`, `currentHolder`, `nextGame`
-- `transfers[]`
-
-This endpoint should also use the same Cache API strategy (10 minutes).
+No backend API is required for the current prototype.
 
 ---
 

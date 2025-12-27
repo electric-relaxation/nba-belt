@@ -1,7 +1,5 @@
 # NBA Championship Belt Tracker
 
-Site that tracks the _NBA Championship Belt_
+NBA Championship Belt Tracker is a small Astro site that follows the unofficial NBA "Championship Belt" through the regular season. It renders the current holder, next game, and transfer history from pre-fetched game data.
 
-Rules of The Belt:
-1. At the start of the season, last year's finals winner holds the belt
-2. During the regular season, the belt is acquired by winning against the current belt holder
+For the full rules, data flow, and architecture details, see `docs/spec.md`.
