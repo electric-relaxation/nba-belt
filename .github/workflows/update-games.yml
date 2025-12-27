@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if ! git diff --quiet -- data/games-2025.json; then
+          if git status --porcelain | grep -q .; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add data/games-2025.json

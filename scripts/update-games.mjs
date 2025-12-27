@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const API_URL = "https://api.balldontlie.io/v1/games";
 const PER_PAGE = 100;
@@ -125,6 +126,49 @@ const fetchRecentGames = async (season, apiKey) => {
   return games;
 };
 
+const normalizeValue = (value) => {
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeValue(item));
+  }
+  if (value && typeof value === "object") {
+    const sortedKeys = Object.keys(value).sort();
+    const normalized = {};
+    for (const key of sortedKeys) {
+      normalized[key] = normalizeValue(value[key]);
+    }
+    return normalized;
+  }
+  return value;
+};
+
+const stableStringify = (value) => JSON.stringify(normalizeValue(value));
+
+export const mergeGames = (existingGames, updates) => {
+  const updatesById = new Map(updates.map((game) => [game.id, game]));
+  const existingIds = new Set(existingGames.map((game) => game.id));
+  let hasChanges = false;
+
+  const mergedGames = existingGames.map((game) => {
+    const update = updatesById.get(game.id);
+    if (!update) {
+      return game;
+    }
+    if (!hasChanges && stableStringify(game) !== stableStringify(update)) {
+      hasChanges = true;
+    }
+    return update;
+  });
+
+  for (const game of updates) {
+    if (!existingIds.has(game.id)) {
+      hasChanges = true;
+      mergedGames.push(game);
+    }
+  }
+
+  return { mergedGames, hasChanges };
+};
+
 const main = async () => {
   const season = parseSeasonArg();
   const apiKey = getApiKey();
@@ -151,15 +195,12 @@ const main = async () => {
   }
 
   const updates = await fetchRecentGames(season, apiKey);
-  const updatesById = new Map(updates.map((game) => [game.id, game]));
   const existingGames = existingPayload.games;
-  const existingIds = new Set(existingGames.map((game) => game.id));
+  const { mergedGames, hasChanges } = mergeGames(existingGames, updates);
 
-  const mergedGames = existingGames.map((game) => updatesById.get(game.id) ?? game);
-  for (const game of updates) {
-    if (!existingIds.has(game.id)) {
-      mergedGames.push(game);
-    }
+  if (!hasChanges) {
+    console.log("No new game data found; leaving file unchanged.");
+    return;
   }
 
   const output = {
@@ -172,7 +213,16 @@ const main = async () => {
   console.log(`Merged ${updates.length} games into ${filePath}`);
 };
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exit(1);
-});
+const isMain = () => {
+  if (!process.argv[1]) {
+    return false;
+  }
+  return path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+};
+
+if (isMain()) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  });
+}

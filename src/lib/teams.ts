@@ -39,9 +39,14 @@ const TEAM_NAMES: Record<string, string> = {
 
 const normalizeAbbr = (abbr: string): string => abbr.trim().toUpperCase();
 
+const LOGO_VARIANTS: Record<string, string> = {
+  UTA: "D",
+};
+
 export const logoUrlFromAbbr = (abbr: string): string => {
   const normalized = normalizeAbbr(abbr);
-  return `/logos/${normalized}.png`;
+  const variant = LOGO_VARIANTS[normalized] ?? "L";
+  return `https://cdn.nba.com/logos/nba/${normalized}/global/${variant}/logo.svg`;
 };
 
 export const getTeamDisplay = (abbr: string): TeamDisplay => {
