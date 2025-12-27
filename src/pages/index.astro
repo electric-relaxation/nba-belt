@@ -79,7 +79,7 @@ try {
         <p class="computed-at">
           As of{" "}
           <span class="js-local-time" data-iso={beltData.computedAt}>
-            {formatUtc(beltData.computedAt)} UTC
+            {formatUtc(beltData.computedAt)}
           </span>
         </p>
       ) : (
@@ -95,7 +95,7 @@ try {
         <div class="next-card">
           <p class="game-time">
             <span
-              class="js-local-date"
+              class="js-local-time"
               data-iso={beltData.nextGame.startTimeUtc}
             >
               {formatUtc(beltData.nextGame.startTimeUtc)}
