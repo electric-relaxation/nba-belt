@@ -7,15 +7,11 @@ describe("teams helpers", () => {
 
     expect(display.abbr).toBe("LAL");
     expect(display.name).toBe("Los Angeles Lakers");
-    expect(display.logoUrl).toBe(
-      "https://cdn.nba.com/logos/nba/LAL/global/L/logo.svg",
-    );
+    expect(display.logoUrl).toBe("/logos/LAL.png");
   });
 
   it("uses logo overrides when present", () => {
-    expect(logoUrlFromAbbr("UTA")).toBe(
-      "https://cdn.nba.com/logos/nba/UTA/global/D/logo.svg",
-    );
+    expect(logoUrlFromAbbr("UTA")).toBe("/logos/UTA.png");
   });
 
   it("falls back to the normalized abbreviation when name is missing", () => {
