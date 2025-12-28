@@ -1,0 +1,511 @@
+---
+import { getBeltDataWithDeps, readSeasonGamesFromFile } from "../lib/data";
+
+const { seasonStartYear, availableSeasonStartYears } = Astro.props;
+
+const formatUtc = (value) =>
+  new Date(value).toLocaleString("en-US", {
+    timeZone: "UTC",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
+const cacheStore = new Map();
+const cache = {
+  async match(request) {
+    const response = cacheStore.get(request.url);
+    return response ? response.clone() : undefined;
+  },
+  async put(request, response) {
+    cacheStore.set(request.url, response.clone());
+  },
+};
+
+const now = new Date();
+const currentSeasonStartYear = availableSeasonStartYears.length
+  ? Math.max(...availableSeasonStartYears)
+  : seasonStartYear;
+const isCurrent = seasonStartYear === currentSeasonStartYear;
+const heroTitle = isCurrent ? "Current Holder" : "Season Winner";
+const formatSeasonLabel = (season) =>
+  `${season}-${String(season + 1).slice(-2)}`;
+const basePath = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+let beltData = null;
+let beltError = "";
+
+try {
+  beltData = await getBeltDataWithDeps({
+    seasonStartYear,
+    nowUtcIso: now.toISOString(),
+    cache,
+    readGames: readSeasonGamesFromFile,
+  });
+} catch (error) {
+  beltError = error instanceof Error ? error.message : "Failed to load belt data.";
+}
+---
+
+<main class="page">
+  <header class="hero">
+    <p class="eyebrow">NBA Championship Belt</p>
+    <div class="rules-stack">
+      <div class="rules-inline">
+        <!-- <p class="rules-title">Rules</p> -->
+        <ul class="rules-list">
+          <li>Last year's finals winner starts with the belt</li>
+          <li>The belt is acquired by winning against the current belt holder</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hero-heading">
+      <h1>{heroTitle}</h1>
+      <div class="season-select">
+        <label class="season-label" for="season-picker">Season</label>
+        <select
+          id="season-picker"
+          class="season-picker"
+          onchange="window.location.href=this.value"
+        >
+          {availableSeasonStartYears.map((season) => (
+            <option
+              value={`${basePath}${season}/`}
+              selected={season === seasonStartYear}
+            >
+              {formatSeasonLabel(season)}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+    {beltData ? (
+      <>
+        <div class="hero-card">
+          <img
+            class="team-logo"
+            src={beltData.currentHolder.logoUrl}
+            alt={`${beltData.currentHolder.name} logo`}
+            width="96"
+            height="96"
+            loading="eager"
+          />
+          <div>
+            <p class="team-name">{beltData.currentHolder.name}</p>
+          </div>
+        </div>
+        {isCurrent ? (
+          <p class="computed-at">
+            As of{" "}
+            <span class="js-local-time" data-iso={beltData.computedAt}>
+              {formatUtc(beltData.computedAt)}
+            </span>
+          </p>
+        ) : null}
+      </>
+    ) : (
+      <div class="error-card">
+        <p>{beltError}</p>
+      </div>
+    )}
+  </header>
+
+  {isCurrent ? (
+    <section class="next-game">
+      <h2>Next Game</h2>
+      {beltData?.nextGame ? (
+        <div class="next-card">
+          <p class="game-time">
+            <span
+              class="js-local-time"
+              data-iso={beltData.nextGame.startTimeUtc}
+            >
+              {formatUtc(beltData.nextGame.startTimeUtc)}
+            </span>
+          </p>
+          <div class="matchup">
+            <div class="team">
+              <img
+                src={beltData.nextGame.awayTeam.logoUrl}
+                alt={`${beltData.nextGame.awayTeam.name} logo`}
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span>{beltData.nextGame.awayTeam.name}</span>
+            </div>
+            <div class="team">
+              <img
+                src={beltData.nextGame.homeTeam.logoUrl}
+                alt={`${beltData.nextGame.homeTeam.name} logo`}
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span>{beltData.nextGame.homeTeam.name}</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="empty-card">
+          <p>No upcoming games found.</p>
+        </div>
+      )}
+    </section>
+  ) : null}
+
+  <section class="history">
+    <h2>History</h2>
+    {beltData ? (
+      <div class="history-list">
+        {beltData.transfers
+          .slice()
+          .reverse()
+          .map((transfer) => (
+          <article class="history-row">
+            <div class="history-date">
+              <span
+                class="js-local-date"
+                data-iso={transfer.startTimeUtc}
+              >
+                {formatUtc(transfer.startTimeUtc)}
+              </span>
+            </div>
+            <div class="history-teams">
+              <div class="team">
+                <img
+                  src={transfer.fromTeam.logoUrl}
+                  alt={`${transfer.fromTeam.name} logo`}
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                />
+                <span>{transfer.fromTeam.name}</span>
+              </div>
+              <span class="arrow">→</span>
+              <div class="team">
+                <img
+                  src={transfer.toTeam.logoUrl}
+                  alt={`${transfer.toTeam.name} logo`}
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                />
+                <span>{transfer.toTeam.name}</span>
+              </div>
+            </div>
+            <div class="history-score">
+              {transfer.homeTeam.abbr} {transfer.homeScore} –{" "}
+              {transfer.awayScore} {transfer.awayTeam.abbr}
+            </div>
+          </article>
+          ))}
+      </div>
+    ) : (
+      <div class="empty-card">
+        <p>No transfer history available.</p>
+      </div>
+    )}
+  </section>
+</main>
+
+<script>
+  document.querySelectorAll(".js-local-time").forEach((node) => {
+    const iso = node.getAttribute("data-iso");
+    if (!iso) return;
+    const date = new Date(iso);
+    if (Number.isNaN(date.valueOf())) return;
+    node.textContent = date.toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+  });
+
+  document.querySelectorAll(".js-local-date").forEach((node) => {
+    const iso = node.getAttribute("data-iso");
+    if (!iso) return;
+    const date = new Date(iso);
+    if (Number.isNaN(date.valueOf())) return;
+    node.textContent = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  });
+
+  const applyHistoryArrowOffsets = () => {
+    const isNarrow = window.matchMedia("(max-width: 480px)").matches;
+    if (!isNarrow) return;
+
+    document.querySelectorAll(".history-teams").forEach((group) => {
+      const nameSpans = group.querySelectorAll(".team span");
+      if (nameSpans.length < 2) return;
+
+      const widths = Array.from(nameSpans, (span) => span.offsetWidth);
+      const minWidth = Math.min(...widths);
+      const logoOffset = 40; // 32px logo + 8px gap
+
+      group.style.setProperty(
+        "--arrow-center",
+        `${logoOffset + minWidth / 2}px`
+      );
+    });
+  };
+
+  applyHistoryArrowOffsets();
+  window.addEventListener("resize", applyHistoryArrowOffsets);
+</script>
+
+<style>
+  :global(body) {
+    font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    background: #f6f3ef;
+    color: #1e1b18;
+  }
+
+  .page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    margin: 0 0 12px;
+  }
+
+  h1,
+  h2 {
+    margin: 0 0 16px;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .hero-card,
+  .next-card,
+  .error-card,
+  .empty-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 24px rgba(15, 12, 8, 0.08);
+  }
+
+  .hero-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .team-logo {
+    border-radius: 16px;
+    background: #f0ede8;
+    padding: 12px;
+  }
+
+  .team-name {
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 4px;
+  }
+
+  .team-abbr,
+  .computed-at {
+    font-style: italic;
+    margin: 0;
+    color: #61584f;
+    padding-top: 6px;
+    padding-left: 12px;
+  }
+
+  .next-game,
+  .history {
+    margin-top: 32px;
+  }
+
+  .next-card {
+    display: grid;
+    gap: 12px;
+  }
+
+  .matchup {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .team {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+
+  .game-time,
+  .game-status {
+    margin: 0;
+    color: #61584f;
+  }
+
+  .rules-stack {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .rules-title {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    margin: 0 0 8px;
+    color: #7b2f28;
+  }
+
+  .rules-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #61584f;
+    font-size: 16px;
+    line-height: 1.4;
+    display: grid;
+    gap: 6px;
+  }
+
+  .rules-inline {
+    padding: 10px 0 0;
+    border-top: 1px solid rgba(123, 47, 40, 0.16);
+  }
+
+  .hero-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .season-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .season-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    color: #7b2f28;
+  }
+
+  .season-picker {
+    border: 1px solid rgba(123, 47, 40, 0.3);
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: #ffffff;
+    color: #1e1b18;
+    font-size: 14px;
+  }
+
+  .belt-rules {
+    margin: 0;
+    color: #61584f;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .history-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .history-row {
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 12, 8, 0.08);
+  }
+
+  .history-teams {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .arrow {
+    font-size: 18px;
+  }
+
+  .history-score,
+  .history-date {
+    color: #61584f;
+  }
+
+  @media (max-width: 480px) {
+    .page {
+      padding: 32px 16px 64px;
+    }
+
+    .hero-card {
+      grid-template-columns: 64px 1fr;
+      gap: 28px;
+      text-align: left;
+    }
+
+    .team-logo {
+      width: 64px;
+      height: 64px;
+      padding: 8px;
+    }
+
+    .team-name {
+      font-size: clamp(20px, 4.6vw, 24px);
+    }
+
+    .matchup {
+      align-items: flex-start;
+    }
+
+    .history-row {
+      gap: 6px;
+    }
+
+    .history-teams {
+      position: relative;
+      display: grid;
+      gap: 6px;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .history-teams .arrow {
+      position: absolute;
+      left: var(--arrow-center, calc(40px + (100% - 40px) / 2));
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      transform-origin: center;
+    }
+  }
+</style>

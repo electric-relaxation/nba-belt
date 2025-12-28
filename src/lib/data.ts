@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { computeBelt, type BeltGame, type GameId } from "./belt";
+import { FALLBACK_SEASON_START_YEARS } from "./seasons";
 import { getStartingHolderAbbr } from "./startingHolders";
 import { getTeamDisplay, type TeamDisplay } from "./teams";
 
@@ -65,6 +66,36 @@ const CACHE_TTL_SECONDS = 600;
 const GAMES_FILE_PREFIX = "games-";
 const GAMES_FILE_SUFFIX = ".json";
 const GAMES_FILE_DIR = "data";
+const GAMES_FILE_REGEX = /^games-(\d{4})\.json$/;
+
+export const getDefaultSeasonStartYear = (now: Date): number => {
+  const month = now.getUTCMonth();
+  const year = now.getUTCFullYear();
+  return month >= 9 ? year : year - 1;
+};
+
+export const isCurrentSeason = (
+  seasonStartYear: number,
+  now: Date,
+): boolean => {
+  return seasonStartYear === getDefaultSeasonStartYear(now);
+};
+
+export const getAvailableSeasonStartYears = async (): Promise<number[]> => {
+  try {
+    const entries = await fs.readdir(path.join(process.cwd(), GAMES_FILE_DIR));
+    const seasons = entries
+      .map((entry) => GAMES_FILE_REGEX.exec(entry))
+      .filter((match): match is RegExpExecArray => Boolean(match))
+      .map((match) => Number.parseInt(match[1], 10))
+      .filter((value) => Number.isFinite(value));
+    const unique = Array.from(new Set(seasons));
+    const sorted = unique.sort((a, b) => b - a);
+    return sorted.length > 0 ? sorted : FALLBACK_SEASON_START_YEARS;
+  } catch {
+    return FALLBACK_SEASON_START_YEARS;
+  }
+};
 
 const cacheRequestForSeason = (seasonStartYear: number): Request => {
   return new Request(`https://belt-cache.local/belt?season=${seasonStartYear}`);
@@ -189,8 +220,8 @@ const buildBeltData = (
   seasonStartYear: number,
   nowUtcIso: string,
   games: BeltGame[],
+  startingHolderAbbr: string,
 ): BeltData => {
-  const startingHolderAbbr = getStartingHolderAbbr(seasonStartYear);
   const beltResult = computeBelt(games, startingHolderAbbr, nowUtcIso);
 
   return {
@@ -251,7 +282,8 @@ export const getBeltDataWithDeps = async ({
   }
 
   const games = apiGames.map(mapApiGame);
-  const data = buildBeltData(seasonStartYear, nowUtcIso, games);
+  const startingHolderAbbr = await getStartingHolderAbbr(seasonStartYear);
+  const data = buildBeltData(seasonStartYear, nowUtcIso, games, startingHolderAbbr);
   await writeCachedBeltData(cache, seasonStartYear, data);
   return data;
 };

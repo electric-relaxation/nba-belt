@@ -1,0 +1,25 @@
+---
+import BeltPage from "../../components/BeltPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getAvailableSeasonStartYears } from "../../lib/data";
+
+export async function getStaticPaths() {
+  const seasons = await getAvailableSeasonStartYears();
+  return seasons.map((season) => ({
+    params: { season: String(season) },
+  }));
+}
+
+const availableSeasonStartYears = await getAvailableSeasonStartYears();
+const parsedSeason = Number.parseInt(Astro.params.season ?? "", 10);
+const seasonStartYear = Number.isFinite(parsedSeason)
+  ? parsedSeason
+  : availableSeasonStartYears[0];
+---
+
+<Layout>
+  <BeltPage
+    seasonStartYear={seasonStartYear}
+    availableSeasonStartYears={availableSeasonStartYears}
+  />
+</Layout>

@@ -24,17 +24,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Bootstrap season
+        env:
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: |
+          set -euo pipefail
+          output="$(node scripts/bootstrap-season.mjs)"
+          echo "$output"
+          season="$(echo "$output" | grep -Eo 'UPDATE_SEASON=[0-9]{4}' | tail -n 1 | cut -d= -f2)"
+          if [ -z "$season" ]; then
+            echo "Failed to determine update season."
+            exit 1
+          fi
+          echo "update_season=$season" >> "$GITHUB_OUTPUT"
+        id: bootstrap
+
       - name: Update games
         env:
           BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
-        run: npm run update:games -- --season 2025
+        run: npm run update:games -- --season ${{ steps.bootstrap.outputs.update_season }}
 
       - name: Commit and push if changed
         run: |
           if git status --porcelain | grep -q .; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/games-2025.json
+            git add data/games-*.json data/starting-holders.json
             git commit -m "Update games data"
             git push
           else
