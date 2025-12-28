@@ -10,9 +10,18 @@ const BASE_BACKOFF_MS = 2000;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const parseSeasonArg = () => {
-  const season = Number.parseInt(process.argv[2], 10);
+  const args = process.argv.slice(2);
+  let seasonValue = args[0];
+  const seasonFlagIndex = args.findIndex((arg) => arg === "--season" || arg === "-s");
+  if (seasonFlagIndex !== -1) {
+    seasonValue = args[seasonFlagIndex + 1];
+  }
+
+  const season = Number.parseInt(seasonValue ?? "", 10);
   if (!Number.isFinite(season)) {
-    console.error("Usage: node scripts/backfill-games.mjs <seasonStartYear>");
+    console.error(
+      "Usage: node scripts/backfill-games.mjs <seasonStartYear> or --season <seasonStartYear>",
+    );
     process.exit(1);
   }
   return season;

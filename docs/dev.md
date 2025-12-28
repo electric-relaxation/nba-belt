@@ -6,7 +6,7 @@
 2. Run `npm install`.
 3. Copy `.env.example` to `.env` and set `BALLDONTLIE_API_KEY` for local scripts.
 4. Backfill once for a season (creates `data/games-<season>.json`):
-   - `npm run backfill:games -- 2025`
+   - `npm run backfill:games -- --season 2025`
 
 ## Environment variables
 
