@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { mergeGames } from "./update-games.mjs";
+import {
+  mergeGames,
+  serializeGamesPayload,
+  sortGamesByDateThenId,
+} from "./update-games.mjs";
 
 describe("mergeGames", () => {
   it("does not mark changes when updates are identical", () => {
@@ -29,5 +33,35 @@ describe("mergeGames", () => {
 
     expect(result.hasChanges).toBe(true);
     expect(result.mergedGames).toHaveLength(2);
+  });
+
+  it("is idempotent when merging identical inputs", () => {
+    const season = 2024;
+    const fetchedAtUtc = "2024-10-01T00:00:00.000Z";
+    const existing = [
+      { id: 2, date: "2024-10-02T01:00:00Z", home_team_score: 100 },
+      { date: "2024-10-01T00:00:00Z", home_team_score: 110, id: 1 },
+    ];
+    const updates = [
+      { id: 1, home_team_score: 110, date: "2024-10-01T00:00:00Z" },
+      { date: "2024-10-02T01:00:00Z", home_team_score: 100, id: 2 },
+    ];
+
+    const first = mergeGames(existing, updates);
+    const firstOutput = serializeGamesPayload(
+      season,
+      fetchedAtUtc,
+      sortGamesByDateThenId(first.mergedGames),
+    );
+
+    const second = mergeGames(sortGamesByDateThenId(first.mergedGames), updates);
+    const secondOutput = serializeGamesPayload(
+      season,
+      fetchedAtUtc,
+      sortGamesByDateThenId(second.mergedGames),
+    );
+
+    expect(second.hasChanges).toBe(false);
+    expect(secondOutput).toBe(firstOutput);
   });
 });

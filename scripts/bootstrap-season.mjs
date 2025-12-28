@@ -15,6 +15,8 @@ const MAX_RETRIES = 5;
 const DATA_DIR = path.join(process.cwd(), "data");
 const STARTING_HOLDERS_PATH = path.join(DATA_DIR, "starting-holders.json");
 const GAMES_FILE_REGEX = /^games-(\d{4})\.json$/;
+const BOOTSTRAP_WINDOW_START = { month: 7, day: 15 };
+const BOOTSTRAP_WINDOW_END = { month: 10, day: 15 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -25,6 +27,25 @@ const getApiKey = () => {
     process.exit(1);
   }
   return apiKey;
+};
+
+const isWithinBootstrapWindow = (date = new Date()) => {
+  const month = date.getUTCMonth();
+  const day = date.getUTCDate();
+
+  if (month < BOOTSTRAP_WINDOW_START.month || month > BOOTSTRAP_WINDOW_END.month) {
+    return false;
+  }
+
+  if (month === BOOTSTRAP_WINDOW_START.month && day < BOOTSTRAP_WINDOW_START.day) {
+    return false;
+  }
+
+  if (month === BOOTSTRAP_WINDOW_END.month && day > BOOTSTRAP_WINDOW_END.day) {
+    return false;
+  }
+
+  return true;
 };
 
 const readAvailableSeasons = async () => {
@@ -194,10 +215,15 @@ const fileExists = async (filePath) => {
 };
 
 const main = async () => {
-  const apiKey = getApiKey();
   const seasons = await readAvailableSeasons();
   const currentSeason = seasons[0];
   const nextSeason = currentSeason + 1;
+
+  if (!isWithinBootstrapWindow()) {
+    console.log("Outside bootstrap window; skipping bootstrap");
+    console.log(`UPDATE_SEASON=${currentSeason}`);
+    return;
+  }
 
   const startingHolders = await readStartingHolders();
   if (!startingHolders[String(nextSeason)]) {
@@ -222,15 +248,18 @@ const main = async () => {
 
   if (await fileExists(nextSeasonPath)) {
     updateSeason = nextSeason;
-  } else if (await probeNextSeasonHasGames(nextSeason, apiKey)) {
-    const payload = {
-      season: nextSeason,
-      fetchedAtUtc: new Date().toISOString(),
-      games: [],
-    };
-    await fs.writeFile(nextSeasonPath, `${JSON.stringify(payload, null, 2)}\n`);
-    updateSeason = nextSeason;
-    console.log(`Created ${nextSeasonPath}.`);
+  } else {
+    const apiKey = getApiKey();
+    if (await probeNextSeasonHasGames(nextSeason, apiKey)) {
+      const payload = {
+        season: nextSeason,
+        fetchedAtUtc: new Date().toISOString(),
+        games: [],
+      };
+      await fs.writeFile(nextSeasonPath, `${JSON.stringify(payload, null, 2)}\n`);
+      updateSeason = nextSeason;
+      console.log(`Created ${nextSeasonPath}.`);
+    }
   }
 
   console.log(`UPDATE_SEASON=${updateSeason}`);

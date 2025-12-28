@@ -43,6 +43,21 @@ const addDays = (date, days) => {
   next.setUTCDate(next.getUTCDate() + days);
   return next;
 };
+const buildRecentDates = (now = new Date()) => {
+  const yesterday = addDays(now, -1);
+  const recentDates = [formatDate(yesterday), formatDate(now)];
+  const extendedDates = [...recentDates];
+  for (let offset = 1; offset <= 7; offset += 1) {
+    extendedDates.push(formatDate(addDays(now, offset)));
+  }
+  return { recentDates, extendedDates };
+};
+const normalizeGameDate = (value) => {
+  if (typeof value !== "string") {
+    return "";
+  }
+  return value.slice(0, 10);
+};
 
 const buildUrl = (season, dates, cursor) => {
   const url = new URL(API_URL);
@@ -87,13 +102,7 @@ const fetchWithBackoff = async (url, apiKey) => {
   }
 };
 
-const fetchRecentGames = async (season, apiKey) => {
-  const now = new Date();
-  const yesterday = addDays(now, -1);
-  const dates = [formatDate(yesterday), formatDate(now)];
-  for (let offset = 1; offset <= 7; offset += 1) {
-    dates.push(formatDate(addDays(now, offset)));
-  }
+const fetchGamesForDates = async (season, apiKey, dates) => {
   const games = [];
   let cursor = null;
 
@@ -126,6 +135,24 @@ const fetchRecentGames = async (season, apiKey) => {
   return games;
 };
 
+const fetchProbeGames = async (season, apiKey, dates) => {
+  const url = buildUrl(season, dates, null);
+  const response = await fetchWithBackoff(url, apiKey);
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to probe recent games for season ${season}: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  const payload = await response.json();
+  if (!Array.isArray(payload.data)) {
+    throw new Error("Unexpected response while probing recent games.");
+  }
+
+  return payload.data;
+};
+
 const normalizeValue = (value) => {
   if (Array.isArray(value)) {
     return value.map((item) => normalizeValue(item));
@@ -142,6 +169,44 @@ const normalizeValue = (value) => {
 };
 
 const stableStringify = (value) => JSON.stringify(normalizeValue(value));
+
+export const sortGamesByDateThenId = (games) => {
+  return [...games].sort((a, b) => {
+    const dateA = typeof a?.date === "string" ? a.date : "";
+    const dateB = typeof b?.date === "string" ? b.date : "";
+    if (dateA < dateB) {
+      return -1;
+    }
+    if (dateA > dateB) {
+      return 1;
+    }
+
+    const idA = Number(a?.id);
+    const idB = Number(b?.id);
+    const idAValid = Number.isFinite(idA);
+    const idBValid = Number.isFinite(idB);
+    if (idAValid && idBValid && idA !== idB) {
+      return idA - idB;
+    }
+    if (idAValid !== idBValid) {
+      return idAValid ? -1 : 1;
+    }
+
+    const idAString = String(a?.id ?? "");
+    const idBString = String(b?.id ?? "");
+    return idAString.localeCompare(idBString);
+  });
+};
+
+export const serializeGamesPayload = (season, fetchedAtUtc, games) => {
+  const normalizedGames = games.map((game) => normalizeValue(game));
+  const payload = {
+    season,
+    fetchedAtUtc,
+    games: normalizedGames,
+  };
+  return `${JSON.stringify(payload, null, 2)}\n`;
+};
 
 export const mergeGames = (existingGames, updates) => {
   const updatesById = new Map(updates.map((game) => [game.id, game]));
@@ -194,22 +259,38 @@ const main = async () => {
     );
   }
 
-  const updates = await fetchRecentGames(season, apiKey);
   const existingGames = existingPayload.games;
-  const { mergedGames, hasChanges } = mergeGames(existingGames, updates);
+  const { recentDates, extendedDates } = buildRecentDates();
+  const probeGames = await fetchProbeGames(season, apiKey, recentDates);
+  const hasExistingRecentGames = existingGames.some((game) => {
+    const gameDate = normalizeGameDate(game?.date);
+    return gameDate && recentDates.includes(gameDate);
+  });
 
-  if (!hasChanges) {
+  if (probeGames.length === 0 && !hasExistingRecentGames) {
+    console.log("No recent games; skipping update");
+    return;
+  }
+
+  const updates = await fetchGamesForDates(season, apiKey, extendedDates);
+  const { mergedGames } = mergeGames(existingGames, updates);
+  const sortedMergedGames = sortGamesByDateThenId(mergedGames);
+  const sortedExistingGames = sortGamesByDateThenId(existingGames);
+  const gamesChanged =
+    stableStringify(sortedMergedGames) !== stableStringify(sortedExistingGames);
+
+  if (!gamesChanged) {
     console.log("No new game data found; leaving file unchanged.");
     return;
   }
 
-  const output = {
+  const output = serializeGamesPayload(
     season,
-    fetchedAtUtc: new Date().toISOString(),
-    games: mergedGames,
-  };
+    new Date().toISOString(),
+    sortedMergedGames,
+  );
 
-  await fs.writeFile(filePath, `${JSON.stringify(output, null, 2)}\n`);
+  await fs.writeFile(filePath, output);
   console.log(`Merged ${updates.length} games into ${filePath}`);
 };
 

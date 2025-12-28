@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-games
+  cancel-in-progress: true
+
 jobs:
   update-games:
     runs-on: ubuntu-latest
@@ -53,5 +57,5 @@ jobs:
             git commit -m "Update games data"
             git push
           else
-            echo "No changes to commit."
+            echo "No changes"
           fi
