@@ -74,4 +74,44 @@ describe("computeBelt", () => {
     });
     expect(result.nextGame?.gameId).toBe("4");
   });
+
+  it("keeps the current game as next when the holder is in progress", () => {
+    const games: BeltGame[] = [
+      {
+        gameId: "1",
+        startTimeUtc: "2025-11-01T00:00:00Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "BBB",
+        homeScore: 90,
+        awayScore: 100,
+        status: "Final",
+        isRegularSeason: true,
+      },
+      {
+        gameId: "2",
+        startTimeUtc: "2025-11-02T00:00:00Z",
+        homeTeamAbbr: "BBB",
+        awayTeamAbbr: "CCC",
+        homeScore: 55,
+        awayScore: 60,
+        status: "In Progress",
+        isRegularSeason: true,
+      },
+      {
+        gameId: "3",
+        startTimeUtc: "2025-11-03T00:00:00Z",
+        homeTeamAbbr: "DDD",
+        awayTeamAbbr: "BBB",
+        homeScore: null,
+        awayScore: null,
+        status: "Scheduled",
+        isRegularSeason: true,
+      },
+    ];
+
+    const result = computeBelt(games, "AAA", "2025-11-02T01:00:00Z");
+
+    expect(result.currentHolderAbbr).toBe("BBB");
+    expect(result.nextGame?.gameId).toBe("2");
+  });
 });

@@ -32,8 +32,8 @@ export type BeltResult = {
 const completedStatuses = new Set(["final", "completed"]);
 
 const isCompletedGame = (game: BeltGame): boolean => {
-  if (game.status && completedStatuses.has(game.status.toLowerCase())) {
-    return true;
+  if (game.status) {
+    return completedStatuses.has(game.status.toLowerCase());
   }
   return typeof game.homeScore === "number" && typeof game.awayScore === "number";
 };
@@ -93,16 +93,23 @@ export const computeBelt = (
   }
 
   const nowMs = Date.parse(nowUtcIso);
-  const nextGame =
-    games
-      .filter((game) => {
-        if (Date.parse(game.startTimeUtc) <= nowMs) {
-          return false;
-        }
-        return game.homeTeamAbbr === holder || game.awayTeamAbbr === holder;
-      })
+  const holderGames = games.filter(
+    (game) => game.homeTeamAbbr === holder || game.awayTeamAbbr === holder,
+  );
+  const inProgressGame =
+    holderGames
+      .filter(
+        (game) => Date.parse(game.startTimeUtc) <= nowMs && !isCompletedGame(game),
+      )
       .slice()
       .sort(byStartTimeThenId)[0] ?? null;
+  const nextGame =
+    inProgressGame ??
+    holderGames
+      .filter((game) => Date.parse(game.startTimeUtc) > nowMs)
+      .slice()
+      .sort(byStartTimeThenId)[0] ??
+    null;
 
   return {
     currentHolderAbbr: holder,
