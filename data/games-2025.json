@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2025-12-28T21:37:55.564Z",
+  "fetchedAtUtc": "2025-12-28T22:14:17.315Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -22844,8 +22844,8 @@
       "home_ot2": null,
       "home_ot3": null,
       "home_q1": 33,
-      "home_q2": 30,
-      "home_q3": 0,
+      "home_q2": 32,
+      "home_q3": 11,
       "home_q4": 0,
       "home_team": {
         "abbreviation": "TOR",
@@ -22856,22 +22856,22 @@
         "id": 28,
         "name": "Raptors"
       },
-      "home_team_score": 63,
-      "home_timeouts_remaining": 4,
+      "home_team_score": 76,
+      "home_timeouts_remaining": 3,
       "id": 18447255,
       "ist_stage": null,
-      "period": 2,
+      "period": 3,
       "postseason": false,
       "season": 2025,
-      "status": "2nd Qtr",
-      "time": "Q2 :25.6",
+      "status": "3rd Qtr",
+      "time": "Q3 5:56",
       "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
       "visitor_q1": 29,
       "visitor_q2": 35,
-      "visitor_q3": 0,
+      "visitor_q3": 22,
       "visitor_q4": 0,
       "visitor_team": {
         "abbreviation": "GSW",
@@ -22882,19 +22882,19 @@
         "id": 10,
         "name": "Warriors"
       },
-      "visitor_team_score": 64,
-      "visitor_timeouts_remaining": 5
+      "visitor_team_score": 86,
+      "visitor_timeouts_remaining": 3
     },
     {
       "date": "2025-12-28",
       "datetime": "2025-12-28T20:30:00.000Z",
-      "home_in_bonus": true,
+      "home_in_bonus": false,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
       "home_q1": 32,
-      "home_q2": 28,
-      "home_q3": 0,
+      "home_q2": 32,
+      "home_q3": 22,
       "home_q4": 0,
       "home_team": {
         "abbreviation": "OKC",
@@ -22905,22 +22905,22 @@
         "id": 21,
         "name": "Thunder"
       },
-      "home_team_score": 60,
-      "home_timeouts_remaining": 4,
+      "home_team_score": 86,
+      "home_timeouts_remaining": 3,
       "id": 18447256,
       "ist_stage": null,
-      "period": 2,
+      "period": 3,
       "postseason": false,
       "season": 2025,
-      "status": "2nd Qtr",
-      "time": "Q2 1:28",
+      "status": "3rd Qtr",
+      "time": "Q3 5:06",
       "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
       "visitor_q1": 29,
-      "visitor_q2": 32,
-      "visitor_q3": 0,
+      "visitor_q2": 33,
+      "visitor_q3": 11,
       "visitor_q4": 0,
       "visitor_team": {
         "abbreviation": "PHI",
@@ -22931,8 +22931,8 @@
         "id": 23,
         "name": "76ers"
       },
-      "visitor_team_score": 61,
-      "visitor_timeouts_remaining": 6
+      "visitor_team_score": 73,
+      "visitor_timeouts_remaining": 4
     },
     {
       "date": "2025-12-28",
