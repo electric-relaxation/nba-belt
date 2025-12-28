@@ -505,11 +505,19 @@ try {
       max-width: 100%;
     }
 
+    .history-teams .team:first-of-type {
+      order: 2;
+    }
+
+    .history-teams .team:last-of-type {
+      order: 0;
+    }
+
     .history-teams .arrow {
       position: absolute;
       left: var(--arrow-center, calc(40px + (100% - 40px) / 2));
       top: 50%;
-      transform: translate(-50%, -50%) rotate(90deg);
+      transform: translate(-50%, -50%) rotate(-90deg);
       transform-origin: center;
     }
   }
