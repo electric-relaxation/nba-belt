@@ -11,6 +11,5 @@ The NBA Championship Belt has two rules:
 For the full rules, data flow, and architecture details, see `docs/spec.md`.
 
 Future Work:
-* Support multiple seasons
 * Timeline view of the belt holder
 * Belt statistics (e.g. longest held)

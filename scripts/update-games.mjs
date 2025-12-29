@@ -7,6 +7,11 @@ const PER_PAGE = 100;
 const MIN_DELAY_MS = 13000;
 const MAX_RETRIES = 5;
 const BASE_BACKOFF_MS = 2000;
+const STARTING_HOLDERS_PATH = path.join(
+  process.cwd(),
+  "data",
+  "starting-holders.json",
+);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -57,6 +62,50 @@ const normalizeGameDate = (value) => {
     return "";
   }
   return value.slice(0, 10);
+};
+
+const readStartingHolders = async () => {
+  let raw = "";
+  try {
+    raw = await fs.readFile(STARTING_HOLDERS_PATH, "utf8");
+  } catch (error) {
+    if (error && error.code === "ENOENT") {
+      throw new Error(`Starting holders file missing: ${STARTING_HOLDERS_PATH}.`);
+    }
+    throw error;
+  }
+
+  if (!raw.trim()) {
+    throw new Error(`Starting holders file is empty: ${STARTING_HOLDERS_PATH}.`);
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error(
+      `Starting holders file has invalid JSON: ${STARTING_HOLDERS_PATH}.`,
+    );
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    throw new Error(
+      `Starting holders file has unexpected shape: ${STARTING_HOLDERS_PATH}.`,
+    );
+  }
+
+  return parsed;
+};
+
+const getStartingHolderAbbr = async (seasonStartYear) => {
+  const holders = await readStartingHolders();
+  const holder = holders[String(seasonStartYear)];
+  if (!holder) {
+    throw new Error(
+      `Starting holder not configured for season ${seasonStartYear}.`,
+    );
+  }
+  return holder;
 };
 
 const buildUrl = (season, dates, cursor) => {
@@ -170,11 +219,112 @@ const normalizeValue = (value) => {
 
 const stableStringify = (value) => JSON.stringify(normalizeValue(value));
 
+const completedStatuses = new Set(["final", "completed"]);
+
+const isCompletedStatus = (status) => {
+  if (typeof status !== "string") {
+    return false;
+  }
+  return completedStatuses.has(status.toLowerCase());
+};
+
 const isFinalStatus = (status) => {
   if (typeof status !== "string") {
     return false;
   }
   return status.toLowerCase() === "final";
+};
+
+const ensureDateIso = (value) => {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.valueOf())) {
+    throw new Error(`Invalid game date from API: ${value}`);
+  }
+  return parsed.toISOString();
+};
+
+const normalizeScore = (value) => {
+  if (typeof value !== "number" || Number.isNaN(value)) {
+    return null;
+  }
+  return value;
+};
+
+const mapApiGame = (game) => {
+  const status = game?.status ?? "";
+  const startTimeSource = game?.datetime ?? game?.date;
+  const isCompleted = isCompletedStatus(status);
+  return {
+    gameId: game?.id,
+    startTimeUtc: ensureDateIso(startTimeSource),
+    homeTeamAbbr: game?.home_team?.abbreviation ?? "",
+    awayTeamAbbr: game?.visitor_team?.abbreviation ?? "",
+    homeScore: isCompleted ? normalizeScore(game?.home_team_score) : null,
+    awayScore: isCompleted ? normalizeScore(game?.visitor_team_score) : null,
+    status,
+    isRegularSeason: !game?.postseason,
+  };
+};
+
+const isCompletedGame = (game) => {
+  if (game.status) {
+    return isCompletedStatus(game.status);
+  }
+  return typeof game.homeScore === "number" && typeof game.awayScore === "number";
+};
+
+const isRegularSeasonGame = (game) => game.isRegularSeason !== false;
+
+const byStartTimeThenId = (a, b) => {
+  const timeDiff = Date.parse(a.startTimeUtc) - Date.parse(b.startTimeUtc);
+  if (timeDiff !== 0) {
+    return timeDiff;
+  }
+  return String(a.gameId).localeCompare(String(b.gameId));
+};
+
+export const computeCurrentHolder = (games, startingHolderAbbr) => {
+  const completedGames = games
+    .filter((game) => isRegularSeasonGame(game) && isCompletedGame(game))
+    .slice()
+    .sort(byStartTimeThenId);
+
+  let holder = startingHolderAbbr;
+
+  for (const game of completedGames) {
+    const isHolderHome = game.homeTeamAbbr === holder;
+    const isHolderAway = game.awayTeamAbbr === holder;
+
+    if (!isHolderHome && !isHolderAway) {
+      continue;
+    }
+
+    if (game.homeScore === null || game.awayScore === null) {
+      continue;
+    }
+
+    const winnerAbbr =
+      game.homeScore > game.awayScore ? game.homeTeamAbbr : game.awayTeamAbbr;
+
+    if (winnerAbbr !== holder) {
+      holder = winnerAbbr;
+    }
+  }
+
+  return holder;
+};
+
+export const hasFutureGameForHolder = (games, holderAbbr, nowUtcIso) => {
+  const nowMs = Date.parse(nowUtcIso);
+  return games.some((game) => {
+    if (!isRegularSeasonGame(game)) {
+      return false;
+    }
+    if (game.homeTeamAbbr !== holderAbbr && game.awayTeamAbbr !== holderAbbr) {
+      return false;
+    }
+    return Date.parse(game.startTimeUtc) > nowMs;
+  });
 };
 
 const shouldApplyUpdate = (existingGame, update) => {
@@ -280,6 +430,19 @@ const main = async () => {
   }
 
   const existingGames = existingPayload.games;
+  const startingHolderAbbr = await getStartingHolderAbbr(season);
+  const mappedExistingGames = existingGames.map(mapApiGame);
+  const currentHolderAbbr = computeCurrentHolder(
+    mappedExistingGames,
+    startingHolderAbbr,
+  );
+  const nowUtcIso = new Date().toISOString();
+
+  if (hasFutureGameForHolder(mappedExistingGames, currentHolderAbbr, nowUtcIso)) {
+    console.log("Future holder game already scheduled; skipping update.");
+    return;
+  }
+
   const { recentDates, extendedDates } = buildRecentDates();
   const probeGames = await fetchProbeGames(season, apiKey, recentDates);
   const hasExistingRecentGames = existingGames.some((game) => {

@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  computeCurrentHolder,
+  hasFutureGameForHolder,
   mergeGames,
   serializeGamesPayload,
   sortGamesByDateThenId,
@@ -136,5 +138,92 @@ describe("mergeGames", () => {
 
     expect(result.hasChanges).toBe(true);
     expect(result.mergedGames).toEqual(updates);
+  });
+});
+
+describe("current holder checks", () => {
+  it("computes the current holder from completed games", () => {
+    const games = [
+      {
+        gameId: 1,
+        startTimeUtc: "2024-10-01T00:00:00.000Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "BBB",
+        homeScore: 120,
+        awayScore: 110,
+        status: "Final",
+        isRegularSeason: true,
+      },
+      {
+        gameId: 2,
+        startTimeUtc: "2024-10-02T00:00:00.000Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "CCC",
+        homeScore: 95,
+        awayScore: 101,
+        status: "Final",
+        isRegularSeason: true,
+      },
+    ];
+
+    const holder = computeCurrentHolder(games, "AAA");
+
+    expect(holder).toBe("CCC");
+  });
+
+  it("detects future holder games", () => {
+    const games = [
+      {
+        gameId: 3,
+        startTimeUtc: "2024-10-01T10:00:00.000Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "BBB",
+        homeScore: null,
+        awayScore: null,
+        status: "In Progress",
+        isRegularSeason: true,
+      },
+      {
+        gameId: 4,
+        startTimeUtc: "2024-10-02T10:00:00.000Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "CCC",
+        homeScore: null,
+        awayScore: null,
+        status: "Scheduled",
+        isRegularSeason: true,
+      },
+    ];
+
+    const hasFutureGame = hasFutureGameForHolder(
+      games,
+      "AAA",
+      "2024-10-01T12:00:00.000Z",
+    );
+
+    expect(hasFutureGame).toBe(true);
+  });
+
+  it("ignores postseason future games for holder checks", () => {
+    const games = [
+      {
+        gameId: 5,
+        startTimeUtc: "2024-10-02T10:00:00.000Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "DDD",
+        homeScore: null,
+        awayScore: null,
+        status: "Scheduled",
+        isRegularSeason: false,
+      },
+    ];
+
+    const hasFutureGame = hasFutureGameForHolder(
+      games,
+      "AAA",
+      "2024-10-01T12:00:00.000Z",
+    );
+
+    expect(hasFutureGame).toBe(false);
   });
 });
