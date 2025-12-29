@@ -51,7 +51,28 @@ try {
 
 <main class="page">
   <header class="hero">
-    <p class="eyebrow">NBA Championship Belt</p>
+    <div class="eyebrow-row">
+      <p class="eyebrow">NBA Championship Belt</p>
+      <button
+        class="theme-toggle js-theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+        title="Switch to dark mode"
+      >
+        <svg
+          class="theme-toggle__icon"
+          viewBox="0 0 9.19922 9.20508"
+          aria-hidden="true"
+        >
+          <g>
+            <rect height="9.20508" opacity="0" width="9.19922" x="0" y="0" />
+            <path d="M4.59961 1.03125C4.88672 1.03125 5.11523 0.802734 5.11523 0.515625C5.11523 0.228516 4.88672 0 4.59961 0C4.3125 0 4.08398 0.228516 4.08398 0.515625C4.08398 0.802734 4.3125 1.03125 4.59961 1.03125ZM7.48828 2.22656C7.77539 2.22656 8.00391 1.99805 8.00391 1.71094C8.00391 1.42383 7.77539 1.19531 7.48828 1.19531C7.20117 1.19531 6.97266 1.42383 6.97266 1.71094C6.97266 1.99805 7.20117 2.22656 7.48828 2.22656ZM8.68359 5.11523C8.9707 5.11523 9.19922 4.88672 9.19922 4.59961C9.19922 4.3125 8.9707 4.08398 8.68359 4.08398C8.39648 4.08398 8.16797 4.3125 8.16797 4.59961C8.16797 4.88672 8.39648 5.11523 8.68359 5.11523ZM7.48828 8.00391C7.77539 8.00391 8.00391 7.77539 8.00391 7.48828C8.00391 7.20117 7.77539 6.97266 7.48828 6.97266C7.20117 6.97266 6.97266 7.20117 6.97266 7.48828C6.97266 7.77539 7.20117 8.00391 7.48828 8.00391ZM4.59961 9.19922C4.88672 9.19922 5.11523 8.9707 5.11523 8.68359C5.11523 8.39648 4.88672 8.16797 4.59961 8.16797C4.3125 8.16797 4.08398 8.39648 4.08398 8.68359C4.08398 8.9707 4.3125 9.19922 4.59961 9.19922ZM1.71094 8.00391C1.99219 8.00391 2.22656 7.77539 2.22656 7.48828C2.22656 7.20117 1.99219 6.97266 1.71094 6.97266C1.42383 6.97266 1.19531 7.20117 1.19531 7.48828C1.19531 7.77539 1.42383 8.00391 1.71094 8.00391ZM0.515625 5.11523C0.802734 5.11523 1.03125 4.88672 1.03125 4.59961C1.03125 4.3125 0.802734 4.08398 0.515625 4.08398C0.228516 4.08398 0 4.3125 0 4.59961C0 4.88672 0.228516 5.11523 0.515625 5.11523ZM1.71094 2.22656C1.99219 2.22656 2.22656 1.99805 2.22656 1.71094C2.22656 1.42383 1.99219 1.19531 1.71094 1.19531C1.42383 1.19531 1.19531 1.42383 1.19531 1.71094C1.19531 1.99805 1.42383 2.22656 1.71094 2.22656Z" fill="currentColor" fill-opacity="0.85" />
+            <path d="M4.59961 6.98438C5.91797 6.98438 6.98438 5.91797 6.98438 4.59961C6.98438 3.28125 5.91797 2.21484 4.59961 2.21484C3.28125 2.21484 2.21484 3.28125 2.21484 4.59961C2.21484 5.91797 3.28125 6.98438 4.59961 6.98438ZM4.59961 6.19336C3.71484 6.19336 3.00586 5.47852 3.00586 4.59961C3.00586 3.7207 3.71484 3.00586 4.59961 3.00586C5.47852 3.00586 6.19336 3.7207 6.19336 4.59961C6.19336 5.47852 5.47852 6.19336 4.59961 6.19336Z" fill="currentColor" fill-opacity="0.85" />
+          </g>
+        </svg>
+      </button>
+    </div>
     <div class="rules-stack">
       <div class="rules-inline">
         <!-- <p class="rules-title">Rules</p> -->
@@ -260,13 +281,62 @@ try {
 
   applyHistoryArrowOffsets();
   window.addEventListener("resize", applyHistoryArrowOffsets);
+
+  const themeToggle = document.querySelector(".js-theme-toggle");
+  if (themeToggle) {
+    const root = document.body;
+    const storedTheme = localStorage.getItem("theme");
+    const normalizedTheme =
+      storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const applyTheme = (theme) => {
+      root.dataset.theme = theme;
+      themeToggle.setAttribute("aria-pressed", theme === "dark");
+      const label =
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("title", label);
+      localStorage.setItem("theme", theme);
+    };
+
+    applyTheme(normalizedTheme || (prefersDark ? "dark" : "light"));
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+    });
+  }
 </script>
 
 <style>
   :global(body) {
     font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    background: #f6f3ef;
-    color: #1e1b18;
+    background: var(--bg);
+    color: var(--text);
+    --bg: #f6f3ef;
+    --text: #1e1b18;
+    --muted: #61584f;
+    --card-bg: #ffffff;
+    --card-shadow: 0 12px 24px rgba(15, 12, 8, 0.08);
+    --card-shadow-soft: 0 8px 18px rgba(15, 12, 8, 0.08);
+    --logo-bg: #f0ede8;
+    --accent: #7b2f28;
+    --border: rgba(123, 47, 40, 0.3);
+    --border-soft: rgba(123, 47, 40, 0.16);
+  }
+
+  :global(body[data-theme="dark"]) {
+    --bg: #141311;
+    --text: #f3eee8;
+    --muted: #c9c0b6;
+    --card-bg: #1e1b18;
+    --card-shadow: 0 12px 24px rgba(0, 0, 0, 0.32);
+    --card-shadow-soft: 0 8px 18px rgba(0, 0, 0, 0.28);
+    --logo-bg: #2a2420;
+    --accent: #f0b28b;
+    --border: rgba(240, 178, 139, 0.4);
+    --border-soft: rgba(240, 178, 139, 0.2);
   }
 
   .page {
@@ -279,7 +349,47 @@ try {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 18px;
-    margin: 0 0 12px;
+    margin: 0;
+  }
+
+  .eyebrow-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    margin-bottom: -1px;
+  }
+
+  .theme-toggle__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .theme-toggle:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   h1,
@@ -300,10 +410,10 @@ try {
   .next-card,
   .error-card,
   .empty-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 12px 24px rgba(15, 12, 8, 0.08);
+    box-shadow: var(--card-shadow);
   }
 
   .hero-card {
@@ -315,7 +425,7 @@ try {
 
   .team-logo {
     border-radius: 16px;
-    background: #f0ede8;
+    background: var(--logo-bg);
     padding: 12px;
   }
 
@@ -329,7 +439,7 @@ try {
   .computed-at {
     font-style: italic;
     margin: 0;
-    color: #61584f;
+    color: var(--muted);
     padding-top: 6px;
     padding-left: 12px;
   }
@@ -363,7 +473,7 @@ try {
   .game-time,
   .game-status {
     margin: 0;
-    color: #61584f;
+    color: var(--muted);
   }
 
   .rules-stack {
@@ -377,13 +487,13 @@ try {
     letter-spacing: 0.12em;
     font-size: 12px;
     margin: 0 0 8px;
-    color: #7b2f28;
+    color: var(--accent);
   }
 
   .rules-list {
     margin: 0;
     padding-left: 18px;
-    color: #61584f;
+    color: var(--muted);
     font-size: 16px;
     line-height: 1.4;
     display: grid;
@@ -392,7 +502,7 @@ try {
 
   .rules-inline {
     padding: 10px 0 0;
-    border-top: 1px solid rgba(123, 47, 40, 0.16);
+    border-top: 1px solid var(--border-soft);
   }
 
   .hero-heading {
@@ -415,21 +525,21 @@ try {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 11px;
-    color: #7b2f28;
+    color: var(--accent);
   }
 
   .season-picker {
-    border: 1px solid rgba(123, 47, 40, 0.3);
+    border: 1px solid var(--border);
     border-radius: 999px;
     padding: 6px 12px;
-    background: #ffffff;
-    color: #1e1b18;
+    background: var(--card-bg);
+    color: var(--text);
     font-size: 14px;
   }
 
   .belt-rules {
     margin: 0;
-    color: #61584f;
+    color: var(--muted);
     font-size: 16px;
     line-height: 1.4;
   }
@@ -443,9 +553,9 @@ try {
     display: grid;
     gap: 8px;
     padding: 16px;
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(15, 12, 8, 0.08);
+    box-shadow: var(--card-shadow-soft);
   }
 
   .history-teams {
@@ -461,7 +571,7 @@ try {
 
   .history-score,
   .history-date {
-    color: #61584f;
+    color: var(--muted);
   }
 
   @media (max-width: 480px) {
@@ -522,3 +632,5 @@ try {
     }
   }
 </style>
+
+<!-- /var/folders/c2/76hfytf965zcj6499xv21qv00000gn/T/TemporaryItems/NSIRD_SF Symbols_Yiij2s/lightbulb.svg -->
