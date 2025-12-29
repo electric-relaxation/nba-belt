@@ -170,6 +170,20 @@ const normalizeValue = (value) => {
 
 const stableStringify = (value) => JSON.stringify(normalizeValue(value));
 
+const isFinalStatus = (status) => {
+  if (typeof status !== "string") {
+    return false;
+  }
+  return status.toLowerCase() === "final";
+};
+
+const shouldApplyUpdate = (existingGame, update) => {
+  if (!existingGame) {
+    return true;
+  }
+  return isFinalStatus(update?.status);
+};
+
 export const sortGamesByDateThenId = (games) => {
   return [...games].sort((a, b) => {
     const dateA = typeof a?.date === "string" ? a.date : "";
@@ -218,6 +232,9 @@ export const mergeGames = (existingGames, updates) => {
     if (!update) {
       return game;
     }
+    if (!shouldApplyUpdate(game, update)) {
+      return game;
+    }
     if (!hasChanges && stableStringify(game) !== stableStringify(update)) {
       hasChanges = true;
     }
@@ -226,6 +243,9 @@ export const mergeGames = (existingGames, updates) => {
 
   for (const game of updates) {
     if (!existingIds.has(game.id)) {
+      if (!shouldApplyUpdate(null, game)) {
+        continue;
+      }
       hasChanges = true;
       mergedGames.push(game);
     }
