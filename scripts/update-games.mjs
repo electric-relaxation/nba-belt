@@ -327,6 +327,34 @@ export const hasFutureGameForHolder = (games, holderAbbr, nowUtcIso) => {
   });
 };
 
+export const computeNextGameForHolder = (games, holderAbbr, nowUtcIso) => {
+  const nowMs = Date.parse(nowUtcIso);
+  const holderGames = games.filter(
+    (game) => game.homeTeamAbbr === holderAbbr || game.awayTeamAbbr === holderAbbr,
+  );
+  const inProgressGame =
+    holderGames
+      .filter(
+        (game) =>
+          isRegularSeasonGame(game) &&
+          Date.parse(game.startTimeUtc) <= nowMs &&
+          !isCompletedGame(game),
+      )
+      .slice()
+      .sort(byStartTimeThenId)[0] ?? null;
+  const nextGame =
+    inProgressGame ??
+    holderGames
+      .filter(
+        (game) =>
+          isRegularSeasonGame(game) && Date.parse(game.startTimeUtc) > nowMs,
+      )
+      .slice()
+      .sort(byStartTimeThenId)[0] ??
+    null;
+  return nextGame;
+};
+
 const shouldApplyUpdate = (existingGame, update) => {
   if (!existingGame) {
     return true;
@@ -438,9 +466,27 @@ const main = async () => {
   );
   const nowUtcIso = new Date().toISOString();
 
-  if (hasFutureGameForHolder(mappedExistingGames, currentHolderAbbr, nowUtcIso)) {
-    console.log("Future holder game already scheduled; skipping update.");
-    return;
+  const nextGame = computeNextGameForHolder(
+    mappedExistingGames,
+    currentHolderAbbr,
+    nowUtcIso,
+  );
+  if (nextGame) {
+    const nextGameDate = normalizeGameDate(nextGame.startTimeUtc);
+    const probeGames = await fetchProbeGames(season, apiKey, [nextGameDate]);
+    const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
+    if (probedNext) {
+      const existing = existingGames.find((game) => game?.id === nextGame.gameId);
+      if (isFinalStatus(probedNext.status)) {
+        if (existing && isFinalStatus(existing.status)) {
+          console.log("Next holder game already final; skipping update.");
+          return;
+        }
+      } else {
+        console.log("Next holder game not final; skipping update.");
+        return;
+      }
+    }
   }
 
   const { recentDates, extendedDates } = buildRecentDates();
