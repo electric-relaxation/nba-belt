@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2025-12-31T22:14:39.479Z",
+  "fetchedAtUtc": "2025-12-31T22:42:20.196Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -23966,14 +23966,14 @@
     {
       "date": "2025-12-31",
       "datetime": "2025-12-31T20:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 28,
+      "home_q2": 38,
+      "home_q3": 29,
+      "home_q4": 15,
       "home_team": {
         "abbreviation": "IND",
         "city": "Indiana",
@@ -23983,23 +23983,23 @@
         "id": 12,
         "name": "Pacers"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 110,
+      "home_timeouts_remaining": 1,
       "id": 18447278,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2025-12-31T20:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 31,
+      "visitor_q2": 37,
+      "visitor_q3": 26,
+      "visitor_q4": 18,
       "visitor_team": {
         "abbreviation": "ORL",
         "city": "Orlando",
@@ -24009,8 +24009,8 @@
         "id": 22,
         "name": "Magic"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 112,
+      "visitor_timeouts_remaining": 1
     },
     {
       "date": "2025-12-31",
