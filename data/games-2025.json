@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2025-12-31T20:42:20.532Z",
+  "fetchedAtUtc": "2025-12-31T22:14:39.479Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -23917,14 +23917,14 @@
     {
       "date": "2025-12-31",
       "datetime": "2025-12-31T20:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": false,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 33,
+      "home_q2": 37,
+      "home_q3": 28,
+      "home_q4": 28,
       "home_team": {
         "abbreviation": "ATL",
         "city": "Atlanta",
@@ -23934,23 +23934,23 @@
         "id": 1,
         "name": "Hawks"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 126,
+      "home_timeouts_remaining": 2,
       "id": 18447277,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2025-12-31T20:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 26,
+      "visitor_q2": 23,
+      "visitor_q3": 24,
+      "visitor_q4": 29,
       "visitor_team": {
         "abbreviation": "MIN",
         "city": "Minnesota",
@@ -23960,8 +23960,8 @@
         "id": 18,
         "name": "Timberwolves"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 102,
+      "visitor_timeouts_remaining": 2
     },
     {
       "date": "2025-12-31",
