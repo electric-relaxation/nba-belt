@@ -471,22 +471,28 @@ const main = async () => {
     currentHolderAbbr,
     nowUtcIso,
   );
-  if (nextGame) {
-    const nextGameDate = normalizeGameDate(nextGame.startTimeUtc);
-    const probeGames = await fetchProbeGames(season, apiKey, [nextGameDate]);
-    const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
-    if (probedNext) {
-      const existing = existingGames.find((game) => game?.id === nextGame.gameId);
-      if (isFinalStatus(probedNext.status)) {
-        if (existing && isFinalStatus(existing.status)) {
-          console.log("Next holder game already final; skipping update.");
-          return;
-        }
-      } else {
-        console.log("Next holder game not final; skipping update.");
-        return;
-      }
-    }
+  if (!nextGame) {
+    console.log("No next holder game found; skipping update.");
+    return;
+  }
+
+  const nextGameDate = normalizeGameDate(nextGame.startTimeUtc);
+  const probeGames = await fetchProbeGames(season, apiKey, [nextGameDate]);
+  const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
+  if (!probedNext) {
+    console.log("Next holder game not found in probe; skipping update.");
+    return;
+  }
+
+  if (!isFinalStatus(probedNext.status)) {
+    console.log("Next holder game not final; skipping update.");
+    return;
+  }
+
+  const existing = existingGames.find((game) => game?.id === nextGame.gameId);
+  if (existing && isFinalStatus(existing.status)) {
+    console.log("Next holder game already final; skipping update.");
+    return;
   }
 
   const { recentDates, extendedDates } = buildRecentDates();
