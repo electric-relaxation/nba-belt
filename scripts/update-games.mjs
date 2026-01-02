@@ -496,13 +496,13 @@ const main = async () => {
   }
 
   const { recentDates, extendedDates } = buildRecentDates();
-  const probeGames = await fetchProbeGames(season, apiKey, recentDates);
+  const recentProbeGames = await fetchProbeGames(season, apiKey, recentDates);
   const hasExistingRecentGames = existingGames.some((game) => {
     const gameDate = normalizeGameDate(game?.date);
     return gameDate && recentDates.includes(gameDate);
   });
 
-  if (probeGames.length === 0 && !hasExistingRecentGames) {
+  if (recentProbeGames.length === 0 && !hasExistingRecentGames) {
     console.log("No recent games; skipping update");
     return;
   }
