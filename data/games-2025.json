@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-02T04:14:16.258Z",
+  "fetchedAtUtc": "2026-01-02T05:23:32.089Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -24456,14 +24456,14 @@
     {
       "date": "2026-01-01",
       "datetime": "2026-01-02T03:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 29,
+      "home_q2": 32,
+      "home_q3": 27,
+      "home_q4": 18,
       "home_team": {
         "abbreviation": "SAC",
         "city": "Sacramento",
@@ -24473,23 +24473,23 @@
         "id": 26,
         "name": "Kings"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 106,
+      "home_timeouts_remaining": 1,
       "id": 18447288,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-02T03:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 28,
+      "visitor_q2": 34,
+      "visitor_q3": 26,
+      "visitor_q4": 32,
       "visitor_team": {
         "abbreviation": "BOS",
         "city": "Boston",
@@ -24499,8 +24499,8 @@
         "id": 2,
         "name": "Celtics"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 120,
+      "visitor_timeouts_remaining": 1
     },
     {
       "date": "2026-01-01",
