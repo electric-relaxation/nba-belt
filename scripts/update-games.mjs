@@ -64,6 +64,15 @@ const normalizeGameDate = (value) => {
   return value.slice(0, 10);
 };
 
+const buildProbeDatesForNextGame = (startTimeUtc) => {
+  const primary = normalizeGameDate(startTimeUtc);
+  if (!primary) {
+    return [];
+  }
+  const previous = formatDate(addDays(new Date(`${primary}T00:00:00.000Z`), -1));
+  return Array.from(new Set([primary, previous]));
+};
+
 const readStartingHolders = async () => {
   let raw = "";
   try {
@@ -186,6 +195,7 @@ const fetchGamesForDates = async (season, apiKey, dates) => {
 
 const fetchProbeGames = async (season, apiKey, dates) => {
   const url = buildUrl(season, dates, null);
+  console.log(`url: ${url}`);
   const response = await fetchWithBackoff(url, apiKey);
 
   if (!response.ok) {
@@ -475,9 +485,14 @@ const main = async () => {
     console.log("No next holder game found; skipping update.");
     return;
   }
+  
+  console.log(`Next game teams: ${nextGame.awayTeamAbbr} vs ${nextGame.homeTeamAbbr}`);
+  console.log(`Next game date: ${nextGame.startTimeUtc}`);
 
-  const nextGameDate = normalizeGameDate(nextGame.startTimeUtc);
-  const probeGames = await fetchProbeGames(season, apiKey, [nextGameDate]);
+  const nextGameDates = buildProbeDatesForNextGame(nextGame.startTimeUtc);
+  const probeGames = await fetchProbeGames(season, apiKey, nextGameDates);
+  probeGames.map( (game) => { console.log(`${game.visitor_team.abbreviation} vs ${game.home_team.abbreviation}`) } );
+
   const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
   if (!probedNext) {
     console.log("Next holder game not found in probe; skipping update.");
