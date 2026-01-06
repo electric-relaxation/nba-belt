@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-06T05:21:05.901Z",
+  "fetchedAtUtc": "2026-01-06T05:46:51.530Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -26122,14 +26122,14 @@
     {
       "date": "2026-01-05",
       "datetime": "2026-01-06T03:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 31,
+      "home_q2": 24,
+      "home_q3": 21,
+      "home_q4": 27,
       "home_team": {
         "abbreviation": "LAC",
         "city": "LA",
@@ -26139,23 +26139,23 @@
         "id": 13,
         "name": "Clippers"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 103,
+      "home_timeouts_remaining": 0,
       "id": 18447322,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-06T03:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 19,
+      "visitor_q2": 32,
+      "visitor_q3": 13,
+      "visitor_q4": 38,
       "visitor_team": {
         "abbreviation": "GSW",
         "city": "Golden State",
@@ -26165,8 +26165,8 @@
         "id": 10,
         "name": "Warriors"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 102,
+      "visitor_timeouts_remaining": 0
     },
     {
       "date": "2026-01-05",
