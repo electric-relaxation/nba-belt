@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-14T04:32:08.594Z",
+  "fetchedAtUtc": "2026-01-14T06:25:22.630Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -29111,14 +29111,14 @@
     {
       "date": "2026-01-13",
       "datetime": "2026-01-14T03:30:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 37,
+      "home_q2": 44,
+      "home_q3": 21,
+      "home_q4": 39,
       "home_team": {
         "abbreviation": "LAL",
         "city": "Los Angeles",
@@ -29128,23 +29128,23 @@
         "id": 14,
         "name": "Lakers"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 141,
+      "home_timeouts_remaining": 2,
       "id": 18447383,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-14T03:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 30,
+      "visitor_q2": 30,
+      "visitor_q3": 26,
+      "visitor_q4": 30,
       "visitor_team": {
         "abbreviation": "ATL",
         "city": "Atlanta",
@@ -29154,8 +29154,8 @@
         "id": 1,
         "name": "Hawks"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 116,
+      "visitor_timeouts_remaining": 2
     },
     {
       "date": "2026-01-13",
