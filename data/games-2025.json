@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-19T04:35:05.270Z",
+  "fetchedAtUtc": "2026-01-19T05:26:49.091Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -30973,14 +30973,14 @@
     {
       "date": "2026-01-18",
       "datetime": "2026-01-19T02:30:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 23,
+      "home_q2": 32,
+      "home_q3": 32,
+      "home_q4": 23,
       "home_team": {
         "abbreviation": "LAL",
         "city": "Los Angeles",
@@ -30990,23 +30990,23 @@
         "id": 14,
         "name": "Lakers"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 110,
+      "home_timeouts_remaining": 2,
       "id": 18447421,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-19T02:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 30,
+      "visitor_q2": 24,
+      "visitor_q3": 26,
+      "visitor_q4": 13,
       "visitor_team": {
         "abbreviation": "TOR",
         "city": "Toronto",
@@ -31016,8 +31016,8 @@
         "id": 28,
         "name": "Raptors"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 93,
+      "visitor_timeouts_remaining": 1
     },
     {
       "date": "2026-01-19",
