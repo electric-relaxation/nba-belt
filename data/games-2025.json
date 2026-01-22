@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-22T04:32:01.558Z",
+  "fetchedAtUtc": "2026-01-22T05:23:06.265Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -32051,14 +32051,14 @@
     {
       "date": "2026-01-21",
       "datetime": "2026-01-22T02:30:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": false,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 18,
+      "home_q2": 33,
+      "home_q3": 26,
+      "home_q4": 25,
       "home_team": {
         "abbreviation": "MIL",
         "city": "Milwaukee",
@@ -32068,23 +32068,23 @@
         "id": 17,
         "name": "Bucks"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 102,
+      "home_timeouts_remaining": 2,
       "id": 18447443,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-22T02:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": false,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 38,
+      "visitor_q2": 31,
+      "visitor_q3": 30,
+      "visitor_q4": 23,
       "visitor_team": {
         "abbreviation": "OKC",
         "city": "Oklahoma City",
@@ -32094,8 +32094,8 @@
         "id": 21,
         "name": "Thunder"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 122,
+      "visitor_timeouts_remaining": 2
     },
     {
       "date": "2026-01-21",
