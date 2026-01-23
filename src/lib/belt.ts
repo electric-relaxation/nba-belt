@@ -31,14 +31,53 @@ export type BeltResult = {
 
 const completedStatuses = new Set(["final", "completed"]);
 
+const normalizeStatus = (status: string): string => status.trim().toLowerCase();
+
+const isCompletedStatus = (status: string): boolean => {
+  const normalized = normalizeStatus(status);
+  if (!normalized) {
+    return false;
+  }
+  if (completedStatuses.has(normalized)) {
+    return true;
+  }
+  return normalized.startsWith("final") || normalized.startsWith("completed");
+};
+
+const isInProgressStatus = (status: string): boolean => {
+  const normalized = normalizeStatus(status);
+  if (!normalized || isCompletedStatus(normalized)) {
+    return false;
+  }
+  if (normalized.includes("in progress") || normalized.includes("live")) {
+    return true;
+  }
+  if (normalized.includes("halftime") || normalized.includes("half time")) {
+    return true;
+  }
+  if (normalized.includes("end of")) {
+    return true;
+  }
+  if (normalized.includes("quarter") || /\bq[1-4]\b/.test(normalized)) {
+    return true;
+  }
+  if (normalized.includes("overtime") || /\bot\b/.test(normalized)) {
+    return true;
+  }
+  return false;
+};
+
 const isCompletedGame = (game: BeltGame): boolean => {
   if (game.status) {
-    return completedStatuses.has(game.status.toLowerCase());
+    return isCompletedStatus(game.status);
   }
   return typeof game.homeScore === "number" && typeof game.awayScore === "number";
 };
 
 const isRegularSeasonGame = (game: BeltGame): boolean => game.isRegularSeason !== false;
+
+const isInProgressGame = (game: BeltGame): boolean =>
+  !isCompletedGame(game) && isInProgressStatus(game.status ?? "");
 
 const byStartTimeThenId = (a: BeltGame, b: BeltGame): number => {
   const timeDiff = Date.parse(a.startTimeUtc) - Date.parse(b.startTimeUtc);
@@ -99,7 +138,7 @@ export const computeBelt = (
   const inProgressGame =
     holderGames
       .filter(
-        (game) => Date.parse(game.startTimeUtc) <= nowMs && !isCompletedGame(game),
+        (game) => Date.parse(game.startTimeUtc) <= nowMs && isInProgressGame(game),
       )
       .slice()
       .sort(byStartTimeThenId)[0] ?? null;

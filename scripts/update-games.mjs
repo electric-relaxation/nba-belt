@@ -231,18 +231,53 @@ const stableStringify = (value) => JSON.stringify(normalizeValue(value));
 
 const completedStatuses = new Set(["final", "completed"]);
 
-const isCompletedStatus = (status) => {
+const normalizeStatus = (status) => {
   if (typeof status !== "string") {
+    return "";
+  }
+  return status.trim().toLowerCase();
+};
+
+const isCompletedStatus = (status) => {
+  const normalized = normalizeStatus(status);
+  if (!normalized) {
     return false;
   }
-  return completedStatuses.has(status.toLowerCase());
+  if (completedStatuses.has(normalized)) {
+    return true;
+  }
+  return normalized.startsWith("final") || normalized.startsWith("completed");
 };
 
 const isFinalStatus = (status) => {
-  if (typeof status !== "string") {
+  const normalized = normalizeStatus(status);
+  if (!normalized) {
     return false;
   }
-  return status.toLowerCase() === "final";
+  return normalized === "final" || normalized.startsWith("final");
+};
+
+const isInProgressStatus = (status) => {
+  const normalized = normalizeStatus(status);
+  if (!normalized || isCompletedStatus(normalized)) {
+    return false;
+  }
+  if (normalized.includes("in progress") || normalized.includes("live")) {
+    return true;
+  }
+  if (normalized.includes("halftime") || normalized.includes("half time")) {
+    return true;
+  }
+  if (normalized.includes("end of")) {
+    return true;
+  }
+  if (normalized.includes("quarter") || /\bq[1-4]\b/.test(normalized)) {
+    return true;
+  }
+  if (normalized.includes("overtime") || /\bot\b/.test(normalized)) {
+    return true;
+  }
+  return false;
 };
 
 const ensureDateIso = (value) => {
@@ -284,6 +319,9 @@ const isCompletedGame = (game) => {
 };
 
 const isRegularSeasonGame = (game) => game.isRegularSeason !== false;
+
+const isInProgressGame = (game) =>
+  !isCompletedGame(game) && isInProgressStatus(game.status ?? "");
 
 const byStartTimeThenId = (a, b) => {
   const timeDiff = Date.parse(a.startTimeUtc) - Date.parse(b.startTimeUtc);
@@ -348,7 +386,7 @@ export const computeNextGameForHolder = (games, holderAbbr, nowUtcIso) => {
         (game) =>
           isRegularSeasonGame(game) &&
           Date.parse(game.startTimeUtc) <= nowMs &&
-          !isCompletedGame(game),
+          isInProgressGame(game),
       )
       .slice()
       .sort(byStartTimeThenId)[0] ?? null;

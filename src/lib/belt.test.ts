@@ -114,4 +114,33 @@ describe("computeBelt", () => {
     expect(result.currentHolderAbbr).toBe("BBB");
     expect(result.nextGame?.gameId).toBe("2");
   });
+
+  it("ignores stale scheduled games when selecting the next game", () => {
+    const games: BeltGame[] = [
+      {
+        gameId: "1",
+        startTimeUtc: "2025-12-30T03:30:00Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "BBB",
+        homeScore: null,
+        awayScore: null,
+        status: "2025-12-30T03:30:00Z",
+        isRegularSeason: true,
+      },
+      {
+        gameId: "2",
+        startTimeUtc: "2026-01-02T02:00:00Z",
+        homeTeamAbbr: "AAA",
+        awayTeamAbbr: "CCC",
+        homeScore: null,
+        awayScore: null,
+        status: "Scheduled",
+        isRegularSeason: true,
+      },
+    ];
+
+    const result = computeBelt(games, "AAA", "2026-01-01T00:00:00Z");
+
+    expect(result.nextGame?.gameId).toBe("2");
+  });
 });

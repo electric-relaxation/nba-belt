@@ -147,11 +147,21 @@ const normalizeScore = (value: number | null | undefined): number | null => {
   return value;
 };
 
+const isCompletedStatus = (status: string): boolean => {
+  const normalized = status.trim().toLowerCase();
+  if (!normalized) {
+    return false;
+  }
+  return normalized === "final" ||
+    normalized === "completed" ||
+    normalized.startsWith("final") ||
+    normalized.startsWith("completed");
+};
+
 const mapApiGame = (game: BallDontLieGame): BeltGame => {
   const status = game.status ?? "";
   const startTimeSource = game.datetime ?? game.date;
-  const isCompleted =
-    status.toLowerCase() === "final" || status.toLowerCase() === "completed";
+  const isCompleted = isCompletedStatus(status);
   return {
     gameId: game.id,
     startTimeUtc: ensureDateIso(startTimeSource),
