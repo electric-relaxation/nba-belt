@@ -533,19 +533,14 @@ const main = async () => {
 
   const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
   if (!probedNext) {
-    console.log("Next holder game not found in probe; skipping update.");
-    return;
-  }
-
-  if (!isFinalStatus(probedNext.status)) {
-    console.log("Next holder game not final; skipping update.");
-    return;
-  }
-
-  const existing = existingGames.find((game) => game?.id === nextGame.gameId);
-  if (existing && isFinalStatus(existing.status)) {
-    console.log("Next holder game already final; skipping update.");
-    return;
+    console.log("Next holder game not found in probe; continuing with recent updates.");
+  } else if (!isFinalStatus(probedNext.status)) {
+    console.log("Next holder game not final; continuing with recent updates.");
+  } else {
+    const existing = existingGames.find((game) => game?.id === nextGame.gameId);
+    if (existing && isFinalStatus(existing.status)) {
+      console.log("Next holder game already final; continuing with recent updates.");
+    }
   }
 
   const { recentDates, extendedDates } = buildRecentDates();
