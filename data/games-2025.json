@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-24T19:35:37.953Z",
+  "fetchedAtUtc": "2026-01-24T23:14:23.221Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -32933,14 +32933,14 @@
     {
       "date": "2026-01-24",
       "datetime": "2026-01-24T20:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 34,
+      "home_q2": 30,
+      "home_q3": 13,
+      "home_q4": 32,
       "home_team": {
         "abbreviation": "PHI",
         "city": "Philadelphia",
@@ -32950,23 +32950,23 @@
         "id": 23,
         "name": "76ers"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 109,
+      "home_timeouts_remaining": 0,
       "id": 18447461,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-24T20:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 34,
+      "visitor_q2": 26,
+      "visitor_q3": 30,
+      "visitor_q4": 22,
       "visitor_team": {
         "abbreviation": "NYK",
         "city": "New York",
@@ -32976,8 +32976,8 @@
         "id": 20,
         "name": "Knicks"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 112,
+      "visitor_timeouts_remaining": 0
     },
     {
       "date": "2026-01-24",
