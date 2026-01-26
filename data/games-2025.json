@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-26T04:40:30.383Z",
+  "fetchedAtUtc": "2026-01-26T21:17:40.858Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -33728,15 +33728,15 @@
     },
     {
       "date": "2026-01-26",
-      "datetime": "2026-01-27T00:30:00.000Z",
-      "home_in_bonus": null,
+      "datetime": "2026-01-26T18:30:00.000Z",
+      "home_in_bonus": false,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 34,
+      "home_q2": 26,
+      "home_q3": 35,
+      "home_q4": 37,
       "home_team": {
         "abbreviation": "ATL",
         "city": "Atlanta",
@@ -33746,23 +33746,24 @@
         "id": 1,
         "name": "Hawks"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 132,
+      "home_timeouts_remaining": 2,
       "id": 18447477,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
+      "postponed": false,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-27T00:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 38,
+      "visitor_q2": 26,
+      "visitor_q3": 28,
+      "visitor_q4": 24,
       "visitor_team": {
         "abbreviation": "IND",
         "city": "Indiana",
@@ -33772,8 +33773,8 @@
         "id": 12,
         "name": "Pacers"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 116,
+      "visitor_timeouts_remaining": 0
     },
     {
       "date": "2026-01-26",
