@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-29T05:02:10.175Z",
+  "fetchedAtUtc": "2026-01-29T06:04:03.641Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -34731,14 +34731,14 @@
     {
       "date": "2026-01-28",
       "datetime": "2026-01-29T02:30:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 36,
+      "home_q2": 26,
+      "home_q3": 24,
+      "home_q4": 13,
       "home_team": {
         "abbreviation": "HOU",
         "city": "Houston",
@@ -34748,23 +34748,24 @@
         "id": 11,
         "name": "Rockets"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 99,
+      "home_timeouts_remaining": 1,
       "id": 18447497,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
+      "postponed": false,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-29T02:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 26,
+      "visitor_q2": 28,
+      "visitor_q3": 30,
+      "visitor_q4": 27,
       "visitor_team": {
         "abbreviation": "SAS",
         "city": "San Antonio",
@@ -34774,8 +34775,8 @@
         "id": 27,
         "name": "Spurs"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 111,
+      "visitor_timeouts_remaining": 2
     },
     {
       "date": "2026-01-29",
