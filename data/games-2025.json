@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-01-31T04:58:04.053Z",
+  "fetchedAtUtc": "2026-01-31T06:29:27.134Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -35532,14 +35532,14 @@
     {
       "date": "2026-01-30",
       "datetime": "2026-01-31T03:00:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": true,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 37,
+      "home_q2": 27,
+      "home_q3": 31,
+      "home_q4": 29,
       "home_team": {
         "abbreviation": "GSW",
         "city": "Golden State",
@@ -35549,23 +35549,24 @@
         "id": 10,
         "name": "Warriors"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 124,
+      "home_timeouts_remaining": 1,
       "id": 18447514,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
+      "postponed": false,
       "postseason": false,
       "season": 2025,
-      "status": "2026-01-31T03:00:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 45,
+      "visitor_q2": 32,
+      "visitor_q3": 31,
+      "visitor_q4": 23,
       "visitor_team": {
         "abbreviation": "DET",
         "city": "Detroit",
@@ -35575,8 +35576,8 @@
         "id": 9,
         "name": "Pistons"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 131,
+      "visitor_timeouts_remaining": 1
     },
     {
       "date": "2026-01-31",
