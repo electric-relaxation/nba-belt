@@ -195,7 +195,6 @@ const fetchGamesForDates = async (season, apiKey, dates) => {
 
 const fetchProbeGames = async (season, apiKey, dates) => {
   const url = buildUrl(season, dates, null);
-  console.log(`url: ${url}`);
   const response = await fetchWithBackoff(url, apiKey);
 
   if (!response.ok) {
@@ -480,6 +479,80 @@ export const mergeGames = (existingGames, updates) => {
   return { mergedGames, hasChanges };
 };
 
+export const updateGamesData = async ({
+  season,
+  existingGames,
+  startingHolderAbbr,
+  nowUtcIso,
+  fetchProbeGamesFn,
+  fetchGamesForDatesFn,
+  logger = console,
+}) => {
+  const mappedExistingGames = existingGames.map(mapApiGame);
+  const currentHolderAbbr = computeCurrentHolder(
+    mappedExistingGames,
+    startingHolderAbbr,
+  );
+  const nextGame = computeNextGameForHolder(
+    mappedExistingGames,
+    currentHolderAbbr,
+    nowUtcIso,
+  );
+
+  if (!nextGame) {
+    logger.log(
+      "No next holder game found in existing data; continuing with recent-date refresh.",
+    );
+  } else {
+    logger.log(`Next game teams: ${nextGame.awayTeamAbbr} vs ${nextGame.homeTeamAbbr}`);
+    logger.log(`Next game date: ${nextGame.startTimeUtc}`);
+
+    const nextGameDates = buildProbeDatesForNextGame(nextGame.startTimeUtc);
+    const probeGames = await fetchProbeGamesFn(season, nextGameDates);
+    const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
+    if (!probedNext) {
+      logger.log("Next holder game not found in probe; continuing with recent updates.");
+    } else if (!isFinalStatus(probedNext.status)) {
+      logger.log("Next holder game not final; continuing with recent updates.");
+    } else {
+      const existing = existingGames.find((game) => game?.id === nextGame.gameId);
+      if (existing && isFinalStatus(existing.status)) {
+        logger.log("Next holder game already final; continuing with recent updates.");
+      }
+    }
+  }
+
+  const { recentDates, extendedDates } = buildRecentDates(new Date(nowUtcIso));
+  const recentProbeGames = await fetchProbeGamesFn(season, recentDates);
+  const hasExistingRecentGames = existingGames.some((game) => {
+    const gameDate = normalizeGameDate(game?.date);
+    return gameDate && recentDates.includes(gameDate);
+  });
+
+  if (recentProbeGames.length === 0 && !hasExistingRecentGames) {
+    logger.log("No recent games; skipping update");
+    return { changed: false, reason: "no_recent_games" };
+  }
+
+  const updates = await fetchGamesForDatesFn(season, extendedDates);
+  const { mergedGames } = mergeGames(existingGames, updates);
+  const sortedMergedGames = sortGamesByDateThenId(mergedGames);
+  const sortedExistingGames = sortGamesByDateThenId(existingGames);
+  const gamesChanged =
+    stableStringify(sortedMergedGames) !== stableStringify(sortedExistingGames);
+
+  if (!gamesChanged) {
+    logger.log("No new game data found; leaving file unchanged.");
+    return { changed: false, reason: "no_changes" };
+  }
+
+  return {
+    changed: true,
+    mergedGames: sortedMergedGames,
+    updatesCount: updates.length,
+  };
+};
+
 const main = async () => {
   const season = parseSeasonArg();
   const apiKey = getApiKey();
@@ -507,74 +580,30 @@ const main = async () => {
 
   const existingGames = existingPayload.games;
   const startingHolderAbbr = await getStartingHolderAbbr(season);
-  const mappedExistingGames = existingGames.map(mapApiGame);
-  const currentHolderAbbr = computeCurrentHolder(
-    mappedExistingGames,
-    startingHolderAbbr,
-  );
   const nowUtcIso = new Date().toISOString();
-
-  const nextGame = computeNextGameForHolder(
-    mappedExistingGames,
-    currentHolderAbbr,
+  const result = await updateGamesData({
+    season,
+    existingGames,
+    startingHolderAbbr,
     nowUtcIso,
-  );
-  if (!nextGame) {
-    console.log("No next holder game found; skipping update.");
-    return;
-  }
-  
-  console.log(`Next game teams: ${nextGame.awayTeamAbbr} vs ${nextGame.homeTeamAbbr}`);
-  console.log(`Next game date: ${nextGame.startTimeUtc}`);
-
-  const nextGameDates = buildProbeDatesForNextGame(nextGame.startTimeUtc);
-  const probeGames = await fetchProbeGames(season, apiKey, nextGameDates);
-  probeGames.map( (game) => { console.log(`${game.visitor_team.abbreviation} vs ${game.home_team.abbreviation}`) } );
-
-  const probedNext = probeGames.find((game) => game?.id === nextGame.gameId);
-  if (!probedNext) {
-    console.log("Next holder game not found in probe; continuing with recent updates.");
-  } else if (!isFinalStatus(probedNext.status)) {
-    console.log("Next holder game not final; continuing with recent updates.");
-  } else {
-    const existing = existingGames.find((game) => game?.id === nextGame.gameId);
-    if (existing && isFinalStatus(existing.status)) {
-      console.log("Next holder game already final; continuing with recent updates.");
-    }
-  }
-
-  const { recentDates, extendedDates } = buildRecentDates();
-  const recentProbeGames = await fetchProbeGames(season, apiKey, recentDates);
-  const hasExistingRecentGames = existingGames.some((game) => {
-    const gameDate = normalizeGameDate(game?.date);
-    return gameDate && recentDates.includes(gameDate);
+    fetchProbeGamesFn: (targetSeason, dates) =>
+      fetchProbeGames(targetSeason, apiKey, dates),
+    fetchGamesForDatesFn: (targetSeason, dates) =>
+      fetchGamesForDates(targetSeason, apiKey, dates),
   });
 
-  if (recentProbeGames.length === 0 && !hasExistingRecentGames) {
-    console.log("No recent games; skipping update");
-    return;
-  }
-
-  const updates = await fetchGamesForDates(season, apiKey, extendedDates);
-  const { mergedGames } = mergeGames(existingGames, updates);
-  const sortedMergedGames = sortGamesByDateThenId(mergedGames);
-  const sortedExistingGames = sortGamesByDateThenId(existingGames);
-  const gamesChanged =
-    stableStringify(sortedMergedGames) !== stableStringify(sortedExistingGames);
-
-  if (!gamesChanged) {
-    console.log("No new game data found; leaving file unchanged.");
+  if (!result.changed) {
     return;
   }
 
   const output = serializeGamesPayload(
     season,
     new Date().toISOString(),
-    sortedMergedGames,
+    result.mergedGames,
   );
 
   await fs.writeFile(filePath, output);
-  console.log(`Merged ${updates.length} games into ${filePath}`);
+  console.log(`Merged ${result.updatesCount} games into ${filePath}`);
 };
 
 const isMain = () => {

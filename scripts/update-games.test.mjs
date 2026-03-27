@@ -1,10 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   computeCurrentHolder,
   hasFutureGameForHolder,
   mergeGames,
   serializeGamesPayload,
   sortGamesByDateThenId,
+  updateGamesData,
 } from "./update-games.mjs";
 
 describe("mergeGames", () => {
@@ -225,5 +226,88 @@ describe("current holder checks", () => {
     );
 
     expect(hasFutureGame).toBe(false);
+  });
+});
+
+describe("updateGamesData", () => {
+  it("keeps refreshing when the current holder has no future game in stored data", async () => {
+    const existingGames = [
+      {
+        id: 1,
+        date: "2026-03-20",
+        datetime: "2026-03-20T23:00:00.000Z",
+        status: "Final",
+        postseason: false,
+        home_team_score: 110,
+        visitor_team_score: 100,
+        home_team: { abbreviation: "AAA" },
+        visitor_team: { abbreviation: "CCC" },
+      },
+      {
+        id: 2,
+        date: "2026-03-25",
+        datetime: "2026-03-26T00:00:00.000Z",
+        status: "Final",
+        postseason: false,
+        home_team_score: 95,
+        visitor_team_score: 100,
+        home_team: { abbreviation: "AAA" },
+        visitor_team: { abbreviation: "BBB" },
+      },
+    ];
+    const recentProbeGames = [
+      {
+        id: 3,
+        date: "2026-03-26",
+        datetime: "2026-03-26T23:00:00.000Z",
+        status: "Final",
+        postseason: false,
+        home_team_score: 101,
+        visitor_team_score: 99,
+        home_team: { abbreviation: "DDD" },
+        visitor_team: { abbreviation: "EEE" },
+      },
+    ];
+    const fetchedUpdates = [
+      {
+        id: 4,
+        date: "2026-04-02",
+        datetime: "2026-04-03T00:00:00.000Z",
+        status: "2026-04-03T00:00:00Z",
+        postseason: false,
+        home_team_score: 0,
+        visitor_team_score: 0,
+        home_team: { abbreviation: "BBB" },
+        visitor_team: { abbreviation: "FFF" },
+      },
+    ];
+
+    const fetchProbeGamesFn = vi.fn(async () => recentProbeGames);
+    const fetchGamesForDatesFn = vi.fn(async () => fetchedUpdates);
+
+    const result = await updateGamesData({
+      season: 2025,
+      existingGames,
+      startingHolderAbbr: "AAA",
+      nowUtcIso: "2026-03-27T12:00:00.000Z",
+      fetchProbeGamesFn,
+      fetchGamesForDatesFn,
+      logger: { log: () => {} },
+    });
+
+    expect(fetchProbeGamesFn).toHaveBeenCalledTimes(1);
+    expect(fetchGamesForDatesFn).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({
+      changed: true,
+      updatesCount: 1,
+    });
+    expect(result.mergedGames).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 4,
+          home_team: { abbreviation: "BBB" },
+        }),
+      ]),
+    );
   });
 });
