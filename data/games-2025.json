@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-04-13T03:34:37.840Z",
+  "fetchedAtUtc": "2026-04-15T03:45:30.863Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -61505,14 +61505,14 @@
     {
       "date": "2026-04-14",
       "datetime": "2026-04-14T23:30:00.000Z",
-      "home_in_bonus": null,
-      "home_ot1": null,
+      "home_in_bonus": false,
+      "home_ot1": 13,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 26,
+      "home_q2": 26,
+      "home_q3": 37,
+      "home_q4": 25,
       "home_team": {
         "abbreviation": "CHA",
         "city": "Charlotte",
@@ -61522,24 +61522,24 @@
         "id": 4,
         "name": "Hornets"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 127,
+      "home_timeouts_remaining": 0,
       "id": 21681576,
       "ist_stage": null,
-      "period": 0,
+      "period": 5,
       "postponed": false,
       "postseason": false,
       "season": 2025,
-      "status": "2026-04-14T23:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
-      "visitor_ot1": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
+      "visitor_ot1": 12,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 24,
+      "visitor_q2": 30,
+      "visitor_q3": 29,
+      "visitor_q4": 31,
       "visitor_team": {
         "abbreviation": "MIA",
         "city": "Miami",
@@ -61549,8 +61549,8 @@
         "id": 16,
         "name": "Heat"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 126,
+      "visitor_timeouts_remaining": 0
     },
     {
       "date": "2026-04-14",
