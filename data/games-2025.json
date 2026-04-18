@@ -1,6 +1,6 @@
 {
   "season": 2025,
-  "fetchedAtUtc": "2026-04-16T05:57:19.309Z",
+  "fetchedAtUtc": "2026-04-18T04:26:53.785Z",
   "games": [
     {
       "date": "2025-10-21",
@@ -61705,14 +61705,14 @@
     {
       "date": "2026-04-17",
       "datetime": "2026-04-17T23:30:00.000Z",
-      "home_in_bonus": null,
+      "home_in_bonus": false,
       "home_ot1": null,
       "home_ot2": null,
       "home_ot3": null,
-      "home_q1": null,
-      "home_q2": null,
-      "home_q3": null,
-      "home_q4": null,
+      "home_q1": 38,
+      "home_q2": 30,
+      "home_q3": 34,
+      "home_q4": 19,
       "home_team": {
         "abbreviation": "ORL",
         "city": "Orlando",
@@ -61722,24 +61722,24 @@
         "id": 22,
         "name": "Magic"
       },
-      "home_team_score": 0,
-      "home_timeouts_remaining": null,
+      "home_team_score": 121,
+      "home_timeouts_remaining": 2,
       "id": 21682706,
       "ist_stage": null,
-      "period": 0,
+      "period": 4,
       "postponed": false,
       "postseason": false,
       "season": 2025,
-      "status": "2026-04-17T23:30:00Z",
-      "time": null,
-      "visitor_in_bonus": null,
+      "status": "Final",
+      "time": "Final",
+      "visitor_in_bonus": true,
       "visitor_ot1": null,
       "visitor_ot2": null,
       "visitor_ot3": null,
-      "visitor_q1": null,
-      "visitor_q2": null,
-      "visitor_q3": null,
-      "visitor_q4": null,
+      "visitor_q1": 16,
+      "visitor_q2": 21,
+      "visitor_q3": 34,
+      "visitor_q4": 19,
       "visitor_team": {
         "abbreviation": "CHA",
         "city": "Charlotte",
@@ -61749,8 +61749,8 @@
         "id": 4,
         "name": "Hornets"
       },
-      "visitor_team_score": 0,
-      "visitor_timeouts_remaining": null
+      "visitor_team_score": 90,
+      "visitor_timeouts_remaining": 2
     },
     {
       "date": "2026-04-17",
