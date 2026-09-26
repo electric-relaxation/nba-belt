@@ -1,0 +1,405 @@
+{
+  "season": 2025,
+  "status": "final",
+  "startingHolder": "OKC",
+  "holder": "CHA",
+  "defenses": 0,
+  "transfers": [
+    {
+      "gameId": "401810035",
+      "date": "2025-11-06T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 121
+      },
+      "away": {
+        "team": "OKC",
+        "score": 119
+      },
+      "from": "OKC",
+      "to": "POR"
+    },
+    {
+      "gameId": "401810042",
+      "date": "2025-11-09T01:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 136
+      },
+      "away": {
+        "team": "POR",
+        "score": 131
+      },
+      "from": "POR",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401810072",
+      "date": "2025-11-13T00:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 116
+      },
+      "away": {
+        "team": "CLE",
+        "score": 130
+      },
+      "from": "MIA",
+      "to": "CLE"
+    },
+    {
+      "gameId": "401810080",
+      "date": "2025-11-14T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 113
+      },
+      "away": {
+        "team": "TOR",
+        "score": 126
+      },
+      "from": "CLE",
+      "to": "TOR"
+    },
+    {
+      "gameId": "401810149",
+      "date": "2025-11-29T23:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 118
+      },
+      "away": {
+        "team": "TOR",
+        "score": 111
+      },
+      "from": "TOR",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401810167",
+      "date": "2025-12-02T00:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 116
+      },
+      "away": {
+        "team": "CHA",
+        "score": 103
+      },
+      "from": "CHA",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401810190",
+      "date": "2025-12-05T00:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 110
+      },
+      "away": {
+        "team": "UTA",
+        "score": 123
+      },
+      "from": "BKN",
+      "to": "UTA"
+    },
+    {
+      "gameId": "401810198",
+      "date": "2025-12-06T00:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 146
+      },
+      "away": {
+        "team": "UTA",
+        "score": 112
+      },
+      "from": "UTA",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401810237",
+      "date": "2025-12-20T00:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 107
+      },
+      "away": {
+        "team": "PHI",
+        "score": 116
+      },
+      "from": "NYK",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401810265",
+      "date": "2025-12-24T00:00:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 106
+      },
+      "away": {
+        "team": "BKN",
+        "score": 114
+      },
+      "from": "PHI",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401810304",
+      "date": "2025-12-30T00:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 107
+      },
+      "away": {
+        "team": "GSW",
+        "score": 120
+      },
+      "from": "BKN",
+      "to": "GSW"
+    },
+    {
+      "gameId": "401810339",
+      "date": "2026-01-03T03:00:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 94
+      },
+      "away": {
+        "team": "OKC",
+        "score": 131
+      },
+      "from": "GSW",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401810354",
+      "date": "2026-01-05T01:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 108
+      },
+      "away": {
+        "team": "OKC",
+        "score": 105
+      },
+      "from": "OKC",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401810360",
+      "date": "2026-01-06T01:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 100
+      },
+      "away": {
+        "team": "PHX",
+        "score": 97
+      },
+      "from": "PHX",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401810382",
+      "date": "2026-01-08T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 103
+      },
+      "away": {
+        "team": "HOU",
+        "score": 102
+      },
+      "from": "HOU",
+      "to": "POR"
+    },
+    {
+      "gameId": "401810406",
+      "date": "2026-01-11T23:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 114
+      },
+      "away": {
+        "team": "NYK",
+        "score": 123
+      },
+      "from": "POR",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401810431",
+      "date": "2026-01-15T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 112
+      },
+      "away": {
+        "team": "NYK",
+        "score": 101
+      },
+      "from": "NYK",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401810461",
+      "date": "2026-01-19T02:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 110
+      },
+      "away": {
+        "team": "POR",
+        "score": 117
+      },
+      "from": "SAC",
+      "to": "POR"
+    },
+    {
+      "gameId": "401810497",
+      "date": "2026-01-24T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 98
+      },
+      "away": {
+        "team": "TOR",
+        "score": 110
+      },
+      "from": "POR",
+      "to": "TOR"
+    },
+    {
+      "gameId": "401810530",
+      "date": "2026-01-29T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 92
+      },
+      "away": {
+        "team": "NYK",
+        "score": 119
+      },
+      "from": "TOR",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401810597",
+      "date": "2026-02-07T00:30:00.000Z",
+      "home": {
+        "team": "DET",
+        "score": 118
+      },
+      "away": {
+        "team": "NYK",
+        "score": 80
+      },
+      "from": "NYK",
+      "to": "DET"
+    },
+    {
+      "gameId": "401810683",
+      "date": "2026-02-24T00:00:00.000Z",
+      "home": {
+        "team": "DET",
+        "score": 103
+      },
+      "away": {
+        "team": "SAS",
+        "score": 114
+      },
+      "from": "DET",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401810723",
+      "date": "2026-03-01T18:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 114
+      },
+      "away": {
+        "team": "SAS",
+        "score": 89
+      },
+      "from": "SAS",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401810748",
+      "date": "2026-03-05T00:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 100
+      },
+      "away": {
+        "team": "OKC",
+        "score": 103
+      },
+      "from": "NYK",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401810909",
+      "date": "2026-03-25T23:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 119
+      },
+      "away": {
+        "team": "OKC",
+        "score": 109
+      },
+      "from": "OKC",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401810947",
+      "date": "2026-03-30T23:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 112
+      },
+      "away": {
+        "team": "BOS",
+        "score": 102
+      },
+      "from": "BOS",
+      "to": "ATL"
+    },
+    {
+      "gameId": "401810998",
+      "date": "2026-04-06T23:00:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 105
+      },
+      "away": {
+        "team": "NYK",
+        "score": 108
+      },
+      "from": "ATL",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401811045",
+      "date": "2026-04-12T22:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 96
+      },
+      "away": {
+        "team": "CHA",
+        "score": 110
+      },
+      "from": "NYK",
+      "to": "CHA"
+    }
+  ],
+  "startedAt": "2025-10-21T23:30:00.000Z",
+  "nextGame": null,
+  "cursor": "20260414",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

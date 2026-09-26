@@ -1,0 +1,447 @@
+{
+  "season": 2020,
+  "status": "final",
+  "startingHolder": "LAL",
+  "holder": "GSW",
+  "defenses": 0,
+  "transfers": [
+    {
+      "gameId": "401266806",
+      "date": "2020-12-23T03:00:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 109
+      },
+      "away": {
+        "team": "LAC",
+        "score": 116
+      },
+      "from": "LAL",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401267191",
+      "date": "2020-12-27T20:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 73
+      },
+      "away": {
+        "team": "DAL",
+        "score": 124
+      },
+      "from": "LAC",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401267219",
+      "date": "2020-12-31T01:30:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 99
+      },
+      "away": {
+        "team": "CHA",
+        "score": 118
+      },
+      "from": "DAL",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401267229",
+      "date": "2021-01-02T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 93
+      },
+      "away": {
+        "team": "MEM",
+        "score": 108
+      },
+      "from": "CHA",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401267247",
+      "date": "2021-01-03T23:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 94
+      },
+      "away": {
+        "team": "LAL",
+        "score": 108
+      },
+      "from": "MEM",
+      "to": "LAL"
+    },
+    {
+      "gameId": "401267281",
+      "date": "2021-01-08T03:00:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 109
+      },
+      "away": {
+        "team": "SAS",
+        "score": 118
+      },
+      "from": "LAL",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401267307",
+      "date": "2021-01-11T01:00:00.000Z",
+      "home": {
+        "team": "MIN",
+        "score": 96
+      },
+      "away": {
+        "team": "SAS",
+        "score": 88
+      },
+      "from": "SAS",
+      "to": "MIN"
+    },
+    {
+      "gameId": "401267329",
+      "date": "2021-01-14T01:00:00.000Z",
+      "home": {
+        "team": "MIN",
+        "score": 107
+      },
+      "away": {
+        "team": "MEM",
+        "score": 118
+      },
+      "from": "MIN",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401267482",
+      "date": "2021-02-03T01:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 134
+      },
+      "away": {
+        "team": "MEM",
+        "score": 116
+      },
+      "from": "MEM",
+      "to": "IND"
+    },
+    {
+      "gameId": "401267489",
+      "date": "2021-02-04T00:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 130
+      },
+      "away": {
+        "team": "IND",
+        "score": 110
+      },
+      "from": "IND",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401267549",
+      "date": "2021-02-11T03:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 125
+      },
+      "away": {
+        "team": "MIL",
+        "score": 124
+      },
+      "from": "MIL",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401267593",
+      "date": "2021-02-17T03:30:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 124
+      },
+      "away": {
+        "team": "BKN",
+        "score": 128
+      },
+      "from": "PHX",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401267679",
+      "date": "2021-02-28T01:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 98
+      },
+      "away": {
+        "team": "DAL",
+        "score": 115
+      },
+      "from": "BKN",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401307358",
+      "date": "2021-03-12T02:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 116
+      },
+      "away": {
+        "team": "DAL",
+        "score": 108
+      },
+      "from": "DAL",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401307369",
+      "date": "2021-03-13T19:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 97
+      },
+      "away": {
+        "team": "NYK",
+        "score": 119
+      },
+      "from": "OKC",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401307388",
+      "date": "2021-03-16T00:00:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 117
+      },
+      "away": {
+        "team": "NYK",
+        "score": 112
+      },
+      "from": "NYK",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401307420",
+      "date": "2021-03-20T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 121
+      },
+      "away": {
+        "team": "BKN",
+        "score": 113
+      },
+      "from": "BKN",
+      "to": "ORL"
+    },
+    {
+      "gameId": "401307435",
+      "date": "2021-03-21T19:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 112
+      },
+      "away": {
+        "team": "ORL",
+        "score": 96
+      },
+      "from": "ORL",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401307447",
+      "date": "2021-03-23T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 132
+      },
+      "away": {
+        "team": "BOS",
+        "score": 126
+      },
+      "from": "BOS",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401307480",
+      "date": "2021-03-27T01:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 117
+      },
+      "away": {
+        "team": "MEM",
+        "score": 114
+      },
+      "from": "MEM",
+      "to": "UTA"
+    },
+    {
+      "gameId": "401307555",
+      "date": "2021-04-05T23:00:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 111
+      },
+      "away": {
+        "team": "UTA",
+        "score": 103
+      },
+      "from": "UTA",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401307573",
+      "date": "2021-04-08T00:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 102
+      },
+      "away": {
+        "team": "DAL",
+        "score": 93
+      },
+      "from": "DAL",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401307592",
+      "date": "2021-04-10T02:00:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 126
+      },
+      "away": {
+        "team": "HOU",
+        "score": 109
+      },
+      "from": "HOU",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401307642",
+      "date": "2021-04-16T23:00:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 106
+      },
+      "away": {
+        "team": "LAC",
+        "score": 103
+      },
+      "from": "LAC",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401307667",
+      "date": "2021-04-19T23:30:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 96
+      },
+      "away": {
+        "team": "GSW",
+        "score": 107
+      },
+      "from": "PHI",
+      "to": "GSW"
+    },
+    {
+      "gameId": "401307682",
+      "date": "2021-04-21T23:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 118
+      },
+      "away": {
+        "team": "GSW",
+        "score": 114
+      },
+      "from": "GSW",
+      "to": "WAS"
+    },
+    {
+      "gameId": "401307722",
+      "date": "2021-04-26T23:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 143
+      },
+      "away": {
+        "team": "SAS",
+        "score": 146
+      },
+      "from": "WAS",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401307741",
+      "date": "2021-04-29T00:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 116
+      },
+      "away": {
+        "team": "SAS",
+        "score": 111
+      },
+      "from": "SAS",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401307789",
+      "date": "2021-05-05T00:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 113
+      },
+      "away": {
+        "team": "DAL",
+        "score": 127
+      },
+      "from": "MIA",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401307846",
+      "date": "2021-05-12T00:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 133
+      },
+      "away": {
+        "team": "DAL",
+        "score": 104
+      },
+      "from": "DAL",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401307884",
+      "date": "2021-05-16T19:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 113
+      },
+      "away": {
+        "team": "MEM",
+        "score": 101
+      },
+      "from": "MEM",
+      "to": "GSW"
+    }
+  ],
+  "startedAt": "2020-12-23T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20210518",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

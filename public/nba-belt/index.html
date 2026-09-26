@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>NBA Belt</title>
+    <meta
+      name="description"
+      content="Who holds the NBA Championship Belt? It starts each season with the reigning champion and changes hands whenever the holder loses a regular-season game."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/nba-belt/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/nba-belt/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/nba-belt/apple-touch-icon.png" />
+    <link rel="preload" href="/nba-belt/api/current" as="fetch" crossorigin />
+    <link rel="preload" href="/nba-belt/teams.json" as="fetch" crossorigin />
+    <link rel="stylesheet" href="/nba-belt/styles.css" />
+    <script>
+      // Apply a saved light/dark choice before the page paints.
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+    <script type="module" src="/nba-belt/app.js"></script>
+  </head>
+  <body>
+    <header class="top">
+      <h1 class="brand">
+        <img src="/nba-belt/favicon.svg" alt="" width="28" height="28" />
+        NBA Championship Belt
+      </h1>
+      <label class="season-picker">
+        <span>Season</span>
+        <select id="season" disabled></select>
+      </label>
+      <button id="theme" class="theme-toggle" type="button" aria-label="Switch to dark mode"></button>
+    </header>
+
+    <main id="main" aria-busy="true">
+      <section id="holder" class="card holder">
+        <p class="label"><span class="skeleton" style="width: 9em"></span></p>
+        <div class="holder-body">
+          <span class="skeleton logo-xl"></span>
+          <div>
+            <p class="holder-name"><span class="skeleton" style="width: 8em"></span></p>
+            <p class="holder-meta"><span class="skeleton" style="width: 12em"></span></p>
+          </div>
+        </div>
+      </section>
+      <section id="next" class="card next">
+        <p class="label"><span class="skeleton" style="width: 6em"></span></p>
+        <p><span class="skeleton" style="width: 10em"></span></p>
+        <p><span class="skeleton" style="width: 10em"></span></p>
+      </section>
+      <section id="history" class="card history">
+        <h2 class="label"><span class="skeleton" style="width: 8em"></span></h2>
+        <p><span class="skeleton" style="width: 100%"></span></p>
+        <p><span class="skeleton" style="width: 100%"></span></p>
+        <p><span class="skeleton" style="width: 100%"></span></p>
+      </section>
+    </main>
+
+    <footer class="bottom">
+      <p><span id="updated"></span>Data from ESPN · Unofficial fan project, not affiliated with the NBA</p>
+      <details>
+        <summary>How the belt works</summary>
+        <p>
+          The belt starts each season with the reigning NBA champion. Beat the holder in a regular-season game and it's
+          yours. Preseason, NBA Cup final, play-in and playoff games don't count, and neither do postponed ones. Seasons
+          go by the year they start: 2025 is the 2025–26 season.
+        </p>
+      </details>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2024
+      },
+      "calendar": [
+        "2023-10-05T07:00Z",
+        "2023-10-07T07:00Z",
+        "2024-06-14T07:00Z",
+        "2024-06-17T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401607495",
+      "date": "2023-12-10T01:30Z",
+      "shortName": "IND VS LAL",
+      "season": {
+        "year": 2024,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "CC"
+          },
+          "notes": [
+            {
+              "headline": "NBA In-Season Tournament Championship"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "123",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "109",
+              "team": {
+                "id": "11",
+                "abbreviation": "IND"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401766458",
+      "date": "2025-04-15T23:30Z",
+      "shortName": "ATL @ ORL",
+      "season": {
+        "year": 2025,
+        "type": 5
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [
+            {
+              "headline": "NBA Play-In - East - 7th Place vs 8th Place"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "120",
+              "team": {
+                "id": "19",
+                "abbreviation": "ORL"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "95",
+              "team": {
+                "id": "1",
+                "abbreviation": "ATL"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401766459",
+      "date": "2025-04-16T02:00Z",
+      "shortName": "MEM @ GS",
+      "season": {
+        "year": 2025,
+        "type": 5
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [
+            {
+              "headline": "NBA Play-In - West - 7th Place vs 8th Place"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "121",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "116",
+              "team": {
+                "id": "29",
+                "abbreviation": "MEM"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

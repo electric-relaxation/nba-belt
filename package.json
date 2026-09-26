@@ -1,0 +1,24 @@
+{
+  "name": "nba-belt",
+  "private": true,
+  "type": "module",
+  "description": "Tracks the unofficial NBA Championship Belt. Served at electricrelaxation.com/nba-belt.",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.node.json",
+    "backfill": "node scripts/backfill.ts",
+    "fetch-teams": "node scripts/fetch-teams.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260926.1",
+    "@types/node": "^26.6.3",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2",
+    "wrangler": "^4.141.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

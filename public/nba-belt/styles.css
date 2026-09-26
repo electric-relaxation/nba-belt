@@ -1,0 +1,435 @@
+/* Colors follow the system light/dark setting unless the visitor picks one (html[data-theme]). */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f3f2ee, #0d0e10);
+  --card: light-dark(#ffffff, #17181b);
+  --ink: light-dark(#16171a, #f1f1f2);
+  --muted: light-dark(#696b72, #9d9fa6);
+  --line: light-dark(#e4e2dc, #2a2c31);
+  --soft: light-dark(#efede8, #222428);
+  --accent: light-dark(#d4541b, #ff7b3a);
+  --live: light-dark(#d92d20, #ff5d4f);
+  --shadow: light-dark(rgb(30 25 15 / 0.05), transparent);
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.45 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.top,
+main,
+.bottom {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* Header: title and theme button on one row, season picker below; all on one row when wide. */
+.top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: 'brand theme' 'season season';
+  align-items: center;
+  gap: 12px;
+  padding-block: 20px 16px;
+}
+.brand {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+.brand img {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.season-picker {
+  grid-area: season;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.season-picker select {
+  appearance: none;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--card)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%238b8d93' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 12px center / 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 32px 6px 14px;
+  cursor: pointer;
+}
+.theme-toggle {
+  grid-area: theme;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  cursor: pointer;
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+.season-picker select:focus-visible,
+.theme-toggle:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+main {
+  display: grid;
+  gap: 16px;
+  transition: opacity 0.15s;
+}
+main[aria-busy='true'] > * {
+  opacity: 0.65;
+}
+
+.card {
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow:
+    0 1px 2px var(--shadow),
+    0 10px 30px var(--shadow);
+}
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Holder */
+.holder {
+  --team: var(--accent);
+  border-top: 4px solid var(--team);
+  background:
+    radial-gradient(130% 140% at 0% 0%, color-mix(in srgb, var(--team) 16%, transparent), transparent 62%),
+    var(--card);
+}
+.holder-body {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.logo-xl {
+  width: 88px;
+  height: 88px;
+  flex: none;
+  object-fit: contain;
+}
+.holder-name {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.holder-meta {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+.holder-meta + .holder-meta {
+  margin-top: 4px;
+}
+
+/* A team: logo + name (short name on small screens). */
+.team {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  vertical-align: middle;
+}
+.logo {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  object-fit: contain;
+}
+.inline .logo {
+  width: 20px;
+  height: 20px;
+}
+.inline.team {
+  gap: 5px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.name .short {
+  display: none;
+}
+
+/* Scoreboard rows, used by the next game and the belt history. */
+.rows {
+  display: grid;
+  gap: 8px;
+}
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.row .team {
+  overflow: hidden;
+}
+.row .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.score {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.row.winner {
+  font-weight: 700;
+}
+.row.loser {
+  color: var(--muted);
+}
+.at {
+  flex: none;
+  width: 1.1em;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.belt {
+  width: 26px;
+  height: 13px;
+  flex: none;
+}
+
+/* Next game */
+.next .logo {
+  width: 40px;
+  height: 40px;
+}
+.next .score {
+  font-size: 1.25rem;
+}
+.when {
+  margin: 16px 0 0;
+  color: var(--muted);
+}
+.live {
+  color: var(--live);
+}
+.live .detail {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+.summary {
+  margin: 0;
+  color: var(--muted);
+}
+.summary strong {
+  color: var(--ink);
+}
+
+/* History */
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.history-head .label {
+  margin: 0;
+}
+.count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.change {
+  display: grid;
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.changes > :first-child {
+  border-top: 0;
+}
+.change time {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.change .rows {
+  gap: 6px;
+}
+.season-start p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Footer */
+.bottom {
+  padding-block: 24px 48px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.bottom p {
+  margin: 0 0 8px;
+}
+#updated:not(:empty)::after {
+  content: ' · ';
+}
+summary {
+  width: fit-content;
+  cursor: pointer;
+}
+details p {
+  max-width: 62ch;
+  margin-top: 8px;
+}
+
+.error {
+  margin: 0;
+  color: var(--muted);
+}
+
+.skeleton {
+  display: inline-block;
+  height: 1em;
+  border-radius: 6px;
+  background: var(--soft);
+  vertical-align: middle;
+  animation: fade 1.1s ease-in-out infinite alternate;
+}
+.skeleton.logo-xl {
+  border-radius: 50%;
+}
+@keyframes fade {
+  to {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot,
+  .skeleton {
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .name .full {
+    display: none;
+  }
+  .name .short {
+    display: inline;
+  }
+}
+
+@media (min-width: 640px) {
+  .top,
+  main,
+  .bottom {
+    padding-inline: 24px;
+  }
+  .top {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: 'brand season theme';
+    padding-block: 28px 20px;
+  }
+  .brand {
+    font-size: 1.45rem;
+  }
+  .brand img {
+    width: 30px;
+    height: 30px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .logo-xl {
+    width: 120px;
+    height: 120px;
+  }
+  .holder-name {
+    font-size: 2.25rem;
+  }
+  .change {
+    grid-template-columns: 8.5em minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 800px) {
+  main {
+    grid-template-columns: 3fr 2fr;
+  }
+  .history {
+    grid-column: 1 / -1;
+  }
+  .change .rows {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+}

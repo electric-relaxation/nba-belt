@@ -1,0 +1,363 @@
+{
+  "season": 2014,
+  "status": "final",
+  "startingHolder": "SAS",
+  "holder": "NOP",
+  "defenses": 0,
+  "transfers": [
+    {
+      "gameId": "400578316",
+      "date": "2014-11-01T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 94
+      },
+      "away": {
+        "team": "SAS",
+        "score": 89
+      },
+      "from": "SAS",
+      "to": "PHX"
+    },
+    {
+      "gameId": "400578329",
+      "date": "2014-11-02T01:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 118
+      },
+      "away": {
+        "team": "PHX",
+        "score": 91
+      },
+      "from": "PHX",
+      "to": "UTA"
+    },
+    {
+      "gameId": "400578340",
+      "date": "2014-11-04T03:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 107
+      },
+      "away": {
+        "team": "UTA",
+        "score": 101
+      },
+      "from": "UTA",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400578360",
+      "date": "2014-11-06T03:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 121
+      },
+      "away": {
+        "team": "LAC",
+        "score": 104
+      },
+      "from": "LAC",
+      "to": "GSW"
+    },
+    {
+      "gameId": "400578387",
+      "date": "2014-11-10T01:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 107
+      },
+      "away": {
+        "team": "GSW",
+        "score": 95
+      },
+      "from": "GSW",
+      "to": "PHX"
+    },
+    {
+      "gameId": "400578422",
+      "date": "2014-11-15T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 95
+      },
+      "away": {
+        "team": "CHA",
+        "score": 103
+      },
+      "from": "PHX",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400578432",
+      "date": "2014-11-16T03:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 112
+      },
+      "away": {
+        "team": "CHA",
+        "score": 87
+      },
+      "from": "CHA",
+      "to": "GSW"
+    },
+    {
+      "gameId": "400578657",
+      "date": "2014-12-17T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 105
+      },
+      "away": {
+        "team": "GSW",
+        "score": 98
+      },
+      "from": "GSW",
+      "to": "MEM"
+    },
+    {
+      "gameId": "400578681",
+      "date": "2014-12-20T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 97
+      },
+      "away": {
+        "team": "CHI",
+        "score": 103
+      },
+      "from": "MEM",
+      "to": "CHI"
+    },
+    {
+      "gameId": "400578759",
+      "date": "2014-12-31T01:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 82
+      },
+      "away": {
+        "team": "BKN",
+        "score": 96
+      },
+      "from": "CHI",
+      "to": "BKN"
+    },
+    {
+      "gameId": "400578797",
+      "date": "2015-01-04T23:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 88
+      },
+      "away": {
+        "team": "BKN",
+        "score": 84
+      },
+      "from": "BKN",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400578829",
+      "date": "2015-01-09T03:30:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 99
+      },
+      "away": {
+        "team": "MIA",
+        "score": 83
+      },
+      "from": "MIA",
+      "to": "POR"
+    },
+    {
+      "gameId": "400578875",
+      "date": "2015-01-15T03:30:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 94
+      },
+      "away": {
+        "team": "LAC",
+        "score": 100
+      },
+      "from": "POR",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400578891",
+      "date": "2015-01-17T03:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 121
+      },
+      "away": {
+        "team": "CLE",
+        "score": 126
+      },
+      "from": "LAC",
+      "to": "CLE"
+    },
+    {
+      "gameId": "400579039",
+      "date": "2015-02-07T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 103
+      },
+      "away": {
+        "team": "CLE",
+        "score": 99
+      },
+      "from": "CLE",
+      "to": "IND"
+    },
+    {
+      "gameId": "400579066",
+      "date": "2015-02-10T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 93
+      },
+      "away": {
+        "team": "SAS",
+        "score": 95
+      },
+      "from": "IND",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400579094",
+      "date": "2015-02-20T03:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 119
+      },
+      "away": {
+        "team": "SAS",
+        "score": 115
+      },
+      "from": "SAS",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400579129",
+      "date": "2015-02-24T03:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 87
+      },
+      "away": {
+        "team": "MEM",
+        "score": 90
+      },
+      "from": "LAC",
+      "to": "MEM"
+    },
+    {
+      "gameId": "400579144",
+      "date": "2015-02-26T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 102
+      },
+      "away": {
+        "team": "MEM",
+        "score": 90
+      },
+      "from": "MEM",
+      "to": "SAC"
+    },
+    {
+      "gameId": "400579159",
+      "date": "2015-02-28T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 96
+      },
+      "away": {
+        "team": "SAS",
+        "score": 107
+      },
+      "from": "SAC",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400579256",
+      "date": "2015-03-13T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 125
+      },
+      "away": {
+        "team": "CLE",
+        "score": 128
+      },
+      "from": "SAS",
+      "to": "CLE"
+    },
+    {
+      "gameId": "400579287",
+      "date": "2015-03-17T00:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 106
+      },
+      "away": {
+        "team": "CLE",
+        "score": 92
+      },
+      "from": "CLE",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400579330",
+      "date": "2015-03-22T19:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 93
+      },
+      "away": {
+        "team": "MIA",
+        "score": 75
+      },
+      "from": "MIA",
+      "to": "OKC"
+    },
+    {
+      "gameId": "400579363",
+      "date": "2015-03-26T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 130
+      },
+      "away": {
+        "team": "OKC",
+        "score": 91
+      },
+      "from": "OKC",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400579515",
+      "date": "2015-04-16T00:00:00.000Z",
+      "home": {
+        "team": "NOP",
+        "score": 108
+      },
+      "away": {
+        "team": "SAS",
+        "score": 103
+      },
+      "from": "SAS",
+      "to": "NOP"
+    }
+  ],
+  "startedAt": "2014-10-29T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20150418",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

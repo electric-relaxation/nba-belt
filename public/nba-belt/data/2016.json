@@ -1,0 +1,545 @@
+{
+  "season": 2016,
+  "status": "final",
+  "startingHolder": "CLE",
+  "holder": "LAC",
+  "defenses": 6,
+  "transfers": [
+    {
+      "gameId": "400899550",
+      "date": "2016-11-09T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 106
+      },
+      "away": {
+        "team": "ATL",
+        "score": 110
+      },
+      "from": "CLE",
+      "to": "ATL"
+    },
+    {
+      "gameId": "400899624",
+      "date": "2016-11-19T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 100
+      },
+      "away": {
+        "team": "ATL",
+        "score": 96
+      },
+      "from": "ATL",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400899635",
+      "date": "2016-11-20T00:00:00.000Z",
+      "home": {
+        "team": "NOP",
+        "score": 121
+      },
+      "away": {
+        "team": "CHA",
+        "score": 116
+      },
+      "from": "CHA",
+      "to": "NOP"
+    },
+    {
+      "gameId": "400899687",
+      "date": "2016-11-26T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 119
+      },
+      "away": {
+        "team": "NOP",
+        "score": 104
+      },
+      "from": "NOP",
+      "to": "POR"
+    },
+    {
+      "gameId": "400899701",
+      "date": "2016-11-28T02:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 114
+      },
+      "away": {
+        "team": "HOU",
+        "score": 130
+      },
+      "from": "POR",
+      "to": "HOU"
+    },
+    {
+      "gameId": "400899715",
+      "date": "2016-11-30T02:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 120
+      },
+      "away": {
+        "team": "HOU",
+        "score": 101
+      },
+      "from": "HOU",
+      "to": "UTA"
+    },
+    {
+      "gameId": "400899434",
+      "date": "2016-12-02T02:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 110
+      },
+      "away": {
+        "team": "MIA",
+        "score": 111
+      },
+      "from": "UTA",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400899740",
+      "date": "2016-12-04T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 99
+      },
+      "away": {
+        "team": "MIA",
+        "score": 92
+      },
+      "from": "MIA",
+      "to": "POR"
+    },
+    {
+      "gameId": "400899767",
+      "date": "2016-12-08T01:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 115
+      },
+      "away": {
+        "team": "POR",
+        "score": 107
+      },
+      "from": "POR",
+      "to": "MIL"
+    },
+    {
+      "gameId": "400899782",
+      "date": "2016-12-10T01:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 110
+      },
+      "away": {
+        "team": "ATL",
+        "score": 114
+      },
+      "from": "MIL",
+      "to": "ATL"
+    },
+    {
+      "gameId": "400899811",
+      "date": "2016-12-14T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 120
+      },
+      "away": {
+        "team": "ORL",
+        "score": 131
+      },
+      "from": "ATL",
+      "to": "ORL"
+    },
+    {
+      "gameId": "400899818",
+      "date": "2016-12-15T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 108
+      },
+      "away": {
+        "team": "LAC",
+        "score": 113
+      },
+      "from": "ORL",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400899848",
+      "date": "2016-12-18T20:30:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 117
+      },
+      "away": {
+        "team": "LAC",
+        "score": 110
+      },
+      "from": "LAC",
+      "to": "WAS"
+    },
+    {
+      "gameId": "400899855",
+      "date": "2016-12-20T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 107
+      },
+      "away": {
+        "team": "WAS",
+        "score": 105
+      },
+      "from": "WAS",
+      "to": "IND"
+    },
+    {
+      "gameId": "400899863",
+      "date": "2016-12-21T00:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 118
+      },
+      "away": {
+        "team": "IND",
+        "score": 111
+      },
+      "from": "IND",
+      "to": "NYK"
+    },
+    {
+      "gameId": "400899898",
+      "date": "2016-12-25T17:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 114
+      },
+      "away": {
+        "team": "BOS",
+        "score": 119
+      },
+      "from": "NYK",
+      "to": "BOS"
+    },
+    {
+      "gameId": "400899930",
+      "date": "2016-12-30T01:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 124
+      },
+      "away": {
+        "team": "BOS",
+        "score": 118
+      },
+      "from": "BOS",
+      "to": "CLE"
+    },
+    {
+      "gameId": "400899953",
+      "date": "2017-01-05T01:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 94
+      },
+      "away": {
+        "team": "CHI",
+        "score": 106
+      },
+      "from": "CLE",
+      "to": "CHI"
+    },
+    {
+      "gameId": "400899990",
+      "date": "2017-01-10T01:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 94
+      },
+      "away": {
+        "team": "OKC",
+        "score": 109
+      },
+      "from": "CHI",
+      "to": "OKC"
+    },
+    {
+      "gameId": "400900017",
+      "date": "2017-01-14T01:00:00.000Z",
+      "home": {
+        "team": "MIN",
+        "score": 96
+      },
+      "away": {
+        "team": "OKC",
+        "score": 86
+      },
+      "from": "OKC",
+      "to": "MIN"
+    },
+    {
+      "gameId": "400900029",
+      "date": "2017-01-15T19:00:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 98
+      },
+      "away": {
+        "team": "MIN",
+        "score": 87
+      },
+      "from": "MIN",
+      "to": "DAL"
+    },
+    {
+      "gameId": "400900058",
+      "date": "2017-01-20T00:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 99
+      },
+      "away": {
+        "team": "DAL",
+        "score": 95
+      },
+      "from": "DAL",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400900215",
+      "date": "2017-02-12T00:30:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 117
+      },
+      "away": {
+        "team": "MIA",
+        "score": 109
+      },
+      "from": "MIA",
+      "to": "PHI"
+    },
+    {
+      "gameId": "400900242",
+      "date": "2017-02-16T00:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 116
+      },
+      "away": {
+        "team": "PHI",
+        "score": 108
+      },
+      "from": "PHI",
+      "to": "BOS"
+    },
+    {
+      "gameId": "400900255",
+      "date": "2017-02-17T01:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 104
+      },
+      "away": {
+        "team": "BOS",
+        "score": 103
+      },
+      "from": "BOS",
+      "to": "CHI"
+    },
+    {
+      "gameId": "400900297",
+      "date": "2017-03-01T01:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 107
+      },
+      "away": {
+        "team": "DEN",
+        "score": 125
+      },
+      "from": "CHI",
+      "to": "DEN"
+    },
+    {
+      "gameId": "400900318",
+      "date": "2017-03-05T02:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 102
+      },
+      "away": {
+        "team": "CHA",
+        "score": 112
+      },
+      "from": "DEN",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400900346",
+      "date": "2017-03-09T00:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 108
+      },
+      "away": {
+        "team": "CHA",
+        "score": 101
+      },
+      "from": "CHA",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400900382",
+      "date": "2017-03-12T22:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 102
+      },
+      "away": {
+        "team": "MIA",
+        "score": 98
+      },
+      "from": "MIA",
+      "to": "IND"
+    },
+    {
+      "gameId": "400900396",
+      "date": "2017-03-14T23:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 87
+      },
+      "away": {
+        "team": "IND",
+        "score": 81
+      },
+      "from": "IND",
+      "to": "NYK"
+    },
+    {
+      "gameId": "400900411",
+      "date": "2017-03-16T23:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 110
+      },
+      "away": {
+        "team": "BKN",
+        "score": 121
+      },
+      "from": "NYK",
+      "to": "BKN"
+    },
+    {
+      "gameId": "400900417",
+      "date": "2017-03-17T23:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 95
+      },
+      "away": {
+        "team": "BOS",
+        "score": 98
+      },
+      "from": "BKN",
+      "to": "BOS"
+    },
+    {
+      "gameId": "400900432",
+      "date": "2017-03-19T17:00:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 105
+      },
+      "away": {
+        "team": "BOS",
+        "score": 99
+      },
+      "from": "BOS",
+      "to": "PHI"
+    },
+    {
+      "gameId": "400900440",
+      "date": "2017-03-20T23:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 112
+      },
+      "away": {
+        "team": "PHI",
+        "score": 109
+      },
+      "from": "PHI",
+      "to": "ORL"
+    },
+    {
+      "gameId": "400900454",
+      "date": "2017-03-22T23:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 102
+      },
+      "away": {
+        "team": "CHA",
+        "score": 109
+      },
+      "from": "ORL",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400900468",
+      "date": "2017-03-24T23:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 105
+      },
+      "away": {
+        "team": "CLE",
+        "score": 112
+      },
+      "from": "CHA",
+      "to": "CLE"
+    },
+    {
+      "gameId": "400900478",
+      "date": "2017-03-25T23:30:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 115
+      },
+      "away": {
+        "team": "WAS",
+        "score": 127
+      },
+      "from": "CLE",
+      "to": "WAS"
+    },
+    {
+      "gameId": "400900514",
+      "date": "2017-03-30T02:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 133
+      },
+      "away": {
+        "team": "WAS",
+        "score": 124
+      },
+      "from": "WAS",
+      "to": "LAC"
+    }
+  ],
+  "startedAt": "2016-10-25T23:30:00.000Z",
+  "nextGame": null,
+  "cursor": "20170415",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

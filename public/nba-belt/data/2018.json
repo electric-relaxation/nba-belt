@@ -1,0 +1,531 @@
+{
+  "season": 2018,
+  "status": "final",
+  "startingHolder": "GSW",
+  "holder": "POR",
+  "defenses": 2,
+  "transfers": [
+    {
+      "gameId": "401070720",
+      "date": "2018-10-22T00:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 100
+      },
+      "away": {
+        "team": "GSW",
+        "score": 98
+      },
+      "from": "GSW",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401070747",
+      "date": "2018-10-26T02:30:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 121
+      },
+      "away": {
+        "team": "DEN",
+        "score": 114
+      },
+      "from": "DEN",
+      "to": "LAL"
+    },
+    {
+      "gameId": "401070763",
+      "date": "2018-10-28T00:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 110
+      },
+      "away": {
+        "team": "LAL",
+        "score": 106
+      },
+      "from": "LAL",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401070817",
+      "date": "2018-11-05T00:00:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 110
+      },
+      "away": {
+        "team": "ORL",
+        "score": 117
+      },
+      "from": "SAS",
+      "to": "ORL"
+    },
+    {
+      "gameId": "401070835",
+      "date": "2018-11-08T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 96
+      },
+      "away": {
+        "team": "DET",
+        "score": 103
+      },
+      "from": "ORL",
+      "to": "DET"
+    },
+    {
+      "gameId": "401070865",
+      "date": "2018-11-11T20:30:00.000Z",
+      "home": {
+        "team": "DET",
+        "score": 103
+      },
+      "away": {
+        "team": "CHA",
+        "score": 113
+      },
+      "from": "DET",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401070880",
+      "date": "2018-11-14T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 113
+      },
+      "away": {
+        "team": "CHA",
+        "score": 89
+      },
+      "from": "CHA",
+      "to": "CLE"
+    },
+    {
+      "gameId": "401070884",
+      "date": "2018-11-15T00:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 119
+      },
+      "away": {
+        "team": "CLE",
+        "score": 95
+      },
+      "from": "CLE",
+      "to": "WAS"
+    },
+    {
+      "gameId": "401070900",
+      "date": "2018-11-17T00:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 104
+      },
+      "away": {
+        "team": "BKN",
+        "score": 115
+      },
+      "from": "WAS",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401070905",
+      "date": "2018-11-17T23:00:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 119
+      },
+      "away": {
+        "team": "LAC",
+        "score": 127
+      },
+      "from": "BKN",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401070930",
+      "date": "2018-11-21T00:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 125
+      },
+      "away": {
+        "team": "LAC",
+        "score": 118
+      },
+      "from": "LAC",
+      "to": "WAS"
+    },
+    {
+      "gameId": "401070952",
+      "date": "2018-11-24T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 125
+      },
+      "away": {
+        "team": "WAS",
+        "score": 107
+      },
+      "from": "WAS",
+      "to": "TOR"
+    },
+    {
+      "gameId": "401071028",
+      "date": "2018-12-04T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 103
+      },
+      "away": {
+        "team": "DEN",
+        "score": 106
+      },
+      "from": "TOR",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401071049",
+      "date": "2018-12-08T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 113
+      },
+      "away": {
+        "team": "DEN",
+        "score": 107
+      },
+      "from": "DEN",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401071102",
+      "date": "2018-12-15T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 124
+      },
+      "away": {
+        "team": "NYK",
+        "score": 126
+      },
+      "from": "CHA",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401071119",
+      "date": "2018-12-16T22:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 110
+      },
+      "away": {
+        "team": "NYK",
+        "score": 99
+      },
+      "from": "NYK",
+      "to": "IND"
+    },
+    {
+      "gameId": "401071132",
+      "date": "2018-12-19T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 91
+      },
+      "away": {
+        "team": "CLE",
+        "score": 92
+      },
+      "from": "IND",
+      "to": "CLE"
+    },
+    {
+      "gameId": "401071136",
+      "date": "2018-12-20T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 110
+      },
+      "away": {
+        "team": "CLE",
+        "score": 99
+      },
+      "from": "CLE",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401071169",
+      "date": "2018-12-23T23:00:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 119
+      },
+      "away": {
+        "team": "CHA",
+        "score": 103
+      },
+      "from": "CHA",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401071188",
+      "date": "2018-12-28T01:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 127
+      },
+      "away": {
+        "team": "BOS",
+        "score": 113
+      },
+      "from": "BOS",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401071258",
+      "date": "2019-01-06T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 110
+      },
+      "away": {
+        "team": "HOU",
+        "score": 101
+      },
+      "from": "HOU",
+      "to": "POR"
+    },
+    {
+      "gameId": "401071319",
+      "date": "2019-01-14T01:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 116
+      },
+      "away": {
+        "team": "POR",
+        "score": 113
+      },
+      "from": "POR",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401071331",
+      "date": "2019-01-16T02:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 111
+      },
+      "away": {
+        "team": "GSW",
+        "score": 142
+      },
+      "from": "DEN",
+      "to": "GSW"
+    },
+    {
+      "gameId": "401071441",
+      "date": "2019-02-01T03:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 104
+      },
+      "away": {
+        "team": "PHI",
+        "score": 113
+      },
+      "from": "GSW",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401071459",
+      "date": "2019-02-03T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 115
+      },
+      "away": {
+        "team": "PHI",
+        "score": 108
+      },
+      "from": "PHI",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401071482",
+      "date": "2019-02-07T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 101
+      },
+      "away": {
+        "team": "HOU",
+        "score": 127
+      },
+      "from": "SAC",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401071505",
+      "date": "2019-02-10T01:30:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 112
+      },
+      "away": {
+        "team": "OKC",
+        "score": 117
+      },
+      "from": "HOU",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401071539",
+      "date": "2019-02-15T01:00:00.000Z",
+      "home": {
+        "team": "NOP",
+        "score": 131
+      },
+      "away": {
+        "team": "OKC",
+        "score": 122
+      },
+      "from": "OKC",
+      "to": "NOP"
+    },
+    {
+      "gameId": "401071547",
+      "date": "2019-02-23T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 126
+      },
+      "away": {
+        "team": "NOP",
+        "score": 111
+      },
+      "from": "NOP",
+      "to": "IND"
+    },
+    {
+      "gameId": "401071572",
+      "date": "2019-02-26T00:00:00.000Z",
+      "home": {
+        "team": "DET",
+        "score": 113
+      },
+      "away": {
+        "team": "IND",
+        "score": 109
+      },
+      "from": "IND",
+      "to": "DET"
+    },
+    {
+      "gameId": "401071590",
+      "date": "2019-02-28T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 105
+      },
+      "away": {
+        "team": "DET",
+        "score": 93
+      },
+      "from": "DET",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401071744",
+      "date": "2019-03-21T00:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 105
+      },
+      "away": {
+        "team": "MIA",
+        "score": 110
+      },
+      "from": "SAS",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401071758",
+      "date": "2019-03-23T00:30:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 116
+      },
+      "away": {
+        "team": "MIA",
+        "score": 87
+      },
+      "from": "MIA",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401071818",
+      "date": "2019-03-31T16:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 136
+      },
+      "away": {
+        "team": "MIL",
+        "score": 135
+      },
+      "from": "MIL",
+      "to": "ATL"
+    },
+    {
+      "gameId": "401071835",
+      "date": "2019-04-03T00:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 117
+      },
+      "away": {
+        "team": "ATL",
+        "score": 111
+      },
+      "from": "ATL",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401071846",
+      "date": "2019-04-04T01:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 113
+      },
+      "away": {
+        "team": "SAS",
+        "score": 85
+      },
+      "from": "SAS",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401071879",
+      "date": "2019-04-08T01:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 115
+      },
+      "away": {
+        "team": "DEN",
+        "score": 108
+      },
+      "from": "DEN",
+      "to": "POR"
+    }
+  ],
+  "startedAt": "2018-10-17T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20190413",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

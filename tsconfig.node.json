@@ -1,0 +1,9 @@
+{
+  // Type-checks the Node side: scripts, tests, and the runtime-agnostic modules in src/.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["scripts", "test", "src"],
+  "exclude": ["src/worker.ts"]
+}

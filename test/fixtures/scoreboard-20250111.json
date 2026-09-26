@@ -1,0 +1,344 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401705098",
+      "date": "2025-01-11T20:00Z",
+      "shortName": "HOU @ ATL",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [
+            {
+              "headline": "Postponed due to severe weather and hazardous icy conditions"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_POSTPONED",
+              "state": "post",
+              "completed": false,
+              "shortDetail": "Postponed"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "1",
+                "abbreviation": "ATL"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "10",
+                "abbreviation": "HOU"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705099",
+      "date": "2025-01-11T22:00Z",
+      "shortName": "UTAH @ PHX",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "114",
+              "team": {
+                "id": "21",
+                "abbreviation": "PHX"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "106",
+              "team": {
+                "id": "26",
+                "abbreviation": "UTAH"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705100",
+      "date": "2025-01-12T00:00Z",
+      "shortName": "TOR @ DET",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "123",
+              "team": {
+                "id": "8",
+                "abbreviation": "DET"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "114",
+              "team": {
+                "id": "28",
+                "abbreviation": "TOR"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705101",
+      "date": "2025-01-12T01:00Z",
+      "shortName": "MEM @ MIN",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "125",
+              "team": {
+                "id": "16",
+                "abbreviation": "MIN"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "127",
+              "team": {
+                "id": "29",
+                "abbreviation": "MEM"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705102",
+      "date": "2025-01-12T03:00Z",
+      "shortName": "MIA @ POR",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "98",
+              "team": {
+                "id": "22",
+                "abbreviation": "POR"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "119",
+              "team": {
+                "id": "14",
+                "abbreviation": "MIA"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705103",
+      "date": "2025-01-12T03:30Z",
+      "shortName": "SA @ LAL",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [
+            {
+              "headline": "Postponed due to wildfires in Los Angeles"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_POSTPONED",
+              "state": "post",
+              "completed": false,
+              "shortDetail": "Postponed"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "13",
+                "abbreviation": "LAL"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "24",
+                "abbreviation": "SA"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705104",
+      "date": "2025-01-12T03:30Z",
+      "shortName": "CHA @ LAC",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [
+            {
+              "headline": "Postponed due to wildfires in Los Angeles"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_POSTPONED",
+              "state": "post",
+              "completed": false,
+              "shortDetail": "Postponed"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "12",
+                "abbreviation": "LAC"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": null,
+              "score": "0",
+              "team": {
+                "id": "30",
+                "abbreviation": "CHA"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

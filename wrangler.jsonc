@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nba-belt",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-09-15",
+
+  // Files under public/ are served as-is. They sit in public/nba-belt/ because the site lives at
+  // electricrelaxation.com/nba-belt/ and Cloudflare looks files up by the full request path.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Only /nba-belt runs on this Worker; the rest of the domain stays on Cloudflare Pages.
+  // Use this single pattern (it matches /nba-belt and /nba-belt/...); don't add "/nba-belt/*" too.
+  "routes": [{ "pattern": "electricrelaxation.com/nba-belt*", "zone_name": "electricrelaxation.com" }],
+
+  // Refresh the current season every 2 minutes: ~720 KV writes a day (the free limit is 1,000).
+  "triggers": { "crons": ["*/2 * * * *"] },
+
+  "kv_namespaces": [{ "binding": "BELT" }],
+
+  "observability": { "enabled": true }
+}

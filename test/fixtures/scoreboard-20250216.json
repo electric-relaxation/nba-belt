@@ -1,0 +1,164 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401752955",
+      "date": "2025-02-17T01:20Z",
+      "shortName": "KEN @ CHK",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "ALLSTAR"
+          },
+          "notes": [
+            {
+              "headline": "NBA All-Star - Semifinals First team to 40 points wins - Untimed"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "41",
+              "team": {
+                "id": "130579",
+                "abbreviation": "CHK"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "32",
+              "team": {
+                "id": "130581",
+                "abbreviation": "KEN"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401752956",
+      "date": "2025-02-17T02:10Z",
+      "shortName": "CAN @ SHQ",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "ALLSTAR"
+          },
+          "notes": [
+            {
+              "headline": "NBA All-Star - Semifinals First team to 40 points wins - Untimed"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "42",
+              "team": {
+                "id": "130580",
+                "abbreviation": "SHQ"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "35",
+              "team": {
+                "id": "130754",
+                "abbreviation": "CAN"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401752957",
+      "date": "2025-02-17T03:00Z",
+      "shortName": "SHQ @ CHK",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "ALLSTAR"
+          },
+          "notes": [
+            {
+              "headline": "NBA All-Star - Championship First team to 40 points wins - Untimed"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "25",
+              "team": {
+                "id": "130579",
+                "abbreviation": "CHK"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "41",
+              "team": {
+                "id": "130580",
+                "abbreviation": "SHQ"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

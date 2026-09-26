@@ -1,0 +1,475 @@
+{
+  "season": 2019,
+  "status": "final",
+  "startingHolder": "TOR",
+  "holder": "POR",
+  "defenses": 0,
+  "transfers": [
+    {
+      "gameId": "401160659",
+      "date": "2019-10-25T23:00:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 112
+      },
+      "away": {
+        "team": "TOR",
+        "score": 106
+      },
+      "from": "TOR",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401160826",
+      "date": "2019-11-17T20:30:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 100
+      },
+      "away": {
+        "team": "BOS",
+        "score": 99
+      },
+      "from": "BOS",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401160859",
+      "date": "2019-11-23T00:30:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 116
+      },
+      "away": {
+        "team": "SAC",
+        "score": 97
+      },
+      "from": "SAC",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401160895",
+      "date": "2019-11-28T00:00:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 121
+      },
+      "away": {
+        "team": "BKN",
+        "score": 110
+      },
+      "from": "BKN",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401160909",
+      "date": "2019-11-29T17:00:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 112
+      },
+      "away": {
+        "team": "BOS",
+        "score": 107
+      },
+      "from": "BOS",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401160926",
+      "date": "2019-12-01T20:00:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 106
+      },
+      "away": {
+        "team": "MIA",
+        "score": 109
+      },
+      "from": "BKN",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401160952",
+      "date": "2019-12-05T00:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 112
+      },
+      "away": {
+        "team": "MIA",
+        "score": 93
+      },
+      "from": "MIA",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401160999",
+      "date": "2019-12-12T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 122
+      },
+      "away": {
+        "team": "BOS",
+        "score": 117
+      },
+      "from": "BOS",
+      "to": "IND"
+    },
+    {
+      "gameId": "401161083",
+      "date": "2019-12-23T00:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 117
+      },
+      "away": {
+        "team": "IND",
+        "score": 89
+      },
+      "from": "IND",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401161098",
+      "date": "2019-12-25T19:30:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 121
+      },
+      "away": {
+        "team": "MIL",
+        "score": 109
+      },
+      "from": "MIL",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401161110",
+      "date": "2019-12-28T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 98
+      },
+      "away": {
+        "team": "PHI",
+        "score": 97
+      },
+      "from": "PHI",
+      "to": "ORL"
+    },
+    {
+      "gameId": "401161122",
+      "date": "2019-12-29T01:30:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 111
+      },
+      "away": {
+        "team": "ORL",
+        "score": 100
+      },
+      "from": "ORL",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401161188",
+      "date": "2020-01-07T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 126
+      },
+      "away": {
+        "team": "MIL",
+        "score": 104
+      },
+      "from": "MIL",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401161213",
+      "date": "2020-01-11T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 134
+      },
+      "away": {
+        "team": "SAS",
+        "score": 121
+      },
+      "from": "SAS",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401161288",
+      "date": "2020-01-20T22:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 116
+      },
+      "away": {
+        "team": "NOP",
+        "score": 126
+      },
+      "from": "MEM",
+      "to": "NOP"
+    },
+    {
+      "gameId": "401161305",
+      "date": "2020-01-23T02:30:00.000Z",
+      "home": {
+        "team": "NOP",
+        "score": 117
+      },
+      "away": {
+        "team": "SAS",
+        "score": 121
+      },
+      "from": "NOP",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401161320",
+      "date": "2020-01-25T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 99
+      },
+      "away": {
+        "team": "PHX",
+        "score": 103
+      },
+      "from": "SAS",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401161332",
+      "date": "2020-01-26T23:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 114
+      },
+      "away": {
+        "team": "PHX",
+        "score": 109
+      },
+      "from": "PHX",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401161365",
+      "date": "2020-02-01T01:00:00.000Z",
+      "home": {
+        "team": "NOP",
+        "score": 139
+      },
+      "away": {
+        "team": "MEM",
+        "score": 111
+      },
+      "from": "MEM",
+      "to": "NOP"
+    },
+    {
+      "gameId": "401161380",
+      "date": "2020-02-02T19:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 117
+      },
+      "away": {
+        "team": "NOP",
+        "score": 109
+      },
+      "from": "NOP",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401161416",
+      "date": "2020-02-08T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 127
+      },
+      "away": {
+        "team": "HOU",
+        "score": 91
+      },
+      "from": "HOU",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401161426",
+      "date": "2020-02-09T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 108
+      },
+      "away": {
+        "team": "DEN",
+        "score": 117
+      },
+      "from": "PHX",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401161459",
+      "date": "2020-02-13T03:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 116
+      },
+      "away": {
+        "team": "LAL",
+        "score": 120
+      },
+      "from": "DEN",
+      "to": "LAL"
+    },
+    {
+      "gameId": "401161533",
+      "date": "2020-03-01T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 105
+      },
+      "away": {
+        "team": "LAL",
+        "score": 88
+      },
+      "from": "LAL",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401161579",
+      "date": "2020-03-07T01:30:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 121
+      },
+      "away": {
+        "team": "MEM",
+        "score": 96
+      },
+      "from": "MEM",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401161594",
+      "date": "2020-03-08T23:00:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 109
+      },
+      "away": {
+        "team": "IND",
+        "score": 112
+      },
+      "from": "DAL",
+      "to": "IND"
+    },
+    {
+      "gameId": "401161602",
+      "date": "2020-03-10T23:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 111
+      },
+      "away": {
+        "team": "BOS",
+        "score": 114
+      },
+      "from": "IND",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401224691",
+      "date": "2020-07-31T22:30:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 119
+      },
+      "away": {
+        "team": "BOS",
+        "score": 112
+      },
+      "from": "BOS",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401224723",
+      "date": "2020-08-03T00:30:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 120
+      },
+      "away": {
+        "team": "MIL",
+        "score": 116
+      },
+      "from": "MIL",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401224736",
+      "date": "2020-08-05T01:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 110
+      },
+      "away": {
+        "team": "HOU",
+        "score": 102
+      },
+      "from": "HOU",
+      "to": "POR"
+    },
+    {
+      "gameId": "401224755",
+      "date": "2020-08-08T17:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 117
+      },
+      "away": {
+        "team": "LAC",
+        "score": 122
+      },
+      "from": "POR",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401224766",
+      "date": "2020-08-10T01:00:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 120
+      },
+      "away": {
+        "team": "BKN",
+        "score": 129
+      },
+      "from": "LAC",
+      "to": "BKN"
+    },
+    {
+      "gameId": "401224784",
+      "date": "2020-08-14T01:00:00.000Z",
+      "home": {
+        "team": "BKN",
+        "score": 133
+      },
+      "away": {
+        "team": "POR",
+        "score": 134
+      },
+      "from": "BKN",
+      "to": "POR"
+    }
+  ],
+  "startedAt": "2019-10-23T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20200815",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}
