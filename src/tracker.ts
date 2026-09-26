@@ -7,6 +7,8 @@ import type { Day, FetchDay, Game, NextGame, SeasonRecord, TeamCode } from './ty
 
 /** How many upcoming game dates to scan for the holder's next game. */
 const LOOKAHEAD_DATES = 8;
+/** How long a next game found on a later day is trusted before the schedule is checked again. */
+const LOOKAHEAD_TTL_MS = 30 * 60 * 1000;
 /** A game still unfinished this long after its scheduled start is treated as never played. */
 const STALE_MS = 2 * 24 * 60 * 60 * 1000;
 
@@ -23,7 +25,7 @@ export interface AdvanceOptions {
  * regular season is over. Returns a new record.
  */
 export async function advanceSeason(input: SeasonRecord, options: AdvanceOptions): Promise<SeasonRecord> {
-  const { now, maxFetches = 6 } = options;
+  const { now, maxFetches = 4 } = options;
   const rec = structuredClone(input);
   const today = easternDate(now);
 
@@ -70,9 +72,12 @@ export async function advanceSeason(input: SeasonRecord, options: AdvanceOptions
   if (pending) {
     rec.nextGame = toNextGame(pending);
     rec.status = 'in_progress';
+  } else if (caughtUp && !seasonOver && recentlyLookedAhead(rec, today, now)) {
+    // The holder's next game (on a later day) was found recently; skip re-downloading the schedule.
   } else if (caughtUp) {
     const ahead = seasonOver ? { sawRegular: false, complete: true } : await lookAhead(rec, getDay, now);
     if (ahead.complete) {
+      if (!seasonOver) rec.lookaheadAt = now.toISOString();
       rec.nextGame = ahead.next ? toNextGame(ahead.next) : null;
       const regularSeasonLeft =
         rec.startedAt === null || // can't be over before it starts
@@ -146,6 +151,17 @@ function noteSeasonStart(rec: SeasonRecord, games: Game[]): void {
     .map((g) => g.date)
     .sort();
   if (starts.length) rec.startedAt = starts[0];
+}
+
+function recentlyLookedAhead(rec: SeasonRecord, today: string, now: Date): boolean {
+  const game = rec.nextGame;
+  return (
+    game !== null &&
+    rec.lookaheadAt !== undefined &&
+    now.getTime() - Date.parse(rec.lookaheadAt) < LOOKAHEAD_TTL_MS &&
+    (game.home === rec.holder || game.away === rec.holder) &&
+    easternDate(new Date(game.date)) > today
+  );
 }
 
 function isStale(game: Game, now: Date): boolean {

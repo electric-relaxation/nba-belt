@@ -119,6 +119,27 @@ describe('advanceSeason', () => {
     expect(after.status).toBe('final');
   });
 
+  it('reuses a recently found next game instead of downloading the schedule every run', async () => {
+    const espn = fakeEspn([
+      game({ date: '2025-10-21T23:30:00Z', home: 'OKC', away: 'HOU', score: [125, 124] }),
+      game({ date: '2025-10-22T23:30:00Z', home: 'BOS', away: 'NYK' }),
+      game({ date: '2025-10-24T23:30:00Z', home: 'OKC', away: 'DEN' }),
+    ]);
+    const first = await advanceSeason(record('OKC', '20251021'), {
+      fetchDay: espn.fetchDay,
+      now: new Date('2025-10-22T16:00:00Z'),
+    });
+    expect(first.nextGame).toMatchObject({ home: 'OKC', away: 'DEN' });
+
+    espn.fetched.length = 0;
+    const soon = await advanceSeason(first, { fetchDay: espn.fetchDay, now: new Date('2025-10-22T16:20:00Z') });
+    expect(espn.fetched).toEqual([]);
+    expect(soon.nextGame).toEqual(first.nextGame);
+
+    await advanceSeason(soon, { fetchDay: espn.fetchDay, now: new Date('2025-10-22T16:40:00Z') });
+    expect(espn.fetched).toEqual(['20251024']);
+  });
+
   it("doesn't call a season final before it has started", async () => {
     const espn = fakeEspn([
       game({ date: '2025-10-02T23:00:00Z', home: 'NYK', away: 'PHI', type: 1 }),

@@ -78,6 +78,8 @@ export interface SeasonRecord {
   startedAt: string | null;
   /** The holder's live or next regular-season game. */
   nextGame: NextGame | null;
+  /** When upcoming dates were last scanned for the next game (re-checked every 30 minutes). */
+  lookaheadAt?: string;
   /** Next US-Eastern date (YYYYMMDD) to check. Every holder game before it has been counted. */
   cursor: string;
   /** When this record was last refreshed from ESPN. */
