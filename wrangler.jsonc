@@ -14,11 +14,14 @@
   // Only /nba-belt runs on this Worker; the rest of the domain stays on Cloudflare Pages.
   // Use this single pattern (it matches /nba-belt and /nba-belt/...); don't add "/nba-belt/*" too.
   "routes": [{ "pattern": "electricrelaxation.com/nba-belt*", "zone_name": "electricrelaxation.com" }],
+  // Served only at the route above, not on a *.workers.dev address.
+  "workers_dev": false,
+  "preview_urls": false,
 
   // Refresh the current season every 2 minutes: ~720 KV writes a day (the free limit is 1,000).
   "triggers": { "crons": ["*/2 * * * *"] },
 
-  "kv_namespaces": [{ "binding": "BELT" }],
+  "kv_namespaces": [{ "binding": "BELT", "id": "4c942585ddda4ad8b9399c86a4782ac2" }],
 
   "observability": { "enabled": true }
 }

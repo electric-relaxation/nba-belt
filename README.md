@@ -71,15 +71,10 @@ Other commands:
 
 ## Deploying
 
-First time only, sign in to Cloudflare and create the storage, then put the ID it prints into the `kv_namespaces`
-entry in `wrangler.jsonc`:
+The storage already exists (its ID is in `wrangler.jsonc`). On a new computer, sign in to Cloudflare once:
 
 ```bash
 npx wrangler login
-```
-
-```bash
-npx wrangler kv namespace create BELT
 ```
 
 After that, every deploy is one command:
