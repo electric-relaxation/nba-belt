@@ -1,0 +1,332 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401705091",
+      "date": "2025-01-11T00:00Z",
+      "shortName": "GS @ IND",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "108",
+              "team": {
+                "id": "11",
+                "abbreviation": "IND"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "96",
+              "team": {
+                "id": "9",
+                "abbreviation": "GS"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705092",
+      "date": "2025-01-11T00:00Z",
+      "shortName": "MIL @ ORL",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "106",
+              "team": {
+                "id": "19",
+                "abbreviation": "ORL"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "109",
+              "team": {
+                "id": "15",
+                "abbreviation": "MIL"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705093",
+      "date": "2025-01-11T00:00Z",
+      "shortName": "NO @ PHI",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "115",
+              "team": {
+                "id": "20",
+                "abbreviation": "PHI"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "123",
+              "team": {
+                "id": "3",
+                "abbreviation": "NO"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705094",
+      "date": "2025-01-11T00:30Z",
+      "shortName": "SAC @ BOS",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "97",
+              "team": {
+                "id": "2",
+                "abbreviation": "BOS"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "114",
+              "team": {
+                "id": "23",
+                "abbreviation": "SAC"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705095",
+      "date": "2025-01-11T00:30Z",
+      "shortName": "OKC @ NY",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "101",
+              "team": {
+                "id": "18",
+                "abbreviation": "NY"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "126",
+              "team": {
+                "id": "25",
+                "abbreviation": "OKC"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705096",
+      "date": "2025-01-11T01:00Z",
+      "shortName": "WSH @ CHI",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "138",
+              "team": {
+                "id": "4",
+                "abbreviation": "CHI"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "105",
+              "team": {
+                "id": "27",
+                "abbreviation": "WSH"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401705097",
+      "date": "2025-01-11T02:00Z",
+      "shortName": "BKN @ DEN",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "STD"
+          },
+          "notes": [],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "124",
+              "team": {
+                "id": "7",
+                "abbreviation": "DEN"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "105",
+              "team": {
+                "id": "17",
+                "abbreviation": "BKN"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

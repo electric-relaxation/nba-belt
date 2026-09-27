@@ -1,0 +1,4 @@
+# Response headers for static files (Cloudflare reads this file; it isn't served).
+# Logos never change, so browsers can keep them for a week.
+/nba-belt/logos/*
+  Cache-Control: public, max-age=604800

@@ -1,0 +1,321 @@
+{
+  "season": 2015,
+  "status": "final",
+  "startingHolder": "GSW",
+  "holder": "GSW",
+  "defenses": 3,
+  "transfers": [
+    {
+      "gameId": "400828238",
+      "date": "2015-12-13T01:30:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 108
+      },
+      "away": {
+        "team": "GSW",
+        "score": 95
+      },
+      "from": "GSW",
+      "to": "MIL"
+    },
+    {
+      "gameId": "400828257",
+      "date": "2015-12-16T03:30:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 113
+      },
+      "away": {
+        "team": "MIL",
+        "score": 95
+      },
+      "from": "MIL",
+      "to": "LAL"
+    },
+    {
+      "gameId": "400828272",
+      "date": "2015-12-18T03:30:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 87
+      },
+      "away": {
+        "team": "HOU",
+        "score": 107
+      },
+      "from": "LAL",
+      "to": "HOU"
+    },
+    {
+      "gameId": "400828313",
+      "date": "2015-12-24T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 104
+      },
+      "away": {
+        "team": "HOU",
+        "score": 101
+      },
+      "from": "HOU",
+      "to": "ORL"
+    },
+    {
+      "gameId": "400828331",
+      "date": "2015-12-27T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 101
+      },
+      "away": {
+        "team": "MIA",
+        "score": 108
+      },
+      "from": "ORL",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400828349",
+      "date": "2015-12-29T00:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 105
+      },
+      "away": {
+        "team": "BKN",
+        "score": 111
+      },
+      "from": "MIA",
+      "to": "BKN"
+    },
+    {
+      "gameId": "400828362",
+      "date": "2015-12-31T00:00:00.000Z",
+      "home": {
+        "team": "ORL",
+        "score": 100
+      },
+      "away": {
+        "team": "BKN",
+        "score": 93
+      },
+      "from": "BKN",
+      "to": "ORL"
+    },
+    {
+      "gameId": "400828377",
+      "date": "2016-01-02T00:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 103
+      },
+      "away": {
+        "team": "ORL",
+        "score": 91
+      },
+      "from": "ORL",
+      "to": "WAS"
+    },
+    {
+      "gameId": "400828395",
+      "date": "2016-01-03T23:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 75
+      },
+      "away": {
+        "team": "MIA",
+        "score": 97
+      },
+      "from": "WAS",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400828412",
+      "date": "2016-01-07T00:00:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 90
+      },
+      "away": {
+        "team": "NYK",
+        "score": 98
+      },
+      "from": "MIA",
+      "to": "NYK"
+    },
+    {
+      "gameId": "400828433",
+      "date": "2016-01-09T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 100
+      },
+      "away": {
+        "team": "NYK",
+        "score": 99
+      },
+      "from": "NYK",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400828562",
+      "date": "2016-01-26T03:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 120
+      },
+      "away": {
+        "team": "SAS",
+        "score": 90
+      },
+      "from": "SAS",
+      "to": "GSW"
+    },
+    {
+      "gameId": "400828702",
+      "date": "2016-02-20T03:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 137
+      },
+      "away": {
+        "team": "GSW",
+        "score": 105
+      },
+      "from": "GSW",
+      "to": "POR"
+    },
+    {
+      "gameId": "400828746",
+      "date": "2016-02-26T03:30:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 105
+      },
+      "away": {
+        "team": "HOU",
+        "score": 119
+      },
+      "from": "POR",
+      "to": "HOU"
+    },
+    {
+      "gameId": "400828759",
+      "date": "2016-02-28T01:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 94
+      },
+      "away": {
+        "team": "SAS",
+        "score": 104
+      },
+      "from": "HOU",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400828826",
+      "date": "2016-03-08T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 99
+      },
+      "away": {
+        "team": "SAS",
+        "score": 91
+      },
+      "from": "SAS",
+      "to": "IND"
+    },
+    {
+      "gameId": "400828871",
+      "date": "2016-03-13T22:00:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 104
+      },
+      "away": {
+        "team": "IND",
+        "score": 75
+      },
+      "from": "IND",
+      "to": "ATL"
+    },
+    {
+      "gameId": "400828935",
+      "date": "2016-03-22T00:00:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 102
+      },
+      "away": {
+        "team": "WAS",
+        "score": 117
+      },
+      "from": "ATL",
+      "to": "WAS"
+    },
+    {
+      "gameId": "400828943",
+      "date": "2016-03-23T23:00:00.000Z",
+      "home": {
+        "team": "WAS",
+        "score": 101
+      },
+      "away": {
+        "team": "ATL",
+        "score": 122
+      },
+      "from": "WAS",
+      "to": "ATL"
+    },
+    {
+      "gameId": "400829000",
+      "date": "2016-03-30T23:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 105
+      },
+      "away": {
+        "team": "ATL",
+        "score": 97
+      },
+      "from": "ATL",
+      "to": "TOR"
+    },
+    {
+      "gameId": "400829027",
+      "date": "2016-04-03T00:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 102
+      },
+      "away": {
+        "team": "TOR",
+        "score": 95
+      },
+      "from": "TOR",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400829064",
+      "date": "2016-04-08T02:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 112
+      },
+      "away": {
+        "team": "SAS",
+        "score": 101
+      },
+      "from": "SAS",
+      "to": "GSW"
+    }
+  ],
+  "startedAt": "2015-10-28T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20160416",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

@@ -1,0 +1,419 @@
+{
+  "season": 2017,
+  "status": "final",
+  "startingHolder": "GSW",
+  "holder": "POR",
+  "defenses": 0,
+  "transfers": [
+    {
+      "gameId": "400974438",
+      "date": "2017-10-18T02:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 121
+      },
+      "away": {
+        "team": "HOU",
+        "score": 122
+      },
+      "from": "GSW",
+      "to": "HOU"
+    },
+    {
+      "gameId": "400974794",
+      "date": "2017-10-24T00:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 90
+      },
+      "away": {
+        "team": "MEM",
+        "score": 98
+      },
+      "from": "HOU",
+      "to": "MEM"
+    },
+    {
+      "gameId": "400974812",
+      "date": "2017-10-26T00:30:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 103
+      },
+      "away": {
+        "team": "MEM",
+        "score": 94
+      },
+      "from": "MEM",
+      "to": "DAL"
+    },
+    {
+      "gameId": "400974817",
+      "date": "2017-10-27T00:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 96
+      },
+      "away": {
+        "team": "DAL",
+        "score": 91
+      },
+      "from": "DAL",
+      "to": "MEM"
+    },
+    {
+      "gameId": "400974847",
+      "date": "2017-10-31T00:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 99
+      },
+      "away": {
+        "team": "CHA",
+        "score": 104
+      },
+      "from": "MEM",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400974877",
+      "date": "2017-11-04T00:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 108
+      },
+      "away": {
+        "team": "CHA",
+        "score": 101
+      },
+      "from": "CHA",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400974924",
+      "date": "2017-11-11T02:00:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 87
+      },
+      "away": {
+        "team": "MIL",
+        "score": 94
+      },
+      "from": "SAS",
+      "to": "MIL"
+    },
+    {
+      "gameId": "400974984",
+      "date": "2017-11-19T02:00:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 111
+      },
+      "away": {
+        "team": "MIL",
+        "score": 79
+      },
+      "from": "MIL",
+      "to": "DAL"
+    },
+    {
+      "gameId": "400975000",
+      "date": "2017-11-21T01:30:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 102
+      },
+      "away": {
+        "team": "BOS",
+        "score": 110
+      },
+      "from": "DAL",
+      "to": "BOS"
+    },
+    {
+      "gameId": "400975008",
+      "date": "2017-11-23T00:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 104
+      },
+      "away": {
+        "team": "BOS",
+        "score": 98
+      },
+      "from": "BOS",
+      "to": "MIA"
+    },
+    {
+      "gameId": "400975049",
+      "date": "2017-11-29T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 108
+      },
+      "away": {
+        "team": "MIA",
+        "score": 97
+      },
+      "from": "MIA",
+      "to": "CLE"
+    },
+    {
+      "gameId": "400975120",
+      "date": "2017-12-09T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 106
+      },
+      "away": {
+        "team": "CLE",
+        "score": 102
+      },
+      "from": "CLE",
+      "to": "IND"
+    },
+    {
+      "gameId": "400975155",
+      "date": "2017-12-14T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 95
+      },
+      "away": {
+        "team": "OKC",
+        "score": 100
+      },
+      "from": "IND",
+      "to": "OKC"
+    },
+    {
+      "gameId": "400975182",
+      "date": "2017-12-17T00:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 111
+      },
+      "away": {
+        "team": "OKC",
+        "score": 96
+      },
+      "from": "OKC",
+      "to": "NYK"
+    },
+    {
+      "gameId": "400975192",
+      "date": "2017-12-19T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 109
+      },
+      "away": {
+        "team": "NYK",
+        "score": 91
+      },
+      "from": "NYK",
+      "to": "CHA"
+    },
+    {
+      "gameId": "400975205",
+      "date": "2017-12-21T00:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 111
+      },
+      "away": {
+        "team": "TOR",
+        "score": 129
+      },
+      "from": "CHA",
+      "to": "TOR"
+    },
+    {
+      "gameId": "400975245",
+      "date": "2017-12-27T00:00:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 98
+      },
+      "away": {
+        "team": "TOR",
+        "score": 93
+      },
+      "from": "TOR",
+      "to": "DAL"
+    },
+    {
+      "gameId": "400975308",
+      "date": "2018-01-04T01:30:00.000Z",
+      "home": {
+        "team": "DAL",
+        "score": 122
+      },
+      "away": {
+        "team": "GSW",
+        "score": 125
+      },
+      "from": "DAL",
+      "to": "GSW"
+    },
+    {
+      "gameId": "400975359",
+      "date": "2018-01-11T03:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 106
+      },
+      "away": {
+        "team": "LAC",
+        "score": 125
+      },
+      "from": "GSW",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400975427",
+      "date": "2018-01-21T02:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 125
+      },
+      "away": {
+        "team": "LAC",
+        "score": 113
+      },
+      "from": "LAC",
+      "to": "UTA"
+    },
+    {
+      "gameId": "400975434",
+      "date": "2018-01-23T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 104
+      },
+      "away": {
+        "team": "UTA",
+        "score": 90
+      },
+      "from": "UTA",
+      "to": "ATL"
+    },
+    {
+      "gameId": "400975451",
+      "date": "2018-01-25T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 93
+      },
+      "away": {
+        "team": "TOR",
+        "score": 108
+      },
+      "from": "ATL",
+      "to": "TOR"
+    },
+    {
+      "gameId": "400975462",
+      "date": "2018-01-27T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 93
+      },
+      "away": {
+        "team": "UTA",
+        "score": 97
+      },
+      "from": "TOR",
+      "to": "UTA"
+    },
+    {
+      "gameId": "400975628",
+      "date": "2018-02-24T02:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 81
+      },
+      "away": {
+        "team": "POR",
+        "score": 100
+      },
+      "from": "UTA",
+      "to": "POR"
+    },
+    {
+      "gameId": "400975810",
+      "date": "2018-03-21T02:30:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 111
+      },
+      "away": {
+        "team": "HOU",
+        "score": 115
+      },
+      "from": "POR",
+      "to": "HOU"
+    },
+    {
+      "gameId": "400975891",
+      "date": "2018-04-01T19:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 100
+      },
+      "away": {
+        "team": "HOU",
+        "score": 83
+      },
+      "from": "HOU",
+      "to": "SAS"
+    },
+    {
+      "gameId": "400975914",
+      "date": "2018-04-04T02:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 113
+      },
+      "away": {
+        "team": "SAS",
+        "score": 110
+      },
+      "from": "SAS",
+      "to": "LAC"
+    },
+    {
+      "gameId": "400975925",
+      "date": "2018-04-06T01:00:00.000Z",
+      "home": {
+        "team": "UTA",
+        "score": 117
+      },
+      "away": {
+        "team": "LAC",
+        "score": 95
+      },
+      "from": "LAC",
+      "to": "UTA"
+    },
+    {
+      "gameId": "400975975",
+      "date": "2018-04-12T02:30:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 102
+      },
+      "away": {
+        "team": "UTA",
+        "score": 93
+      },
+      "from": "UTA",
+      "to": "POR"
+    }
+  ],
+  "startedAt": "2017-10-18T00:00:00.000Z",
+  "nextGame": null,
+  "cursor": "20180414",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

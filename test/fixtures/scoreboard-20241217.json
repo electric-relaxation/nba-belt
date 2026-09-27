@@ -1,0 +1,66 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401734908",
+      "date": "2024-12-18T01:30Z",
+      "shortName": "MIL VS OKC",
+      "season": {
+        "year": 2025,
+        "type": 2
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "CC"
+          },
+          "notes": [
+            {
+              "headline": "NBA Cup Championship"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": false,
+              "score": "81",
+              "team": {
+                "id": "25",
+                "abbreviation": "OKC"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": true,
+              "score": "97",
+              "team": {
+                "id": "15",
+                "abbreviation": "MIL"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

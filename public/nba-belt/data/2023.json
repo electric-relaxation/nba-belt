@@ -1,0 +1,447 @@
+{
+  "season": 2023,
+  "status": "final",
+  "startingHolder": "DEN",
+  "holder": "PHI",
+  "defenses": 6,
+  "transfers": [
+    {
+      "gameId": "401584751",
+      "date": "2023-11-02T00:00:00.000Z",
+      "home": {
+        "team": "MIN",
+        "score": 110
+      },
+      "away": {
+        "team": "DEN",
+        "score": 89
+      },
+      "from": "DEN",
+      "to": "MIN"
+    },
+    {
+      "gameId": "401584825",
+      "date": "2023-11-16T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 133
+      },
+      "away": {
+        "team": "MIN",
+        "score": 115
+      },
+      "from": "MIN",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401584888",
+      "date": "2023-11-30T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 112
+      },
+      "away": {
+        "team": "PHX",
+        "score": 105
+      },
+      "from": "PHX",
+      "to": "TOR"
+    },
+    {
+      "gameId": "401584904",
+      "date": "2023-12-02T00:30:00.000Z",
+      "home": {
+        "team": "TOR",
+        "score": 106
+      },
+      "away": {
+        "team": "NYK",
+        "score": 119
+      },
+      "from": "TOR",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401607489",
+      "date": "2023-12-06T00:30:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 146
+      },
+      "away": {
+        "team": "NYK",
+        "score": 122
+      },
+      "from": "NYK",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401607494",
+      "date": "2023-12-07T22:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 119
+      },
+      "away": {
+        "team": "IND",
+        "score": 128
+      },
+      "from": "MIL",
+      "to": "IND"
+    },
+    {
+      "gameId": "401584943",
+      "date": "2023-12-14T01:00:00.000Z",
+      "home": {
+        "team": "MIL",
+        "score": 140
+      },
+      "away": {
+        "team": "IND",
+        "score": 126
+      },
+      "from": "IND",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401585029",
+      "date": "2023-12-25T17:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 129
+      },
+      "away": {
+        "team": "MIL",
+        "score": 122
+      },
+      "from": "MIL",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401585047",
+      "date": "2023-12-28T01:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 129
+      },
+      "away": {
+        "team": "NYK",
+        "score": 120
+      },
+      "from": "NYK",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401585095",
+      "date": "2024-01-04T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 141
+      },
+      "away": {
+        "team": "OKC",
+        "score": 138
+      },
+      "from": "OKC",
+      "to": "ATL"
+    },
+    {
+      "gameId": "401585108",
+      "date": "2024-01-06T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 150
+      },
+      "away": {
+        "team": "ATL",
+        "score": 116
+      },
+      "from": "ATL",
+      "to": "IND"
+    },
+    {
+      "gameId": "401585121",
+      "date": "2024-01-07T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 101
+      },
+      "away": {
+        "team": "BOS",
+        "score": 118
+      },
+      "from": "IND",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401585135",
+      "date": "2024-01-09T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 133
+      },
+      "away": {
+        "team": "BOS",
+        "score": 131
+      },
+      "from": "BOS",
+      "to": "IND"
+    },
+    {
+      "gameId": "401585178",
+      "date": "2024-01-14T20:30:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 117
+      },
+      "away": {
+        "team": "IND",
+        "score": 109
+      },
+      "from": "IND",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401585194",
+      "date": "2024-01-17T00:30:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 126
+      },
+      "away": {
+        "team": "DEN",
+        "score": 121
+      },
+      "from": "DEN",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401585255",
+      "date": "2024-01-26T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 134
+      },
+      "away": {
+        "team": "PHI",
+        "score": 122
+      },
+      "from": "PHI",
+      "to": "IND"
+    },
+    {
+      "gameId": "401585298",
+      "date": "2024-01-31T00:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 129
+      },
+      "away": {
+        "team": "IND",
+        "score": 124
+      },
+      "from": "IND",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401585312",
+      "date": "2024-02-02T00:30:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 105
+      },
+      "away": {
+        "team": "LAL",
+        "score": 114
+      },
+      "from": "BOS",
+      "to": "LAL"
+    },
+    {
+      "gameId": "401585368",
+      "date": "2024-02-09T03:00:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 106
+      },
+      "away": {
+        "team": "DEN",
+        "score": 114
+      },
+      "from": "LAL",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401585374",
+      "date": "2024-02-10T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 135
+      },
+      "away": {
+        "team": "DEN",
+        "score": 106
+      },
+      "from": "DEN",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401585388",
+      "date": "2024-02-11T20:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 127
+      },
+      "away": {
+        "team": "SAC",
+        "score": 113
+      },
+      "from": "SAC",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401585481",
+      "date": "2024-03-01T01:30:00.000Z",
+      "home": {
+        "team": "SAS",
+        "score": 132
+      },
+      "away": {
+        "team": "OKC",
+        "score": 118
+      },
+      "from": "OKC",
+      "to": "SAS"
+    },
+    {
+      "gameId": "401585519",
+      "date": "2024-03-06T01:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 114
+      },
+      "away": {
+        "team": "SAS",
+        "score": 101
+      },
+      "from": "SAS",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401585525",
+      "date": "2024-03-07T00:30:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 116
+      },
+      "away": {
+        "team": "LAC",
+        "score": 122
+      },
+      "from": "HOU",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401585552",
+      "date": "2024-03-10T19:00:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 117
+      },
+      "away": {
+        "team": "MIL",
+        "score": 124
+      },
+      "from": "LAC",
+      "to": "MIL"
+    },
+    {
+      "gameId": "401585573",
+      "date": "2024-03-13T02:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 129
+      },
+      "away": {
+        "team": "MIL",
+        "score": 94
+      },
+      "from": "MIL",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401585603",
+      "date": "2024-03-17T02:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 91
+      },
+      "away": {
+        "team": "NYK",
+        "score": 98
+      },
+      "from": "SAC",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401585637",
+      "date": "2024-03-22T01:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 113
+      },
+      "away": {
+        "team": "NYK",
+        "score": 100
+      },
+      "from": "NYK",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401585687",
+      "date": "2024-03-28T02:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 97
+      },
+      "away": {
+        "team": "PHX",
+        "score": 104
+      },
+      "from": "DEN",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401585697",
+      "date": "2024-03-30T00:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 128
+      },
+      "away": {
+        "team": "PHX",
+        "score": 103
+      },
+      "from": "PHX",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401585721",
+      "date": "2024-04-02T23:30:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 109
+      },
+      "away": {
+        "team": "OKC",
+        "score": 105
+      },
+      "from": "OKC",
+      "to": "PHI"
+    }
+  ],
+  "startedAt": "2023-10-24T23:30:00.000Z",
+  "nextGame": null,
+  "cursor": "20240416",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}

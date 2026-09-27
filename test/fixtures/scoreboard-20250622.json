@@ -1,0 +1,66 @@
+{
+  "leagues": [
+    {
+      "season": {
+        "year": 2025
+      },
+      "calendar": [
+        "2024-10-04T07:00Z",
+        "2024-10-05T07:00Z",
+        "2025-06-19T07:00Z",
+        "2025-06-22T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401766128",
+      "date": "2025-06-23T00:00Z",
+      "shortName": "IND @ OKC",
+      "season": {
+        "year": 2025,
+        "type": 3
+      },
+      "competitions": [
+        {
+          "type": {
+            "abbreviation": "FINAL"
+          },
+          "notes": [
+            {
+              "headline": "NBA Finals - Game 7"
+            }
+          ],
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "winner": true,
+              "score": "103",
+              "team": {
+                "id": "25",
+                "abbreviation": "OKC"
+              }
+            },
+            {
+              "homeAway": "away",
+              "winner": false,
+              "score": "91",
+              "team": {
+                "id": "11",
+                "abbreviation": "IND"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

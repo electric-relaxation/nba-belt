@@ -1,0 +1,559 @@
+{
+  "season": 2022,
+  "status": "final",
+  "startingHolder": "GSW",
+  "holder": "LAL",
+  "defenses": 1,
+  "transfers": [
+    {
+      "gameId": "401468181",
+      "date": "2022-10-22T02:00:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 123
+      },
+      "away": {
+        "team": "DEN",
+        "score": 128
+      },
+      "from": "GSW",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401468206",
+      "date": "2022-10-25T02:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 135
+      },
+      "away": {
+        "team": "DEN",
+        "score": 110
+      },
+      "from": "DEN",
+      "to": "POR"
+    },
+    {
+      "gameId": "401468220",
+      "date": "2022-10-27T02:00:00.000Z",
+      "home": {
+        "team": "POR",
+        "score": 98
+      },
+      "away": {
+        "team": "MIA",
+        "score": 119
+      },
+      "from": "POR",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401468223",
+      "date": "2022-10-28T02:00:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 123
+      },
+      "away": {
+        "team": "MIA",
+        "score": 110
+      },
+      "from": "MIA",
+      "to": "GSW"
+    },
+    {
+      "gameId": "401468237",
+      "date": "2022-10-29T23:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 120
+      },
+      "away": {
+        "team": "GSW",
+        "score": 113
+      },
+      "from": "GSW",
+      "to": "CHA"
+    },
+    {
+      "gameId": "401468251",
+      "date": "2022-10-31T23:00:00.000Z",
+      "home": {
+        "team": "CHA",
+        "score": 108
+      },
+      "away": {
+        "team": "SAC",
+        "score": 115
+      },
+      "from": "CHA",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401468264",
+      "date": "2022-11-02T23:30:00.000Z",
+      "home": {
+        "team": "MIA",
+        "score": 110
+      },
+      "away": {
+        "team": "SAC",
+        "score": 107
+      },
+      "from": "SAC",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401468276",
+      "date": "2022-11-04T23:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 101
+      },
+      "away": {
+        "team": "MIA",
+        "score": 99
+      },
+      "from": "MIA",
+      "to": "IND"
+    },
+    {
+      "gameId": "401468315",
+      "date": "2022-11-10T00:00:00.000Z",
+      "home": {
+        "team": "IND",
+        "score": 119
+      },
+      "away": {
+        "team": "DEN",
+        "score": 122
+      },
+      "from": "IND",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401468331",
+      "date": "2022-11-12T00:00:00.000Z",
+      "home": {
+        "team": "BOS",
+        "score": 131
+      },
+      "away": {
+        "team": "DEN",
+        "score": 112
+      },
+      "from": "DEN",
+      "to": "BOS"
+    },
+    {
+      "gameId": "401468405",
+      "date": "2022-11-22T01:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 121
+      },
+      "away": {
+        "team": "BOS",
+        "score": 107
+      },
+      "from": "BOS",
+      "to": "CHI"
+    },
+    {
+      "gameId": "401468436",
+      "date": "2022-11-26T01:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 123
+      },
+      "away": {
+        "team": "CHI",
+        "score": 119
+      },
+      "from": "CHI",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401468442",
+      "date": "2022-11-27T01:00:00.000Z",
+      "home": {
+        "team": "HOU",
+        "score": 118
+      },
+      "away": {
+        "team": "OKC",
+        "score": 105
+      },
+      "from": "OKC",
+      "to": "HOU"
+    },
+    {
+      "gameId": "401468460",
+      "date": "2022-11-29T02:00:00.000Z",
+      "home": {
+        "team": "DEN",
+        "score": 129
+      },
+      "away": {
+        "team": "HOU",
+        "score": 113
+      },
+      "from": "HOU",
+      "to": "DEN"
+    },
+    {
+      "gameId": "401468482",
+      "date": "2022-12-03T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 117
+      },
+      "away": {
+        "team": "DEN",
+        "score": 109
+      },
+      "from": "DEN",
+      "to": "ATL"
+    },
+    {
+      "gameId": "401468509",
+      "date": "2022-12-06T00:30:00.000Z",
+      "home": {
+        "team": "ATL",
+        "score": 114
+      },
+      "away": {
+        "team": "OKC",
+        "score": 121
+      },
+      "from": "ATL",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401468523",
+      "date": "2022-12-08T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 123
+      },
+      "away": {
+        "team": "OKC",
+        "score": 102
+      },
+      "from": "OKC",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401468598",
+      "date": "2022-12-18T01:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 115
+      },
+      "away": {
+        "team": "MEM",
+        "score": 109
+      },
+      "from": "MEM",
+      "to": "OKC"
+    },
+    {
+      "gameId": "401468643",
+      "date": "2022-12-24T01:00:00.000Z",
+      "home": {
+        "team": "OKC",
+        "score": 125
+      },
+      "away": {
+        "team": "NOP",
+        "score": 128
+      },
+      "from": "OKC",
+      "to": "NOP"
+    },
+    {
+      "gameId": "401468698",
+      "date": "2023-01-01T01:00:00.000Z",
+      "home": {
+        "team": "MEM",
+        "score": 116
+      },
+      "away": {
+        "team": "NOP",
+        "score": 101
+      },
+      "from": "NOP",
+      "to": "MEM"
+    },
+    {
+      "gameId": "401468845",
+      "date": "2023-01-21T03:00:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 122
+      },
+      "away": {
+        "team": "MEM",
+        "score": 121
+      },
+      "from": "MEM",
+      "to": "LAL"
+    },
+    {
+      "gameId": "401468874",
+      "date": "2023-01-25T03:00:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 115
+      },
+      "away": {
+        "team": "LAC",
+        "score": 133
+      },
+      "from": "LAL",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401468909",
+      "date": "2023-01-30T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 122
+      },
+      "away": {
+        "team": "LAC",
+        "score": 99
+      },
+      "from": "LAC",
+      "to": "CLE"
+    },
+    {
+      "gameId": "401468919",
+      "date": "2023-02-01T00:00:00.000Z",
+      "home": {
+        "team": "CLE",
+        "score": 97
+      },
+      "away": {
+        "team": "MIA",
+        "score": 100
+      },
+      "from": "CLE",
+      "to": "MIA"
+    },
+    {
+      "gameId": "401468935",
+      "date": "2023-02-03T00:30:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 106
+      },
+      "away": {
+        "team": "MIA",
+        "score": 104
+      },
+      "from": "MIA",
+      "to": "NYK"
+    },
+    {
+      "gameId": "401468950",
+      "date": "2023-02-05T00:00:00.000Z",
+      "home": {
+        "team": "NYK",
+        "score": 128
+      },
+      "away": {
+        "team": "LAC",
+        "score": 134
+      },
+      "from": "NYK",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401468984",
+      "date": "2023-02-09T03:00:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 104
+      },
+      "away": {
+        "team": "DAL",
+        "score": 110
+      },
+      "from": "LAC",
+      "to": "DAL"
+    },
+    {
+      "gameId": "401469009",
+      "date": "2023-02-12T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 133
+      },
+      "away": {
+        "team": "DAL",
+        "score": 128
+      },
+      "from": "DAL",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401469025",
+      "date": "2023-02-15T02:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 120
+      },
+      "away": {
+        "team": "SAC",
+        "score": 109
+      },
+      "from": "SAC",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401469040",
+      "date": "2023-02-17T03:00:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 107
+      },
+      "away": {
+        "team": "LAC",
+        "score": 116
+      },
+      "from": "PHX",
+      "to": "LAC"
+    },
+    {
+      "gameId": "401469057",
+      "date": "2023-02-25T03:30:00.000Z",
+      "home": {
+        "team": "LAC",
+        "score": 175
+      },
+      "away": {
+        "team": "SAC",
+        "score": 176
+      },
+      "from": "LAC",
+      "to": "SAC"
+    },
+    {
+      "gameId": "401469116",
+      "date": "2023-03-05T03:00:00.000Z",
+      "home": {
+        "team": "SAC",
+        "score": 134
+      },
+      "away": {
+        "team": "MIN",
+        "score": 138
+      },
+      "from": "SAC",
+      "to": "MIN"
+    },
+    {
+      "gameId": "401469135",
+      "date": "2023-03-08T00:30:00.000Z",
+      "home": {
+        "team": "MIN",
+        "score": 94
+      },
+      "away": {
+        "team": "PHI",
+        "score": 117
+      },
+      "from": "MIN",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401469227",
+      "date": "2023-03-20T23:00:00.000Z",
+      "home": {
+        "team": "PHI",
+        "score": 105
+      },
+      "away": {
+        "team": "CHI",
+        "score": 109
+      },
+      "from": "PHI",
+      "to": "CHI"
+    },
+    {
+      "gameId": "401469242",
+      "date": "2023-03-23T00:00:00.000Z",
+      "home": {
+        "team": "CHI",
+        "score": 91
+      },
+      "away": {
+        "team": "PHI",
+        "score": 116
+      },
+      "from": "CHI",
+      "to": "PHI"
+    },
+    {
+      "gameId": "401469258",
+      "date": "2023-03-25T02:00:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 120
+      },
+      "away": {
+        "team": "PHI",
+        "score": 112
+      },
+      "from": "PHI",
+      "to": "GSW"
+    },
+    {
+      "gameId": "401469276",
+      "date": "2023-03-27T00:30:00.000Z",
+      "home": {
+        "team": "GSW",
+        "score": 96
+      },
+      "away": {
+        "team": "MIN",
+        "score": 99
+      },
+      "from": "GSW",
+      "to": "MIN"
+    },
+    {
+      "gameId": "401469299",
+      "date": "2023-03-30T02:15:00.000Z",
+      "home": {
+        "team": "PHX",
+        "score": 107
+      },
+      "away": {
+        "team": "MIN",
+        "score": 100
+      },
+      "from": "MIN",
+      "to": "PHX"
+    },
+    {
+      "gameId": "401469367",
+      "date": "2023-04-08T02:30:00.000Z",
+      "home": {
+        "team": "LAL",
+        "score": 121
+      },
+      "away": {
+        "team": "PHX",
+        "score": 107
+      },
+      "from": "PHX",
+      "to": "LAL"
+    }
+  ],
+  "startedAt": "2022-10-18T23:30:00.000Z",
+  "nextGame": null,
+  "cursor": "20230411",
+  "updatedAt": "2026-09-26T22:46:07.425Z"
+}
