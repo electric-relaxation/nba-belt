@@ -100,5 +100,3 @@ command `npx wrangler deploy`.
 
 - Team logos come from ESPN's image CDN and are trademarks of their teams. This is a personal, non-commercial
   project, not affiliated with the NBA.
-- This folder is in iCloud Drive, so iCloud also syncs `node_modules/`. If that gets slow, move the project out of
-  iCloud Drive.
